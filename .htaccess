@@ -1,4 +1,4 @@
-	
+Options -Indexes	
 DirectoryIndex index.html index.cgi index.php .ht
 <Files ~ "\.(htaccess|htpasswd)$">
 
