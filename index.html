@@ -6,16 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>まちゃラテのなんちゃら</title>
     <!-- BootstrapのCSS読み込み -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://matyalatte.github.io/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+          body{ 
+              padding-top: 56px; 
+          }
+    </style>
+
     <!-- jQuery読み込み -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- BootstrapのJS読み込み -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="https://matyalatte.github.io/js/bootstrap.min.js"></script>
+
   </head>
   <body>
+    <div class='fixed-top'>
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-    <a href="./" class="navbar-brand">
-      <img src="./images/icon.png" width="30" height="30" alt="">
+    <a href="https://matyalatte.github.io/" class="navbar-brand">
+      <img src="https://matyalatte.github.io/images/icon.png" width="30" height="30" alt="">
       まちゃラテのなんちゃら
     </a>
     <button class="navbar-toggler" type="button"
@@ -26,25 +34,28 @@
     aria-label="Toggle navigation">
   <span class="navbar-toggler-icon"></span>
 </button>
-<div class="collapse navbar-collapse" id="navmenu1">
+<div class="collapse navbar-collapse justify-content-end" id="navmenu1">
+
   <div class="navbar-nav">
-    <a class="nav-item nav-link" href="./memo/">勉強メモ</a>
-    <a class="nav-item nav-link" href="./petitcom/">プチコン</a>
-    <a class="nav-item nav-link" href="./qrcoder/">QR CODER</a>
+    <a class="nav-item nav-link" href="https://matyalatte.github.io/memo/">勉強メモ</a>
+    <a class="nav-item nav-link" href="https://matyalatte.github.io/petitcom/">プチコン</a>
+    <a class="nav-item nav-link" href="https://matyalatte.github.io/qrcoder/">QR CODER</a>
   </div>
-  <a href="https://twitter.com/matyalatte_?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false"></a>
-  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  <a href="https://twitter.com/matyalatte_" target="_blank"><img src="https://matyalatte.github.io/images/twitter.png" witdh="24" height="24" alt=""></a>
+  &nbsp;
+  <a href="https://github.com/matyalatte" target="_blank"><img src="https://matyalatte.github.io/images/git.png" witdh="24" height="24" alt=""></a>
 </div>
 </nav>
+</div>
 
     <div class="jumbotron jumbotron-fluid p-3 p-md-1 text-white bg-dark">
       <div class="container">
       <div class="col-md-11 px-0">
-        <h2>工事中</h2>
+        <h2>現在工事中</h2>
         <p class="lead my-3">ここはまちゃラテのホームページです。
-          web系の知識はほとんどないけど、bootstrapならできそうだと思ったので作ってみた。</br>
+          web系の知識はほとんどないけど、Bootstrapならできそうだと思ったので作ってみた。</br>
     プチコンの作品紹介とか、勉強のメモとか置く予定。</br>
-    ソースは<a href="https://github.com/matyalatte/matyalatte.github.io">こちら</a>。改変・再配布・プルリク等自由です。
+    ソースは<a href="https://github.com/matyalatte/matyalatte.github.io" target="_blank" class="text-white font-weight-bold">こちら</a>。改変・再配布・プルリク等自由です。
   
         </p>
       </div>
@@ -55,15 +66,34 @@
   <main role="main" class="container">
     <div class="row">
       <div class="col-md-8 blog-main">
-        <h3 class="pb-3 mb-4 border-bottom">
-          メインだよ
-        </h3>
-  
-        <div class="blog-post">
-          <h2 class="blog-post-title">タイトル</h2>
-          <p class="blog-post-meta">2020/08/07 by <a href="#">名前</a></p>
-          文章をここに書く
-        </div><!-- /.blog-post -->
+        <h1>トピック</h1>
+        <div class="media position-relative">
+          <img src="./images/study.png" class="mr-3" alt="...">
+          <div class="media-body">
+            <h5 class="mt-0">勉強メモ</h5>
+            <h2>準備中。</h2>
+            <p>勉強したことをいろいろ書いていきます。情報系、数学系の話が多め。
+            <a href="./memo" class="stretched-link"></a></p>
+          </div>
+        </div>
+        <div class="media position-relative">
+          <img src="./images/pc.png" class="mr-3" alt="...">
+          <div class="media-body">
+            <h5 class="mt-0">プチコン</h5>
+            <h2>準備中。</h2>
+            <p>自分が作ったプチコンの作品を紹介します。</p>
+            <a href="./petitcom" class="stretched-link"></a>
+          </div>
+        </div>
+        <div class="media position-relative">
+          <img src="./images/qr.png" class="mr-3" alt="...">
+          <div class="media-body">
+            <h5 class="mt-0">QR CODER</h5>
+            <h2>準備中。</h2>
+            <p>プチコン4でQRコードを作成するためのライブラリ「QR CODER」のリファレンスです。</p>
+            <a href="./qrcoder" class="stretched-link"></a>
+          </div>
+        </div>
     <!--
         <nav class="blog-pagination">
           <a class="btn btn-outline-primary" href="#">Older</a>
@@ -74,44 +104,28 @@
   
       <aside class="col-md-4 blog-sidebar">
         <div class="p-3 mb-3 bg-light rounded">
-          <h4 ><img src="./images/icon.png" width="100" height="100" alt="">プロフィール</h4>
+          <h4 ><img src="https://matyalatte.github.io/images/icon.png" width="100" height="100" alt="">プロフィール</h4>
           <p class="mb-0">主にプチコン界隈で活動してる。プチコン以外だとpythonでpytorch, kerasあたりをよくいじってる。太鼓の達人が好き(ハウス9段)。</p>
         </div>
 
-        <div class="p-3">
+        <div class="p-3 border rounded">
           <a class="twitter-timeline" data-height="400" href="https://twitter.com/matyalatte_?ref_src=twsrc%5Etfw">Tweets by matyalatte_</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>    </div>
         </div>
-
-
   
-        <div class="p-3">
-          <h4 class="font-italic">Archives</h4>
-          <ol class="list-unstyled mb-0">
-            <li><a href="#">アーカイブはまだないよ</a></li>
-          </ol>
-        </div>
-  
-        <div class="p-3">
-          <h4 class="font-italic">contact</h4>
-          <ol class="list-unstyled">
-            <li><a href="https://github.com/matyalatte">GitHub</a></li>
-            <li><a href="https://twitter.com/matyalatte_">Twitter</a></li>
-          </ol>
-        </div>
+
       </aside><!-- /.blog-sidebar -->
   
     </div><!-- /.row -->
   
   </main><!-- /.container -->
 
-  <footer class="blog-footer text-center" blue-grey lighten-5>
-    <div class="container">
-        <a href="./">一番上にもどる</a>
+  <footer class="page-footer bg-light border">        
+    <div class="footer-copyright text-center py-3">
+      <a href="./">一番上にもどる</a>
+      <p>© 2020 まちゃラテ  
       </p>
-
-    <div class="footer-copyright text-center py-3">© 2020 まちゃラテ 
+      
     </div>
-  </div>
   </footer>
 
 
