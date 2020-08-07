@@ -11,11 +11,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>まちゃラテのなんちゃら</title>
     <!-- BootstrapのCSS読み込み -->
-    <link href="https://matyalatte.github.io/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
     <style>
           body{ 
               padding-top: 56px; 
           }
+          .media:hover {
+              opacity: 0.5;
+              width: 100%;
+              height: auto;
+              transition: .2s ease;
+              backface-visibility: hidden;
+              background-color: white;
+          } 
     </style>
 
     <!-- jQuery読み込み -->
@@ -60,7 +68,7 @@
         <p class="lead my-3">ここはまちゃラテのホームページです。
           web系の知識はほとんどないけど、Bootstrapならできそうだと思ったので作ってみた。</br>
     プチコンの作品紹介とか、勉強のメモとか置く予定。</br>
-    ソースは<a href="https://github.com/matyalatte/matyalatte.github.io" target="_blank" class="text-white font-weight-bold">こちら</a>。改変・再配布・プルリク等自由です。
+    ソースは<a href="https://github.com/matyalatte/matyalatte.github.io" target="_blank" class="text-white font-weight-bold media-hover">こちら</a>。改変・再配布・プルリク等自由です。
   
         </p>
       </div>
@@ -72,8 +80,8 @@
     <div class="row">
       <div class="col-md-8 blog-main">
         <h1>トピック</h1>
-        <div class="media position-relative">
-          <img src="./images/study.png" class="mr-3" alt="...">
+        <div class="media position-relative">      
+          <img src="./images/study.png" class="mr-3 img-fluid" alt="...">
           <div class="media-body">
             <h5 class="mt-0">勉強メモ</h5>
             <h2>準備中。</h2>
