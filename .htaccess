@@ -1,0 +1,15 @@
+	
+DirectoryIndex index.html index.cgi index.php .ht
+<Files ~ "\.(htaccess|htpasswd)$">
+
+deny from all
+
+</Files>
+
+ 
+
+RewriteEngine on
+
+RewriteCond %{THE_REQUEST} ^.*/index.html
+
+RewriteRule ^(.*)index.html$ https://matyalatte.github.io/$1 [R=301,L]
