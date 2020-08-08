@@ -10,6 +10,40 @@ def include(lines,i,file):
     lines[i:i+1]=get_lines(file)
     return lines
 
+dir_=[".","qrcoder","memo","petitcom","qr_make",
+      "qr_make_array","qr_cal_size","qr_make_from_slot",
+      "qr_extract_txt","qr_set_color","qr_get_color",
+      "qr_set_show_info","qr_get_show_info","reference","sample"]
+dir_n=["トップ","QR CODER","勉強メモ","プチコン","QR_MAKE",
+       "QR_MAKE_ARRAY","QR_CAL_SIZE","QR_MAKE_FROM_SLOT",
+       "QR_EXTRACT_TXT","QR_SET_COLOR","QR_GET_COLOR",
+       "QR_SET_SHOW_INFO","QR_GET_SHOW_INFO","リファレンス","サンプル"]
+def get_ref(dir):
+    global dir_,dir_n
+    for j in range(len(dir_)):
+        if dir==dir_[j]:
+            return dir_n[j]
+    return "***"
+
+def include_tree(lines,i,file):
+    f=file.split("/")
+    line=""
+    ur="<a href=\"https://matyalatte.github.io/"
+    l="\">"
+    max_i=len(f)-2
+    for j in range(max_i+1):
+        if j==0:
+            path=ur+l
+        elif j==max_i:
+            path="&gt"
+        else:
+            path="&gt"+ur+"/".join(f[1:j+1])+l
+        line=line+path+get_ref(f[j])
+        if j!=max_i:
+            line=line+"</a>"
+    lines[i:i+1]=line
+    return lines
+
 def check_include(file,outputs):
     print("check"+file)
     f=open(file,encoding="utf-8")
@@ -21,7 +55,12 @@ def check_include(file,outputs):
         inc=re.match("<include .*>",lines[i])
         if inc is not None:
             i_file=inc.group()[9:-1]
-            include(lines,i,i_file)
+            lines=include(lines,i,i_file)
+            included=True
+            continue
+        tree=re.match("<tree here>",lines[i])
+        if tree is not None:
+            lines=include_tree(lines,i,file)
             included=True
         i+=1
     if included==True:

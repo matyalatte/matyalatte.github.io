@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+<include ./include/head_qr.html>
+  <body>
+<include ./include/top.html>
+
+  <main role="main" class="container">
+    <div class="row">
+      <div class="col-md-8 blog-main">
+<include ./include/qr_ref_top.html>
+
+        <div class="blog-post">
+
+          <h3>QR_SET_SHOW_INFO SHOW_INFO </h3>
+            QR_MAKE等、QR生成命令を実行したときに、情報をスクリーンに出力するかどうかを設定する。<br>
+            <br>
+            <table class="table table-bordered">
+              <thead class="thead-light">
+                <tr><th>引数</th><th>詳細</th></tr>
+              </thead>
+              <tbody>
+                <tr><th>SHOW_INFO</th><th>0:何も出力しない。1:情報を出力する。初期値は0</th></tr>
+              </tbody>
+            </table>
+            <br>
+            SHOW_INFO=1でQR生成命令を実行すると、以下の情報がスクリーンに出力される。<br>
+            <table class="table table-bordered">
+              <thead class="thead-light">
+                <tr><th>出力される情報</th><th>詳細</th></tr>
+              </thead>
+              <tbody>
+                <tr><th>STR</th><th>QRに変換された文字列。</th></tr>
+                <tr><th>X</th><th>グラフィック画面上のX座標。(X,Y)を起点にQRコードが描画されている。</th></tr>
+                <tr><th>Y</th><th>グラフィック画面上のY座標。(X,Y)を起点にQRコードが描画されている。</th></tr>
+                <tr><th>LV</th><th>QRコードの誤り訂正レベル。1がL、0がM、3がQ、2がHを表す。</th></tr>
+                <tr><th>MASK</th><th>QRコードのマスクの番号。0~7。実行時に-1を指定している場合はマスクをこの数値に設定するとよい。</th></tr>
+                <tr><th>VER</th><th>QRコードのバージョン。1~40。</th></tr>
+                <tr><th>MODE</th><th>QRコードのモード。1が英数字モード、2がASCII(バイト)モードである。</th></tr>
+              </tbody>
+            </table>
+        </div><!-- /.blog-post -->
+
+      </div><!-- /.blog-main -->
+  
+<include ./include/aside.html>
+  
+    </div><!-- /.row -->
+  
+  </main><!-- /.container -->
+
+<include ./include/footer.html>
+
+  </body>
+</html>

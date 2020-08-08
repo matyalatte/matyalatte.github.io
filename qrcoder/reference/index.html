@@ -3,9 +3,9 @@
 <head>
     <meta name="twitter:card" content="summary">
     <meta name="Twitter:site" content="@matyalatte_">
-    <meta name="twitter:title" content="まちゃラテの勉強メモ">
-    <meta name="twitter:description" content="勉強したことをいろいろ書いていきます。情報系、数学系の話が多め。">
-    <meta name="twitter:image" content="https://matyalatte.github.io/images/study.png">
+    <meta name="twitter:title" content="QR CODER">
+    <meta name="twitter:description" content="プチコン4でQRコードを作成するためのライブラリ「QR CODER」のリファレンスです。">
+    <meta name="twitter:image" content="https://matyalatte.github.io/images/qr.png">
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -54,24 +54,37 @@
   <main role="main" class="container">
     <div class="row">
       <div class="col-md-8 blog-main">
-<a href="https://matyalatte.github.io/">トップ</a>&gt勉強メモ        <h3 class="pb-3 mb-4 border-bottom">
-          勉強メモ
+<a href="https://matyalatte.github.io/">トップ</a>&gt<a href="https://matyalatte.github.io/qrcoder">QR CODER</a>&gtリファレンス        <h3 class="pb-3 mb-4 border-bottom">
+          QR CODER ver0.5 リファレンス
         </h3>
   
         <div class="blog-post">
-          <h2 class="blog-post-title">勉強メモを置く予定です。</h2>
-          <p class="blog-post-meta">2020/08/07 </p>
-   　　　　なんか書く
-
+          <h2 class="blog-post-title">リファレンス</h2>
+          <p class="blog-post-meta">最終更新日 2020/08/09</p>
+          プチコン4でQRコードを作成するためのライブラリ「QR CODER」のリファレンスです。<br>
+          各命令をクリックすると命令の詳細ページに飛びます。<br>
+          ※ 命令等の仕様は予告なく変更になる可能性があります。<br>
+          ※「プチコン」は株式会社スマイルブームの登録商標です。<br>
+          <br>
+          <table class="table table-bordered">
+            <thead class="thead-light">
+              <tr><th>命令</th><th>概要</th></tr>
+            </thead>
+            <tbody>
+              <tr><th><a href="./qr_make">QR_MAKE</a></th><th>文字列からQRコードを生成し、グラフィック画面に描画する。</th></tr>
+              <tr><th><a href="./qr_make_array">QR_MAKE_ARRAY()</a></th><th>文字列からQRコードを生成し、QRコードを2次配列として取得する</th></tr>
+              <tr><th><a href="./qr_cal_size">QR_CAL_SIZE()</a></th><th>文字列をQRコードに変換した際のQRコードのサイズを取得する。</th></tr>
+              <tr><th><a href="./qr_make_from_slot">QR_MAKE_FROM_SLOT</a></th><th>指定したスロットからQRコードを生成し、グラフィック画面に描画する。</th></tr>
+              <tr><th><a href="./qr_extract_txt">QR_EXTRACT_TXT</a></th><th>スロットの中身を文字列として取得する。</th></tr>
+              <tr><th><a href="./qr_set_color">QR_SET_COLOR</a></th><th>QRコードの色を指定する。</th></tr>
+              <tr><th><a href="./qr_get_color">QR_GET_COLOR()</a></th><th>QRコードの色を取得する。</th></tr>
+              <tr><th><a href="./qr_set_show_info">QR_SET_SHOW_INFO</a></th><th>QRコード生成時の情報を出力するかどうか設定する。</th></tr>
+              <tr><th><a href="./qr_get_show_info">QR_GET_SHOW_INFO()</a></th><th>QR_SET_INFOの設定状態を取得する。</th></tr>
+            </tbody>
+          </table>
         </div><!-- /.blog-post -->
-    <!--
-        <nav class="blog-pagination">
-          <a class="btn btn-outline-primary" href="#">Older</a>
-          <a class="btn btn-outline-secondary disabled" href="#">Newer</a>
-        </nav>
-      -->
+
       </div><!-- /.blog-main -->
-  
 <aside class="col-md-4 blog-sidebar">
     <div class="p-3 mb-3 bg-light rounded">
       <div style="text-align:center;">
@@ -90,7 +103,6 @@
     </div><!-- /.row -->
   
   </main><!-- /.container -->
-
 <footer class="page-footer bg-light border">        
     <div class="footer-copyright text-center py-3">
       <a href="#top">一番上にもどる</a>
@@ -101,7 +113,5 @@
       </a>
     </div>
   </footer>
-
-
   </body>
 </html>

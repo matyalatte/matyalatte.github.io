@@ -54,39 +54,21 @@
   <main role="main" class="container">
     <div class="row">
       <div class="col-md-8 blog-main">
-        <a href="https://matyalatte.github.io/">トップ</a>&gt
-        <a href="https://matyalatte.github.io/qrcoder">QR CODER</a>&gt
-        QR_MAKE
-        <h3 class="pb-3 mb-4 border-bottom">
-          QR_CODER リファレンス
-        </h3>
-  
+<a href="https://matyalatte.github.io/">トップ</a>&gt<a href="https://matyalatte.github.io/qrcoder">QR CODER</a>&gt<a href="https://matyalatte.github.io/qrcoder/reference">リファレンス</a>&gtQR_SET_COLOR<h3 class="pb-3 mb-4 border-bottom">
+  QR_CODER リファレンス
+</h3>
         <div class="blog-post">
 
-          <h3>QR_MAKE STR,X,Y[,LV[,MASK[,VER[,MODE]]]] [OUT SIZE]</h3>
-            文字列からQRコードを生成し、グラフィック画面に描画する。
-            ASCII(バイト)モード、英数字モードに対応。<br>
+          <h3>QR_SET_COLOR ZERO,ONE </h3>
+            QR_MAKE等、描画命令を実行したときのQRコードの色を設定する。<br>
             <br>
             <table class="table table-bordered">
-              <thead class="thead-lignt">
+              <thead class="thead-light">
                 <tr><th>引数</th><th>詳細</th></tr>
               </thead>
               <tbody>
-                <tr><th>STR</th><th>QRに変換する文字列。</th></tr>
-                <tr><th>X</th><th>グラフィック画面上のX座標。(X,Y)を起点にQRコードを描画する。</th></tr>
-                <tr><th>Y</th><th>グラフィック画面上のY座標。(X,Y)を起点にQRコードを描画する。</th></tr>
-                <tr><th>LV</th><th>QRコードの誤り訂正レベル。1がL、0がM、3がQ、2がHを表す。省略可。初期値は0</th></tr>
-                <tr><th>MASK</th><th>QRコードのマスクの番号。0~7あるいは-1を指定する。-1を指定した場合は自動で適切なマスクが選択されるが、その分、生成に時間がかかる。省略可。初期値は-1。</th></tr>
-                <tr><th>VER</th><th>QRコードのバージョン。1~40あるいは-1を指定する。-1を指定した場合は自動で適切なバージョンが選択される。省略可。初期値は-1。</th></tr>
-                <tr><th>MODE</th><th>QRコードのモードを選択する。1が英数字モード、2がASCII(バイト)モードである。</th></tr>
-              </tbody>
-            </table>
-            <table class="table table-bordered">
-              <thead class="thead-lignt">
-                <tr><th>出力</th><th>詳細</th></tr>
-              </thead>
-              <tbody>
-                <tr><th>SIZE</th><th>生成したQRコードの大きさ。SIZE×SIZEの大きさの領域にQRコードが描画されている。</th></tr>
+                <tr><th>ZERO</th><th>QR配列の要素が0であるセルの色。初期値は#C_WHITE</th></tr>
+                <tr><th>ONE</th><th>QR配列の要素が1であるセルの色。初期値は#C_BLACK</th></tr>
               </tbody>
             </table>
 

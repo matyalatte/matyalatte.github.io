@@ -1,28 +1,39 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
+  <head>
     <meta name="twitter:card" content="summary">
     <meta name="Twitter:site" content="@matyalatte_">
     <meta name="twitter:title" content="QR CODER">
     <meta name="twitter:description" content="プチコン4でQRコードを作成するためのライブラリ「QR CODER」のリファレンスです。">
     <meta name="twitter:image" content="https://matyalatte.github.io/images/qr.png">
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>まちゃラテのなんちゃら</title>
-<!-- BootstrapのCSS読み込み -->
-<link href="https://matyalatte.github.io/css/bootstrap.min.css" rel="stylesheet">
-<style>
-      body{ 
-          padding-top: 70px; 
-      }
-</style>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>まちゃラテのなんちゃら</title>
+    <!-- BootstrapのCSS読み込み -->
+    <link href="https://matyalatte.github.io/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+          body{ 
+              padding-top: 70px; 
+          }
+          .media:hover {
+              opacity: 0.5;
+              width: 100%;
+              height: auto;
+              transition: .2s ease;
+              backface-visibility: hidden;
+              background-color: white;
+          } 
+              
+    </style>
 
-<!-- jQuery読み込み -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<!-- BootstrapのJS読み込み -->
-<script src="https://matyalatte.github.io/js/bootstrap.min.js"></script>
-  </head>  <body>
+    <!-- jQuery読み込み -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- BootstrapのJS読み込み -->
+    <script src="https://matyalatte.github.io/js/bootstrap.min.js"></script>
+
+  </head>
+  <body>
 <div class='fixed-top'>
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
     <a href="https://matyalatte.github.io/" class="navbar-brand">
@@ -51,38 +62,50 @@
 </nav>
 </div>
 <a name="top"></a>
+
   <main role="main" class="container">
     <div class="row">
       <div class="col-md-8 blog-main">
-        <a href="https://matyalatte.github.io/">トップ</a>&gt
-        QR CODER
-        <h3 class="pb-3 mb-4 border-bottom">
-          QR CODER リファレンス
-        </h3>
-  
-        <div class="blog-post">
-          <h2 class="blog-post-title">リファレンス</h2>
-          <p class="blog-post-meta">最終更新日 2020/08/07</p>
-          プチコン4でQRコードを作成するためのライブラリ「QR CODER」のリファレンスです。<br>
-          各命令をクリックすると命令の詳細ページに飛びます(リファレンスが未完のため、詳細ページがない命令もあります)。<br>
-          ※ 命令等の仕様は予告なく変更になる可能性があります。<br>
-          ※「プチコン」「SmileBASIC」は株式会社スマイルブームの登録商標です。
-          <table class="table table-bordered">
-            <thead class="thead-lignt">
-              <tr><th>命令</th><th>概要</th></tr>
-            </thead>
-            <tbody>
-              <tr><th><a href="https://matyalatte.github.io/qrcoder/qr_make">QR_MAKE</a></th><th>文字列からQRコードを生成し、グラフィック画面に描画する。</th></tr>
-              <tr><th>QR_MAKE_ARRAY()</th><th>文字列からQRコードを生成し、QRコードを2次配列として取得する</th></tr>
-              <tr><th>QR_CAL_SIZE()</th><th>文字列をQRコードに変換した際のQRコードのサイズを取得する。</th></tr>
-              <tr><th>QR_SET_COLOR</th><th>QRコードの色を指定する。</th></tr>
-              <tr><th>QR_GET_COLOR()</th><th>QRコードの色を取得する。</th></tr>
-              <tr><th>QR_SET_INFO</th><th>QRコード生成時の情報を出力するかどうか設定する。</th></tr>
-              <tr><th>QR_GET_INFO()</th><th>QR_SET_INFOの設定状態を取得する。</th></tr>
-            </tbody>
-          </table>
-        </div><!-- /.blog-post -->
-
+<a href="https://matyalatte.github.io/">トップ</a>&gtQR CODER  <h1>QR CODER</h1>
+  <h4>公開キー:4Q4E323S3</h4>
+  QR CODERはプチコン4でQRコードを生成するためのライブラリです。<br>
+  QRでURLを貼り、自分のSNSアカウントやブログを宣伝しましょう！<br>
+  QRを使ったゲームも作れそう、、、？<br>
+  <h3>使い方</h3>
+    <h4>STEP1:プチコン4でQR CODERをダウンロード！</h4>
+    画像いれる
+     <br>
+     <h4>STEP2:QR CODERのプロジェクトから"QR.LIB"をコピー！</h4>
+    画像いれっる
+     <br>
+     <h4>STEP3:EXECで"QR.LIB"を読み込み！</h4>
+    画像いっれっる
+     <br>
+     <h4>STEP4:QR_MAKE "文字列",X,Yで描画！</h4>
+    画像っいっれっる
+     <br>
+     <br>
+     各命令の詳しい仕様はリファレンスを確認してください。<br>
+     「使い方がわからない」「機能を追加してほしい」等、質問・要望があれば<a href="https://twitter.com/matyalatte_" target="_blank">twitter</a>まで。<br>
+   <br>
+        <div class="media position-relative">      
+          <img src="https://matyalatte.github.io/images/ref.png" class="mr-3 img-fluid" alt="...">
+          <div class="media-body">
+            <h3 class="mt-0">リファレンス</h3>
+            <p>QR CODERのリファレンスです。
+            <a href="./reference" class="stretched-link"></a></p>
+          </div>
+        </div>
+        <div class="media position-relative">
+          <img src="https://matyalatte.github.io/images/how_to.png" class="mr-3" alt="...">
+          <div class="media-body">
+            <h5 class="mt-0">サンプル</h5>
+            <h2>準備中。</h2>
+            <p>QR CODERの使い方を紹介します。</p>
+            <a href="./sample" class="stretched-link"></a>
+          </div>
+        </div>
+         ※「プチコン」は株式会社スマイルブームの登録商標です。
       </div><!-- /.blog-main -->
   
 <aside class="col-md-4 blog-sidebar">
@@ -100,10 +123,10 @@
 
 
   </aside><!-- /.blog-sidebar -->  
-    </div><!-- /.row -->
+      </div><!-- /.row -->
+    
+    </main><!-- /.container -->
   
-  </main><!-- /.container -->
-
 <footer class="page-footer bg-light border">        
     <div class="footer-copyright text-center py-3">
       <a href="#top">一番上にもどる</a>
@@ -113,6 +136,6 @@
         <img src="https://ga-beacon.appspot.com/UA-174921482-1/matyalatte.github.io/?pixel" />
       </a>
     </div>
-  </footer>
-  </body>
-</html>
+  </footer>  
+    </body>
+  </html>

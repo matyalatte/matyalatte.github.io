@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<include ./include/head_qr.html>
+  <body>
+<include ./include/top.html>
+
+  <main role="main" class="container">
+    <div class="row">
+      <div class="col-md-8 blog-main">
+<include ./include/qr_ref_top.html>
+
+        <div class="blog-post">
+
+          <h3>QR_EXTRACT_TXT(SLOT[,FIRST[,LAST]])</h3>
+            指定したSLOTの内容を文字列として取得する。行指定をした場合は、指定した２つの行番号の間のみを取得する。<br>
+            ※QRコードに格納可能な文字数の最大が2953字であるため、格納可能な行数は100行程度だと思われます。サンプルプログラム等、小規模なプログラムの転送に適しています。<br>
+            <br>
+            <table class="table table-bordered">
+              <thead class="thead-light">
+                <tr><th>引数</th><th>詳細</th></tr>
+              </thead>
+              <tbody>
+                <tr><th>SLOT</th><th>文字列を取得するSLOTの番号。起動中のプログラムと同じスロットは指定できない。</th></tr>
+                <tr><th>FIRST</th><th>読み込みを開始する行の行番号。省略可能。初期値は1</th></tr>
+                <tr><th>LAST</th><th>読み込みを終える行の行番号。-1を指定すると、SLOT内の最後の行まで読み込む。省略可能。初期値は-1</th></tr>
+              </tbody>
+            </table>
+            <table class="table table-bordered">
+              <thead class="thead-light">
+                <tr><th>返値</th><th>詳細</th></tr>
+              </thead>
+              <tbody>
+                <tr><th>string</th><th>スロットから抽出した文字列。</th></tr>
+              </tbody>
+            </table>
+
+        </div><!-- /.blog-post -->
+
+      </div><!-- /.blog-main -->
+  
+<include ./include/aside.html>
+  
+    </div><!-- /.row -->
+  
+  </main><!-- /.container -->
+
+<include ./include/footer.html>
+
+  </body>
+</html>

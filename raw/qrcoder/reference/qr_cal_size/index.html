@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+<include ./include/head_qr.html>
+  <body>
+<include ./include/top.html>
+
+  <main role="main" class="container">
+    <div class="row">
+      <div class="col-md-8 blog-main">
+<include ./include/qr_ref_top.html>
+  
+        <div class="blog-post">
+
+          <h3>QR_CAL_SIZE(STR[,LV[,VER[,MODE]]]])</h3>
+            生成されるQRコードの大きさを調べる。<br>
+            ASCII(バイト)モード、英数字モードに対応。<br>
+            <br>
+            <table class="table table-bordered">
+              <thead class="thead-light">
+                <tr><th>引数</th><th>詳細</th></tr>
+              </thead>
+              <tbody>
+                <tr><th>STR</th><th>QRに変換する文字列。</th></tr>
+                <tr><th>LV</th><th>QRコードの誤り訂正レベル。1がL、0がM、3がQ、2がHを表す。省略可。初期値は0</th></tr>
+                <tr><th>VER</th><th>QRコードのバージョン。1~40あるいは-1を指定する。-1を指定した場合は自動で適切なバージョンが選択される。省略可。初期値は-1。</th></tr>
+                <tr><th>MODE</th><th>QRコードのモードを選択する。1が英数字モード、2がASCII(バイト)モードである。</th></tr>
+              </tbody>
+            </table>
+            <table class="table table-bordered">
+              <thead class="thead-light">
+                <tr><th>返値</th><th>詳細</th></tr>
+              </thead>
+              <tbody>
+                <tr><th>SIZE</th><th>生成されるQRコードの大きさ。SIZE×SIZEの大きさのQRコードが生成される。</th></tr>
+              </tbody>
+            </table>
+
+        </div><!-- /.blog-post -->
+
+      </div><!-- /.blog-main -->
+  
+<include ./include/aside.html>
+  
+    </div><!-- /.row -->
+  
+  </main><!-- /.container -->
+
+<include ./include/footer.html>
+
+  </body>
+</html>

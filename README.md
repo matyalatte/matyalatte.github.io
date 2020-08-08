@@ -10,7 +10,9 @@ https://matyalatte.github.io/<br>
 
 ### ライセンス等
 twitter, githubのロゴは公式で配布されているものを使用しています。<br>
+<br>
 その他の画像はいらすとやの画像です。<br>
+https://www.irasutoya.com/<br>
 <br>
 css,jsはBootstrapを利用しています。<br>
 ↓からダウンロードしました。<br>
