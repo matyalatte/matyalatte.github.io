@@ -44,7 +44,22 @@
                 <tr><th>SIZE</th><th>生成したQRコードの大きさ。SIZE×SIZEの大きさの領域にQRコードが描画されている。</th></tr>
               </tbody>
             </table>
-
+            <h5>使用例</h5>
+            <pre style="font-size: 18px">
+EXEC "QR.LIB",1
+GCLS #C_WHITE
+QR_MAKE "ABCDEFG",0,0
+            </pre>
+            <h5>使用例2(QRをスプライトで表示する)</h5>
+            <pre style="font-size: 18px">
+EXEC "QR.LIB",1
+GCLS #C_WHITE
+QR_MAKE "ABCDEFG",0,0 OUT SIZE
+SPDEF 0,0,0,SIZE,SIZE
+SPSET 0,0
+SPOFS 0,160,80
+SPSCALE 0,4,4
+            </pre>
         </div><!-- /.blog-post -->
 
       </div><!-- /.blog-main -->

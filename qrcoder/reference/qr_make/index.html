@@ -92,7 +92,22 @@
                 <tr><th>SIZE</th><th>生成したQRコードの大きさ。SIZE×SIZEの大きさの領域にQRコードが描画されている。</th></tr>
               </tbody>
             </table>
-
+            <h5>使用例</h5>
+            <pre style="font-size: 18px">
+EXEC "QR.LIB",1
+GCLS #C_WHITE
+QR_MAKE "ABCDEFG",0,0
+            </pre>
+            <h5>使用例2(QRをスプライトで表示する)</h5>
+            <pre style="font-size: 18px">
+EXEC "QR.LIB",1
+GCLS #C_WHITE
+QR_MAKE "ABCDEFG",0,0 OUT SIZE
+SPDEF 0,0,0,SIZE,SIZE
+SPSET 0,0
+SPOFS 0,160,80
+SPSCALE 0,4,4
+            </pre>
         </div><!-- /.blog-post -->
 
       </div><!-- /.blog-main -->
@@ -109,7 +124,11 @@
     <div class="p-3 border rounded">
       <a class="twitter-timeline" data-height="400" href="https://twitter.com/matyalatte_?ref_src=twsrc%5Etfw">Tweets by matyalatte_</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>    </div>
     </div>
-
+    <div class="p-3">
+      <div style="text-align:center;">
+      <a href="https://www.petc4.smilebasic.com/" target="_blank"><img src="https://matyalatte.github.io/images/petc4-logo-middle.webp" width="100" height="auto"></a>
+    </div>
+    </div>
 
   </aside><!-- /.blog-sidebar -->  
     </div><!-- /.row -->
