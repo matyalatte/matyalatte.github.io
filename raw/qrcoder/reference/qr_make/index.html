@@ -11,7 +11,7 @@
 
         <div class="blog-post">
 
-          <h3>QR_MAKE STR,X,Y[,LV[,MASK[,VER[,MODE]]]] [OUT SIZE]</h3>
+          <h3>QR_MAKE</h3>
             文字列からQRコードを生成し、グラフィック画面に描画する。<br>
             ASCII(バイト)モード、英数字モードに対応。<br>
             ASCIIコードに変換できない文字はアスタリスク(*)に変換されます。<br>
@@ -19,6 +19,9 @@
             ※バージョンが大きくなるとスマホで読み取りづらくなります。自分のスマホだと、バージョン27はなんとか読めましたが、それ以降のバージョンは読み取れませんでした。おそらく、カメラの解像度の問題だと思っていますが、もしかしたらバグかもしれません。情報求む。<br>
             ※マスクの自動選択処理が結構重いです。マスクを指定するとQR生成が速くなります。<br>
             <br>
+            <table class="table table-bordered">
+                <tr><th>書式</th><th>QR_MAKE STR,X,Y[,LV[,MASK[,VER[,MODE]]]] [OUT SIZE]</th></tr>
+            </table>
             <table class="table table-bordered">
               <thead class="thead-light">
                 <tr><th>引数</th><th>詳細</th></tr>

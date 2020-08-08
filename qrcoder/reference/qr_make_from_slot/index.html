@@ -59,12 +59,15 @@
 </h3>
         <div class="blog-post">
 
-          <h3>QR_MAKE_FROM_SLOT SLOT,X,Y[,FIRST,LAST]</h3>
+          <h3>QR_MAKE_FROM_SLOT</h3>
             指定したSLOTの内容をQRコードに変換し、グラフィック画面に描画する。行番号を指定した場合は、指定した２つの行番号の間のみをQRコードに変換する。<br>
             ASCIIコードに含まれない文字はアスタリスク(*)に変換される。<br>
             ※マスク等の条件を指定したい場合はQR_EXTRACT_TXTとQR_MAKEを利用してください。<br>
             ※QRコードに格納可能な文字数の最大が2953字であるため、格納可能な行数は100行程度だと思われます。サンプルプログラム等、小規模なプログラムの転送に適しています。<br>
             <br>
+            <table class="table table-bordered">
+              <tr><th>書式</th><th>QR_MAKE_FROM_SLOT SLOT,X,Y[,FIRST,LAST]</th></tr>
+          </table>
             <table class="table table-bordered">
               <thead class="thead-light">
                 <tr><th>引数</th><th>詳細</th></tr>
