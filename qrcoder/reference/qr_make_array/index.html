@@ -5,7 +5,7 @@
     <meta name="Twitter:site" content="@matyalatte_">
     <meta name="twitter:title" content="QR CODER">
     <meta name="twitter:description" content="プチコン4でQRコードを作成するためのライブラリ「QR CODER」のリファレンスです。">
-    <meta name="twitter:image" content="https://matyalatte.github.io/images/qr.png">
+    <meta name="twitter:image" content="https://matyalatte.github.io/images/qr.jpg">
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -26,7 +26,7 @@
 <div class='fixed-top'>
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
     <a href="https://matyalatte.github.io/" class="navbar-brand">
-      <img src="https://matyalatte.github.io/images/icon.png" width="30" height="30" alt="">
+      <img src="https://matyalatte.github.io/images/icon_s.png" width="30" height="30" alt="">
       まちゃラテのなんちゃら
     </a>
     <button class="navbar-toggler" type="button"
@@ -72,7 +72,7 @@
                 <tr><th>LV</th><th>QRコードの誤り訂正レベル。1がL、0がM、3がQ、2がHを表す。省略可。初期値は0</th></tr>
                 <tr><th>MASK</th><th>QRコードのマスクの番号。0~7あるいは-1を指定する。-1を指定した場合は自動で適切なマスクが選択されるが、その分、生成に時間がかかる。省略可。初期値は-1。</th></tr>
                 <tr><th>VER</th><th>QRコードのバージョン。1~40あるいは-1を指定する。-1を指定した場合は自動で適切なバージョンが選択される。省略可。初期値は-1。</th></tr>
-                <tr><th>MODE</th><th>QRコードのモードを選択する。1が英数字モード、2がASCII(バイト)モードである。</th></tr>
+                <tr><th>MODE</th><th>QRコードのモードを選択。1が英数字モード、2がASCII(バイト)モード。</th></tr>
               </tbody>
             </table>
             <table class="table table-bordered">
@@ -80,7 +80,7 @@
                 <tr><th>返値</th><th>詳細</th></tr>
               </thead>
               <tbody>
-                <tr><th>2d array</th><th>生成したQRコードを表す2次配列。一般的なQRコードの色で言うと、0が白、1が黒を表す。</th></tr>
+                <tr><th>2次配列</th><th>生成したQRコードを表す2次配列。一般的なQRコードの色で言うと、0が白、1が黒を表す。</th></tr>
               </tbody>
             </table>
 
