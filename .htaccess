@@ -1,9 +1,7 @@
 Options -Indexes	
 DirectoryIndex index.html index.cgi index.php .ht
 <Files ~ "\.(htaccess|htpasswd)$">
-
 deny from all
-
 </Files>
 
 RewriteEngine on 
