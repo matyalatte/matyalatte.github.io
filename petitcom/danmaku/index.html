@@ -19,22 +19,46 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>弾幕ボスバトル プチコン4｜まちゃラテのなんちゃら</title>
+    <!-- BootstrapのCSS読み込み -->
+    <link href="https://matyalatte.github.io/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+          body{ 
+              padding-top: 70px; 
+          }
+          .media:hover {
+              opacity: 0.5;
+              width: 100%;
+              height: auto;
+              transition: .2s ease;
+              backface-visibility: hidden;
+              background-color: white;
+          } 
+          .carousel-item .img-fluid {
+  width:100%;
+  height:auto;
+}
 
+.carousel-item{
+  height: auto;
+}
 
-<!-- BootstrapのCSS読み込み -->
-<link href="https://matyalatte.github.io/css/bootstrap.min.css" rel="stylesheet">
-<style>
-      body{ 
-          padding-top: 70px; 
-      }
-</style>
+.carousel-item a {
+  display: block;
+  width:100%;
+}
 
-<!-- jQuery読み込み -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<!-- BootstrapのJS読み込み -->
-<script src="https://matyalatte.github.io/js/bootstrap.min.js"></script>
-</head>
-  <body>
+.carousel-item .show-image {
+  display: block;
+  width:100%;
+}
+    </style>
+
+    <!-- jQuery読み込み -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- BootstrapのJS読み込み -->
+    <script src="https://matyalatte.github.io/js/bootstrap.min.js"></script>
+
+  </head>  <body>
 <div class='fixed-top'>
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
     <a href="https://matyalatte.github.io/" class="navbar-brand">
@@ -99,6 +123,7 @@
       <span class="sr-only">Next</span>
     </a>
   </div>
+  <h4>概要</h4>
   1vs1の弾幕シューティングゲームです。<br>
   ステージは全部で６つ。<br>
   ステージの番号と難易度に相関はありません。<br>
