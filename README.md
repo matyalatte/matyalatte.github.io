@@ -16,7 +16,7 @@ https://github.com/logos<br>
 ./images/irasutoya以下の画像はいらすとやの画像です。<br>
 https://www.irasutoya.com/<br>
 <br>
-その他の画像は僕が作成した画像、またはプチコンのスクショです。フリー素材ではありません。
+その他の画像は僕が作成した画像、またはプチコンのスクショです。フリー素材ではありません。<br>
 <br>
 css,jsはBootstrapを利用しています。<br>
 ↓からダウンロードしました。<br>
