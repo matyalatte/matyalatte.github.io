@@ -22,7 +22,7 @@ css,jsはBootstrapを利用しています。<br>
 ↓からダウンロードしました。<br>
 https://getbootstrap.com/docs/4.5/getting-started/download/<br>
 <br>
-このレポジトリとBootstrapはMITライセンスに準拠しています。<br>
+このレポジトリのコンテンツ(動画像以外)とBootstrapはMITライセンスに準拠しています。<br>
 https://ja.osdn.net/projects/opensource/wiki/licenses%2FMIT_license
 
 ### rawフォルダについて
