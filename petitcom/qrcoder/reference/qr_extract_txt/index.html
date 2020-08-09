@@ -19,7 +19,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>QR_GET_SHOE_INFO|まちゃラテのなんちゃら</title>
+  <title>QR_EXTRACT_TXT|まちゃラテのなんちゃら</title>
 
 
 <!-- BootstrapのCSS読み込み -->
@@ -67,23 +67,33 @@
   <main role="main" class="container">
     <div class="row">
       <div class="col-md-8 blog-main">
-<a href="https://matyalatte.github.io/">トップ</a>&gt<a href="https://matyalatte.github.io/qrcoder">QR CODER</a>&gt<a href="https://matyalatte.github.io/qrcoder/reference">リファレンス</a>&gtQR_GET_SHOW_INFO<h3 class="pb-3 mb-4 border-bottom">
+<a href="https://matyalatte.github.io/">トップ</a>&gt<a href="https://matyalatte.github.io/petitcom">プチコン作品一覧</a>&gt<a href="https://matyalatte.github.io/petitcom/qrcoder">QR CODER</a>&gt<a href="https://matyalatte.github.io/petitcom/qrcoder/reference">リファレンス</a>&gtQR_EXTRACT_TXT<h3 class="pb-3 mb-4 border-bottom">
   QR_CODER ver0.6 リファレンス
 </h3>
         <div class="blog-post">
 
-          <h3>QR_GET_SHOW_INFO() </h3>
-            現在設定されているSHOW_INFOの値を取得する。<br>
+          <h3>QR_EXTRACT_TXT()</h3>
+            指定したSLOTの内容を文字列として取得する。行番号を指定した場合は、指定した２つの行番号の間のみを取得する。<br>
             <br>
             <table class="table table-bordered">
-              <tr><th>書式</th><th>QR_GET_SHOW_INFO() </th></tr>
+              <tr><th>書式</th><th>QR_EXTRACT_TXT(SLOT[,FIRST[,LAST]])</th></tr>
           </table>
+            <table class="table table-bordered">
+              <thead class="thead-light">
+                <tr><th>引数</th><th>詳細</th></tr>
+              </thead>
+              <tbody>
+                <tr><th>SLOT</th><th>文字列を取得するSLOTの番号。起動中のプログラムと同じスロットは指定できない。</th></tr>
+                <tr><th>FIRST</th><th>読み込みを開始する行の行番号。省略可能。初期値は1</th></tr>
+                <tr><th>LAST</th><th>読み込みを終える行の行番号。-1を指定すると、SLOT内の最後の行まで読み込む。省略可能。初期値は-1</th></tr>
+              </tbody>
+            </table>
             <table class="table table-bordered">
               <thead class="thead-light">
                 <tr><th>返値</th><th>詳細</th></tr>
               </thead>
               <tbody>
-                <tr><th>SHOW_INFO</th><th>0:何も出力しない。<br>1:情報を出力する。</th></tr>
+                <tr><th>文字列</th><th>スロットから抽出した文字列。</th></tr>
               </tbody>
             </table>
 

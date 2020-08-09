@@ -19,7 +19,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>QR_GET_COLOR|まちゃラテのなんちゃら</title>
+  <title>QR_CAL_SIZE|まちゃラテのなんちゃら</title>
 
 
 <!-- BootstrapのCSS読み込み -->
@@ -67,23 +67,35 @@
   <main role="main" class="container">
     <div class="row">
       <div class="col-md-8 blog-main">
-<a href="https://matyalatte.github.io/">トップ</a>&gt<a href="https://matyalatte.github.io/qrcoder">QR CODER</a>&gt<a href="https://matyalatte.github.io/qrcoder/reference">リファレンス</a>&gtQR_GET_COLOR<h3 class="pb-3 mb-4 border-bottom">
+<a href="https://matyalatte.github.io/">トップ</a>&gt<a href="https://matyalatte.github.io/petitcom">プチコン作品一覧</a>&gt<a href="https://matyalatte.github.io/petitcom/qrcoder">QR CODER</a>&gt<a href="https://matyalatte.github.io/petitcom/qrcoder/reference">リファレンス</a>&gtQR_CAL_SIZE<h3 class="pb-3 mb-4 border-bottom">
   QR_CODER ver0.6 リファレンス
-</h3>
+</h3>  
         <div class="blog-post">
 
-          <h3>QR_GET_COLOR()</h3>
-            QR_MAKE等、描画命令を実行したときのQRコードの色を長さ2の配列として取得する。<br>
+          <h3>QR_CAL_SIZE()</h3>
+            生成されるQRコードの大きさを調べる。<br>
+            ASCII(バイト)モード、英数字モードに対応。<br>
             <br>
             <table class="table table-bordered">
-              <tr><th>書式</th><th>QR_GET_COLOR()</th></tr>
+              <tr><th>書式</th><th>QR_CAL_SIZE(STR[,LV[,VER[,MODE]]]])</th></tr>
           </table>
+            <table class="table table-bordered">
+              <thead class="thead-light">
+                <tr><th>引数</th><th>詳細</th></tr>
+              </thead>
+              <tbody>
+                <tr><th>STR</th><th>QRに変換する文字列。</th></tr>
+                <tr><th>LV</th><th>QRコードの誤り訂正レベル。1がL、0がM、3がQ、2がHを表す。省略可。初期値は0</th></tr>
+                <tr><th>VER</th><th>QRコードのバージョン。1~40あるいは-1を指定する。-1を指定した場合は自動で適切なバージョンが選択される。省略可。初期値は-1。</th></tr>
+                <tr><th>MODE</th><th>QRコードのモードを選択する。1が英数字モード、2がASCII(バイト)モードである。</th></tr>
+              </tbody>
+            </table>
             <table class="table table-bordered">
               <thead class="thead-light">
                 <tr><th>返値</th><th>詳細</th></tr>
               </thead>
               <tbody>
-                <tr><th>[ZERO,ONE]</th><th>ZERO:QR配列の要素が0であるセルの色。<br>ONE:QR配列の要素が1であるセルの色。</th></tr>
+                <tr><th>SIZE</th><th>生成されるQRコードの大きさ。SIZE×SIZEの大きさのQRコードが生成される。</th></tr>
               </tbody>
             </table>
 

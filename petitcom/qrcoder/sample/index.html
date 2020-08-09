@@ -19,7 +19,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>QR_SET_SHOW_INFO|まちゃラテのなんちゃら</title>
+  <title>サンプル集｜QR CODER プチコン4でQR生成!｜まちゃラテのなんちゃら</title>
 
 
 <!-- BootstrapのCSS読み込み -->
@@ -67,41 +67,48 @@
   <main role="main" class="container">
     <div class="row">
       <div class="col-md-8 blog-main">
-<a href="https://matyalatte.github.io/">トップ</a>&gt<a href="https://matyalatte.github.io/qrcoder">QR CODER</a>&gt<a href="https://matyalatte.github.io/qrcoder/reference">リファレンス</a>&gtQR_SET_SHOW_INFO<h3 class="pb-3 mb-4 border-bottom">
-  QR_CODER ver0.6 リファレンス
-</h3>
+<a href="https://matyalatte.github.io/">トップ</a>&gt<a href="https://matyalatte.github.io/petitcom">プチコン作品一覧</a>&gt<a href="https://matyalatte.github.io/petitcom/qrcoder">QR CODER</a>&gtサンプル          <h3 class="pb-3 mb-4 border-bottom">
+            QR_CODER サンプル集
+          </h3>
         <div class="blog-post">
+          <h2>このページは未完成です。</h2>
+          <h3>Samples</h3>
+          QR CODERのサンプルプログラムの一覧です。これらのプログラムはQR CODERに同梱されています。<br>
+          <br>
+          <h5>MAIN.PRG</h5>
+          QR_MAKEでQRコードを描画し、スプライトとして拡大表示します。<br>
+          <br>
+          <h5>SAMPLE_OMIKUJI.PRG</h5>
+          ランダムでQRを切り替えて表示する、おみくじプログラムです。<br>
+          <br>
+          <h5>SAMPLE_TXT.PRG</h5>
+          QR_MAKE_TXTを使い、QRコードをスロットに書き出します。
+          <div style="text-align:center;">
+            <img src="https://matyalatte.github.io/images/qr_slot_s.png" class="img-fluid">
+            </div>
+            <br>
+          <h5>SAMPLE_ARRAY.PRG</h5>
+          QR_MAKE_ARRAYで取得したQR配列を使い、複数のspriteを整列させることでQRコードを作ります。<br>
+          各スプライトはランダムで移動しますが、ボタンを押すと整列し、QRコードが現れます。
+          <div style="text-align:center;">
+            <img src="https://matyalatte.github.io/images/deco_qr1_s.jpg" class="img-fluid">
+            </div>
+          <h5>SAMPLE_DECORATE.PRG</h5>
+          QR_SET_COLORを使ってQRの色を変えます。<br>
+          また、spriteによる飾り付けを行います。
+          <div style="text-align:center;">
+            <img src="https://matyalatte.github.io/images/deco_qr2_s.jpg" class="img-fluid">
+            </div>
+          <h5>SAMPLE_ALPHANUM.PRG</h5>
+          英数字モードのサンプルです。<br>
+          <br>
+          <h5>SAMPLE_TWEET.PRG</h5>
+          twitterの投稿を開かせるためのQRコードを作ります。<br>
+          <br>
+          <h5>SAMPLE_SLOT.PRG</h5>
+          QR_MAKE_FROM_SLOTを使い、別スロットのプログラムをQRに書き出します。<br>
+          <br>
 
-          <h3>QR_SET_SHOW_INFO</h3>
-            QR_MAKE等、QR生成命令を実行したときに、情報をスクリーンに出力するかどうかを設定する。<br>
-            <br>
-            <table class="table table-bordered">
-              <tr><th>書式</th><th>QR_SET_SHOW_INFO SHOW_INFO</th></tr>
-          </table>
-            <table class="table table-bordered">
-              <thead class="thead-light">
-                <tr><th>引数</th><th>詳細</th></tr>
-              </thead>
-              <tbody>
-                <tr><th>SHOW_INFO</th><th>0:何も出力しない。<br>1:情報を出力する。<br>初期値は0</th></tr>
-              </tbody>
-            </table>
-            <br>
-            SHOW_INFO=1でQR生成命令を実行すると、以下の情報がスクリーンに出力される。<br>
-            <table class="table table-bordered">
-              <thead class="thead-light">
-                <tr><th>出力される情報</th><th>詳細</th></tr>
-              </thead>
-              <tbody>
-                <tr><th>string</th><th>QRに変換された文字列。</th></tr>
-                <tr><th>X</th><th>グラフィック画面上のX座標。(X,Y)を起点にQRコードが描画されている。</th></tr>
-                <tr><th>Y</th><th>グラフィック画面上のY座標。(X,Y)を起点にQRコードが描画されている。</th></tr>
-                <tr><th>level</th><th>QRコードの誤り訂正レベル。1がL、0がM、3がQ、2がHを表す。</th></tr>
-                <tr><th>mask</th><th>QRコードのマスクの番号。0~7。実行時に-1を指定している場合はマスクをこの数値に設定するとよい。</th></tr>
-                <tr><th>version</th><th>QRコードのバージョン。1~40。</th></tr>
-                <tr><th>mode</th><th>QRコードのモード。1が英数字モード、2がASCII(バイト)モードである。</th></tr>
-              </tbody>
-            </table>
         </div><!-- /.blog-post -->
 
       </div><!-- /.blog-main -->

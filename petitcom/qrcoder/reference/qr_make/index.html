@@ -19,7 +19,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>QR_MAKE_FROM_SLOT|まちゃラテのなんちゃら</title>
+  <title>QR_MAKE|まちゃラテのなんちゃら</title>
 
 
 <!-- BootstrapのCSS読み込み -->
@@ -67,30 +67,34 @@
   <main role="main" class="container">
     <div class="row">
       <div class="col-md-8 blog-main">
-<a href="https://matyalatte.github.io/">トップ</a>&gt<a href="https://matyalatte.github.io/qrcoder">QR CODER</a>&gt<a href="https://matyalatte.github.io/qrcoder/reference">リファレンス</a>&gtQR_MAKE_FROM_SLOT<h3 class="pb-3 mb-4 border-bottom">
+<a href="https://matyalatte.github.io/">トップ</a>&gt<a href="https://matyalatte.github.io/petitcom">プチコン作品一覧</a>&gt<a href="https://matyalatte.github.io/petitcom/qrcoder">QR CODER</a>&gt<a href="https://matyalatte.github.io/petitcom/qrcoder/reference">リファレンス</a>&gtQR_MAKE<h3 class="pb-3 mb-4 border-bottom">
   QR_CODER ver0.6 リファレンス
 </h3>
         <div class="blog-post">
 
-          <h3>QR_MAKE_FROM_SLOT</h3>
-            指定したSLOTの内容をQRコードに変換し、グラフィック画面に描画する。行番号を指定した場合は、指定した２つの行番号の間のみをQRコードに変換する。<br>
-            ASCIIコードに含まれない文字はアスタリスク(*)に変換される。<br>
-            ※マスク等の条件を指定したい場合はQR_EXTRACT_TXTとQR_MAKEを利用してください。<br>
-            ※QRコードに格納可能な文字数の最大が2953字であるため、格納可能な行数は100行程度だと思われます。サンプルプログラム等、小規模なプログラムの転送に適しています。<br>
+          <h3>QR_MAKE</h3>
+            文字列からQRコードを生成し、グラフィック画面に描画する。<br>
+            ASCII(バイト)モード、英数字モードに対応。<br>
+            ASCIIコードに変換できない文字はアスタリスク(*)に変換されます。<br>
+            英数字モードでは、小文字の英字が大文字に変換されます。<br>
+            ※バージョンが大きくなるとスマホで読み取りづらくなります。自分のスマホだと、バージョン27はなんとか読めましたが、それ以降のバージョンは読み取れませんでした。おそらく、カメラの解像度の問題だと思っていますが、もしかしたらバグかもしれません。情報求む。<br>
+            ※マスクの自動選択処理が結構重いです。マスクを指定するとQR生成が速くなります。<br>
             <br>
             <table class="table table-bordered">
-              <tr><th>書式</th><th>QR_MAKE_FROM_SLOT SLOT,X,Y[,FIRST,LAST]</th></tr>
-          </table>
+                <tr><th>書式</th><th>QR_MAKE STR,X,Y[,LV[,MASK[,VER[,MODE]]]] [OUT SIZE]</th></tr>
+            </table>
             <table class="table table-bordered">
               <thead class="thead-light">
                 <tr><th>引数</th><th>詳細</th></tr>
               </thead>
               <tbody>
-                <tr><th>SLOT</th><th>QRに変換するSLOTの番号。起動中のプログラムと同じスロットは指定できない。</th></tr>
+                <tr><th>STR</th><th>QRに変換する文字列。</th></tr>
                 <tr><th>X</th><th>グラフィック画面上のX座標。(X,Y)を起点にQRコードを描画する。</th></tr>
                 <tr><th>Y</th><th>グラフィック画面上のY座標。(X,Y)を起点にQRコードを描画する。</th></tr>
-                <tr><th>FIRST</th><th>読み込みを開始する行の行番号。省略可能。初期値は1</th></tr>
-                <tr><th>LAST</th><th>読み込みを終える行の行番号。-1を指定すると、SLOT内の最後の行まで読み込む。省略可能。初期値は-1</th></tr>
+                <tr><th>LV</th><th>QRコードの誤り訂正レベル。1がL、0がM、3がQ、2がHを表す。省略可。初期値は0</th></tr>
+                <tr><th>MASK</th><th>QRコードのマスクの番号。0~7あるいは-1を指定する。-1を指定した場合は自動で適切なマスクが選択されるが、その分、生成に時間がかかる。省略可。初期値は-1。</th></tr>
+                <tr><th>VER</th><th>QRコードのバージョン。1~40あるいは-1を指定する。-1を指定した場合は自動で適切なバージョンが選択される。省略可。初期値は-1。</th></tr>
+                <tr><th>MODE</th><th>QRコードのモード。1が英数字モード、2がASCII(バイト)モード。</th></tr>
               </tbody>
             </table>
             <table class="table table-bordered">
@@ -101,7 +105,22 @@
                 <tr><th>SIZE</th><th>生成したQRコードの大きさ。SIZE×SIZEの大きさの領域にQRコードが描画されている。</th></tr>
               </tbody>
             </table>
-
+            <h5>使用例</h5>
+            <pre style="font-size: 18px">
+EXEC "QR.LIB",1
+GCLS #C_WHITE
+QR_MAKE "ABCDEFG",0,0
+            </pre>
+            <h5>使用例2(QRをスプライトで表示する)</h5>
+            <pre style="font-size: 18px">
+EXEC "QR.LIB",1
+GCLS #C_WHITE
+QR_MAKE "ABCDEFG",0,0 OUT SIZE
+SPDEF 0,0,0,SIZE,SIZE
+SPSET 0,0
+SPOFS 0,160,80
+SPSCALE 0,4,4
+            </pre>
         </div><!-- /.blog-post -->
 
       </div><!-- /.blog-main -->
