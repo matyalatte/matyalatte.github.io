@@ -9,7 +9,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SOFT BODY simulator プチコン4|まちゃラテのなんちゃら</title>
+    <title>BALLFALL プチコン4｜まちゃラテのなんちゃら</title>
 
 
 <!-- BootstrapのCSS読み込み -->
@@ -54,45 +54,54 @@
 </nav>
 </div>
 <a name="top"></a>
+
   <main role="main" class="container">
     <div class="row">
       <div class="col-md-8 blog-main">
-        <tree here>
-          <h3 class="pb-3 mb-4 border-bottom">
-            SOFT BODY simulator 
-          </h3>
-        <div class="blog-post">
+<a href="https://matyalatte.github.io/">トップ</a>&gt<a href="https://matyalatte.github.io/petitcom">プチコン作品一覧</a>&gtBALLFALL  <h1>BALLFALL ver1.0</h1>
+  <h4>公開キー:493Q34J</h4>
+  <div id="example-3" class="carousel slide" data-interval=3000 data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#example-3" data-slide-to="0" class="active"></li>
+      <li data-target="#example-3" data-slide-to="1"></li>
+      <li data-target="#example-3" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active" style="text-align:center;">
+        <img src="https://matyalatte.github.io/images/petitcom/ballfall/ballfall.jpg" clas="img-responsive" alt="First slide">
+      </div>
+      <div class="carousel-item" style="text-align:center;">
+        <img src="https://matyalatte.github.io/images/petitcom/ballfall/ballfall2.jpg" clas="img-responsive" alt="Second slide">
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#example-3" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#example-3" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+  ボールを穴に落とすゲームです。コントローラを傾けるとボールが転がります。プチコン3号から移植しました。
+  <br><br>
 
-          <h3>QR_MAKE_TXT</h3>
-          文字列からQRコードを生成し、指定したスロットにQRコードを書き出す。<br>            ASCII(バイト)モード、英数字モードに対応。<br>
-            <br>
-            <table class="table table-bordered">
-              <tr><th>書式</th><th>QR_MAKE_TXT SLOT,STR [OUT SIZE]</th></tr>
-          </table>
-            <table class="table table-bordered">
-              <thead class="thead-light">
-                <tr><th>引数</th><th>詳細</th></tr>
-              </thead>
-              <tbody>
-                <tr><th>SLOT</th><th>QRを書き出すSLOTの番号。起動中のプログラムと同じスロットは指定できない。</th></tr>
-                <tr><th>STR</th><th>QRに変換する文字列。</th></tr>
-              </tbody>
-            </table>
-            <table class="table table-bordered">
-              <thead class="thead-light">
-                <tr><th>返値</th><th>詳細</th></tr>
-              </thead>
-              <tbody>
-                <tr><th>SIZE</th><th>生成したQRコードの大きさ。SIZE×SIZEの大きさの領域にQRコードが描画されている。</th></tr>
-              </tbody>
-            </table>
-            <h4>生成例</h4>
-            <div style="text-align:center;">
-              <img src="https://matyalatte.github.io/images/qr_slot_s.png" class="img-fluid">
-              </div>
+    <h4>自作ステージの作り方</h4>
+    物足りない方は、自分でステージを作ってみましょう。<br>
+<br>
+    プログラム内に書かれたテンプレを参考に、<br>
+    ゲーム開始時のボールの座標と、ゴールとなる穴の座標・大きさを指定して、<br>
+    黒、水色以外の色でステージを描けばOKです。<br>
+    (ボールが黒に触れるとクリア、水色に触れるとゲームオーバー、赤に触れると止まるという仕組み)<br>
+    <br>
+    ステージを動かしたい場合はL=1にしてルーチンを作って下さい。<br>
+    <br>
+    ステージをつくったらSTGNの値を+1して下さい。<br>
+     <br>
+     「使い方がわからない」「機能を追加してほしい」等、質問・要望があれば<a href="https://twitter.com/matyalatte_" target="_blank">twitter</a>まで。<br>
+   <br>
 
-        </div><!-- /.blog-post -->
-
+         ※「プチコン」は株式会社スマイルブームの登録商標です。<br>
       </div><!-- /.blog-main -->
   
 <aside class="col-md-3 blog-sidebar">
@@ -107,10 +116,10 @@
       <a class="twitter-timeline" data-height="400" href="https://twitter.com/matyalatte_?ref_src=twsrc%5Etfw">Tweets by matyalatte_</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>    </div>
     </div>
 </aside><!-- /.blog-sidebar -->  
-    </div><!-- /.row -->
+      </div><!-- /.row -->
+    
+    </main><!-- /.container -->
   
-  </main><!-- /.container -->
-
 <footer class="page-footer bg-light border">        
     <div class="footer-copyright text-center py-3">
       <a href="#top">一番上にもどる</a>
@@ -120,6 +129,6 @@
         <img src="https://ga-beacon.appspot.com/UA-174921482-1/matyalatte.github.io/?pixel" />
       </a>
     </div>
-  </footer>
-  </body>
-</html>
+  </footer>  
+    </body>
+  </html>

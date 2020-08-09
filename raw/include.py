@@ -14,12 +14,12 @@ dir_=[".","qrcoder","memo","petitcom","qr_make",
       "qr_make_array","qr_cal_size","qr_make_from_slot",
       "qr_extract_txt","qr_set_color","qr_get_color",
       "qr_set_show_info","qr_get_show_info","reference","sample",
-      "qr_make_txt"]
-dir_n=["トップ","QR CODER","勉強メモ","プチコン","QR_MAKE",
+      "qr_make_txt","softbody","danmaku","ballfall"]
+dir_n=["トップ","QR CODER","勉強メモ","プチコン作品一覧","QR_MAKE",
        "QR_MAKE_ARRAY","QR_CAL_SIZE","QR_MAKE_FROM_SLOT",
        "QR_EXTRACT_TXT","QR_SET_COLOR","QR_GET_COLOR",
        "QR_SET_SHOW_INFO","QR_GET_SHOW_INFO","リファレンス","サンプル",
-       "QR_MAKE_TXT"]
+       "QR_MAKE_TXT","SOFTBODYsimulator","弾幕ボスバトル","BALLFALL"]
 def get_ref(dir):
     global dir_,dir_n
     for j in range(len(dir_)):
