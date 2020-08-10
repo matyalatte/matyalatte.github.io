@@ -5,8 +5,8 @@ deny from all
 </Files>
 
 RewriteEngine on 
-Redirect permanent /qrcoder/ https://matyalatte.github.io/petitcom/qrcoder/
 
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}\.html -f
+RewriteRule ^qrcoder(.*)$ /petitcom/qrcoder$1 [L,R=301]
 RewriteRule ^(.*)$ $1.html [NC,L]
