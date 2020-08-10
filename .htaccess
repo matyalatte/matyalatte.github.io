@@ -4,9 +4,9 @@ DirectoryIndex index.html index.cgi index.php .ht
 deny from all
 </Files>
 
-Redirect /qrcoder/index.html https://matyalatte.github.io/petitcom/qrcoder
-
 RewriteEngine on 
+Redirect permanent /qrcoder/ https://matyalatte.github.io/petitcom/qrcoder/
+
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}\.html -f
 RewriteRule ^(.*)$ $1.html [NC,L]
