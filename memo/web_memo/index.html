@@ -78,70 +78,69 @@
         <div class="blog-post">
           <h1 class="blog-post-title"> Webページでアクセスを増やすための備忘録</h1>
           <p class="blog-post-meta">2020/08/12 </p>
-          <p>webページを作る前は「webサイト作るのってhtmlで文章書くだけでしょ？」と思っていました。
-          たしかに、僕のようにGithub pagesとBootstrapを使えば、htmlを書くだけでwebサイトを作れます。
-          しかし、「google検索でヒットする」等、アクセスを増やすためにはいろいろやらなければならないことがあるようです。
-          今回webページを作ってみて自分が知らなかった(あるいは見落としていた)ことを備忘録として書いていきます。
+          <p>webページを作ってみて自分が知らなかった(あるいは見落としていた)ことを備忘録として書いていきます。
           webページ作成に関しては素人ですので、間違いがあれば遠慮せずに指摘していただけるとありがたいです。
           </p>
-          <h3>はじめに</h3>
-          <p>このページで紹介するtipsは主にSEO(検索で上位に表示してもらえるようにすること)に関するものです。
+          <h3 class="border-bottom">はじめに</h3>
+          <p>このページで紹介する項目は主にSEO(検索で上位に表示してもらえるようにすること)に関するものです。
           google等の検索エンジンはクローラと呼ばれるプログラムを用いて世の中のwebページを定期的に訪問し、どのページにどんなコンテンツがあるのかを調べています。
           クローラに認識してもらい、クローラからの評価を高くなるようにwebページを設計することで、自分のwebページが検索上位にヒットしやすくなります。<br>
           各tipsに関する詳しい情報に関しては外部サイトで情報を集めてください。このページでは最低限度の簡潔な説明をします。<br>
           <br>
           すでに自分のwebページを持っているという方は、各項目を自力でチェックするのは大変ですので、<br>
-          ↓こういうサイトを使って修正すべき点を教えてもらうと良いでしょう。<br>
-          https://app.neilpatel.com/ja/seo_analyzer/<br>
-          https://developers.google.com/speed/pagespeed/insights/
+          下記のようなサイトを使って修正すべき点を教えてもらうと良いでしょう。<br>
+          <a href="https://app.neilpatel.com/ja/seo_analyzer/">https://app.neilpatel.com/ja/seo_analyzer/</a><br>
+          <a href="https://developers.google.com/speed/pagespeed/insights/">https://developers.google.com/speed/pagespeed/insights/</a>"
           </p>
-          <h3>1.Googleのインデックスに登録</h3>
-          一番重要。これをしないと、いつまでたっても自分のwebページが検索でヒットしません。
-          新規ページはGoogleに認知されていない可能性が高いです。Google Search ConsoleでURLを登録し、Googleにページの存在を知らせましょう。<br>
-          https://search.google.com/search-console
-          <h3>2.サイトマップ</h3>
+          <h3 class="border-bottom">1.Googleのインデックスに登録</h3>
+          <p>一番重要。これをしないと、いつまでたっても自分のwebページが検索でヒットしません。
+          新規ページはGoogleに認知されていない可能性が高いです。
+          <a href="https://search.google.com/search-console">Google Search Console</a>でURLを登録し、Googleにページの存在を知らせましょう。<br>
+          
+          </p>
+          <h3 class="border-bottom">2.サイトマップ</h3>
           <p>重要です。クローラが訪問した際に、「サイト内の各ページがどこにあるのか」を教えるため、サイトマップを作りましょう。
           </p>
-          <h3>3.ページのtitle</h3>
+          <h3 class="border-bottom">3.ページのtitle</h3>
           <p>とても重要です。適当なページ名をつけてはいけません。
             ページ内の重要なキーワードを使ってページタイトルを書きましょう。
             「面倒だから」と複数のページで同じタイトルを使うのもよくないようです。</p>
-          <h3>4.文字数</h3>
+          <h3 class="border-bottom">4.文字数</h3>
           <p>重要です。ページ内の文字数が少ないと、クローラがページ内容を把握できません。ちなみに、僕のホームページだと、勉強メモ以外のページは「文字数足りない！」と怒られます。
           </p>
-          <h3>4.表示速度</h3>
+          <h3 class="border-bottom">4.表示速度</h3>
           <p>重要です。クローラからの評価に影響します。最低限、画像サイズの変更やフォーマットの最適化くらいはしましょう(とかいいつつ、僕はさぼったりしてますが、、、)。
-            可能であれば、cssやjsの読み込みはヘッダ以外で行いましょう。
+            可能であれば、css, jsの読み込みも最適化してみましょう。
           </p>
-          <h3>5.meta description</h3>
+          <h3 class="border-bottom">5.meta description</h3>
           <p>検索結果に小さい文字で書かれる文章。自分のwebページがどんなページなのかを説明しましょう。
              ページtitleと同様、複数のページで同じ記述をしないようにしましょう。</p>
-          <h3>6.h1タグを一つだけ使う</h3>
+          <h3 class="border-bottom">6.h1タグを一つだけ使う</h3>
           <p>クローラはhタグの階層構造を評価します。一番重要な見出しにh1タグを使いましょう。同じページでh1タグを複数回つかってはいけません。
           </p>
-          <h3>7.画像のalt属性</h3>
+          <h3 class="border-bottom">7.画像のalt属性</h3>
           <p>webページに貼られた画像が「何の画像なのか」をクローラに教えるため、画像のalt属性に説明を入れましょう。
           </p>
-          <h3>8.twitterの埋め込みは重い</h3>
+          <h3 class="border-bottom">8.twitterの埋め込みは重い</h3>
           <p>TLの埋め込みは画像読み込んだりして結構重いです。自分のwebページが重い場合は使わないようにしましょう。</p>
-          <h3>9.twitter用のmetaタグ</h3>
+          <h3 class="border-bottom">9.twitter用のmetaタグ</h3>
           <p>twitterでURLを貼った際に表示される画像と文章を設定できます。twitterで宣伝する場合は設定しましょう。</p>
-          <h3>10.favicon</h3>
+          <h3 class="border-bottom">10.favicon</h3>
           <p>タブの左側につくアイコンです。スマホではショートカットを作成した場合のアイコンにもなります。
-            SEOとは関係ないようですが、自分のサイトだと一目でわかるようにアイコンを設定してみましょう。</p>          
-            faviconの作り方に関しては、↓が凄くわかりやすいです。
-            https://keywordfinder.jp/blog/seo/favicon/#i-5
-          <h3>11.フォント</h3>
-          <p>こちらもSEOとは関係ありませんが、フォントを変えてみましょう。Google FontsのNote Sans JPを使用しています。<br>
-            https://fonts.google.com/?subset=japanese<br>
-            <br>
-            google fontsを使う場合はヘッダ以外でフォントを読み込みましょう。コンテンツの表示が速くなります。<br>
-            https://mogumogu-design.com/googlefont-yomikomi/            
+            SEOとは関係ないようですが、自分のサイトだと一目でわかるようにアイコンを設定してみましょう。
+            faviconの作り方に関しては、<a href="https://keywordfinder.jp/blog/seo/favicon/#i-5">こちら</a>が凄くわかりやすいです。
           </p>
-          <h3>12.google analytics</h3>
-          <p>サイトの訪問者数等いろいろなデータを知ることができます。使ってみましょう。</p>
-          https://analytics.google.com/
-          <h3>さいごに</h3>
+          <h3 class="border-bottom">11.フォント</h3>
+          <p>こちらもSEOとは関係ありませんが、フォントを変えてみましょう。僕は<a href="https://fonts.google.com/?subset=japanese">Google Fonts</a>のNote Sans JPを使用しています。<br>
+            <br>
+            Google Fontsを使う場合はヘッダ以外でフォントを読み込みましょう。コンテンツの表示が速くなります。
+            詳細は<a href="https://mogumogu-design.com/googlefont-yomikomi/">こちら</a><br>
+            
+          </p>
+          <h3 class="border-bottom">12.google analytics</h3>
+          <p><a href="https://analytics.google.com/">Google Analytics</a>では、サイトの訪問者数等いろいろなデータを知ることができます。使ってみましょう。
+          </p>
+          <h3 class="border-bottom">さいごに</h3>
           <p>webページ作成って結構奥が深いんですね。このページで紹介した以外にも様々なtipsがあるようです。仕事でwebサイト作ってる人は大変ですね、、、。</p>
         </div><!-- /.blog-post -->
     <!--
