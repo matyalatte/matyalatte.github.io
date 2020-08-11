@@ -35,7 +35,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <!-- BootstrapのJS読み込み -->
 <script src="https://matyalatte.github.io/js/bootstrap.min.js"></script>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400&display=swap" rel="stylesheet">
 
 </head>
   <body>
@@ -118,6 +118,7 @@ QR_MAKE "ABCDEFG",0,0
             <pre style="font-size: 18px">
 EXEC "QR.LIB",1
 GCLS #C_WHITE
+GTARGET 4
 QR_MAKE "ABCDEFG",0,0 OUT SIZE
 SPDEF 0,0,0,SIZE,SIZE
 SPSET 0,0
