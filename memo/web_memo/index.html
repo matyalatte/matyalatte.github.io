@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-174921482-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-174921482-1');
+</script>
+    <meta name="twitter:card" content="summary">
+    <meta name="Twitter:site" content="@matyalatte_">
+    <meta name="twitter:title" content="まちゃラテの勉強メモ">
+    <meta name="twitter:description" content="勉強したことをいろいろ書いていきます。情報系、数学系の話が多め。">
+    <meta name="twitter:image" content="https://matyalatte.github.io/images/irasutoya/study.jpg">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Webページでアクセスを増やすために 勉強メモ｜まちゃラテのなんちゃら</title>
+
+
+<!-- BootstrapのCSS読み込み -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<style>
+      body{ 
+          padding-top: 70px; 
+          font-family: 'Noto Sans JP', sans-serif;
+      }
+</style>
+
+<!-- jQuery読み込み -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400&display=swap" rel="stylesheet">
+<link rel="icon" href="https://matyalatte.github.io/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="https://matyalatte.github.io/images/icon.png">
+<link rel="icon" type="image/png" href="https://matyalatte.github.io/images/icon.png" sizes="192x192">
+</head>
+  <body>
+<div class='fixed-top'>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <a href="https://matyalatte.github.io/" class="navbar-brand">
+      <img src="https://matyalatte.github.io/images/icon_s.png" width="30" height="30" alt="my icon to home">
+      まちゃラテのなんちゃら
+    </a>
+    <button class="navbar-toggler" type="button"
+    data-toggle="collapse"
+    data-target="#navmenu1"
+    aria-controls="navmenu1"
+    aria-expanded="false"
+    aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse justify-content-end" id="navmenu1">
+
+  <div class="navbar-nav">
+    <a class="nav-item nav-link" href="https://matyalatte.github.io/memo/">勉強メモ</a>
+    <a class="nav-item nav-link" href="https://matyalatte.github.io/petitcom/">プチコン</a>
+    <a class="nav-item nav-link" href="https://matyalatte.github.io/petitcom/qrcoder/">QR CODER</a>
+  </div>
+  <a href="https://twitter.com/matyalatte_" target="_blank"><img src="https://matyalatte.github.io/images/logo/twitter.png" witdh="24" height="24" alt="to my twitter"></a>
+  &nbsp;
+  <a href="https://github.com/matyalatte" target="_blank"><img src="https://matyalatte.github.io/images/logo/git.png" witdh="24" height="24" alt="to my github"></a>
+</div>
+</nav>
+</div>
+<a name="top"></a>
+  <main role="main" class="container">
+    <div class="row">
+      <div class="col-md-8 blog-main">
+<a href="https://matyalatte.github.io/">トップ</a>&gt<a href="https://matyalatte.github.io/memo">勉強メモ</a>&gt***        <h3 class="pb-3 mb-4 border-bottom">
+          勉強メモ
+        </h3>
+  
+        <div class="blog-post">
+          <h1 class="blog-post-title"> Webページでアクセスを増やすための備忘録</h1>
+          <p class="blog-post-meta">2020/08/12 </p>
+          <p>webページを作る前は「webサイト作るのってhtmlで文章書くだけでしょ？」と思っていました。
+          たしかに、僕のようにGithub pagesとBootstrapを使えば、htmlを書くだけでwebサイトを作れます。
+          しかし、「google検索でヒットする」等、アクセスを増やすためにはいろいろやらなければならないことがあるようです。
+          webページ作成をしたことがある人にとっては当たり前の知識なのだとは思いますが、今回webページを作ってみて自分が知らなかった(あるいは見落としていた)ことを備忘録として書いていきます。
+          webページ作成に関しては素人ですので、間違いがあれば遠慮せずに指摘していただけるとありがたいです。
+          </p>
+          <h3>はじめに</h3>
+          <p>このページで紹介するtipsは主にSEO(検索で上位に表示してもらえるようにすること)に関するものです。
+          google等の検索エンジンはクローラと呼ばれるプログラムを用いて世の中のwebページを定期的に訪問し、どのページにどんなコンテンツがあるのかを調べています。
+          クローラに認識してもらい、クローラからの評価を高くなるようにwebページを設計することで、自分のwebページが検索上位にヒットしやすくなります。
+          各tipsに関する詳しい情報に関しては外部サイトで情報を集めてください。このページでは最低限度の簡潔な説明をします。
+          <br>
+          すでに自分のwebページを持っているという方は、各項目を自力でチェックするのは大変ですので、<br>
+          ↓こういうサイトを使って修正すべき点を教えてもらうと良いでしょう。<br>
+          https://app.neilpatel.com/ja/seo_analyzer/<br>
+          https://developers.google.com/speed/pagespeed/insights/
+          </p>
+          <h3>1.Googleのインデックスに登録</h3>
+          一番重要。これをしないと、いつまでたっても自分のwebページが検索でヒットしません。
+          新規ページはGoogleに認知されていない可能性が高いです。Google Search ConsoleでURLを登録し、Googleにページの存在を知らせましょう。<br>
+          https://search.google.com/search-console
+          <h3>2.サイトマップ</h3>
+          <p>重要です。クローラが訪問した際に、「サイト内の各ページがどこにあるのか」を教えるため、サイトマップを作りましょう。
+          </p>
+          <h3>3.ページのtitle</h3>
+          <p>とても重要です。適当なページ名をつけてはいけません。
+            ページ内の重要なキーワードを使ってページタイトルを書きましょう。
+            「面倒だから」と複数のページで同じタイトルを使うのもよくないようです。</p>
+          <h3>4.文字数</h3>
+          <p>重要です。ページ内の文字数が少ないと、クローラがページ内容を把握できません。ちなみに、僕のホームページだと、勉強メモ以外のページは「文字数足りない！」と怒られます。
+          </p>
+          <h3>5.meta description</h3>
+          <p>検索結果に小さい文字で書かれる文章。自分のwebページがどんなページなのかを説明しましょう。
+             ページtitleと同様、複数のページで同じ記述をしないようにしましょう。</p>
+          <h3>6.h1タグを一つだけ使う</h3>
+          <p>クローラはhタグの階層構造を評価します。一番重要な見出しにh1タグを使いましょう。同じページでh1タグを複数回つかってはいけません。
+          </p>
+          <h3>7.画像のalt属性</h3>
+          <p>webページに貼られた画像が「何の画像なのか」をクローラに教えるため、画像のalt属性に説明を入れましょう。
+          </p>
+          <h3>8.twitterの埋め込みは重い</h3>
+          <p>TLの埋め込みは画像よみこんだりして結構重くなる場合があります。自分のwebページが重い場合は使わないようにしましょう。</p>
+          <h3>9.twitter用のmetaタグ</h3>
+          <p>twitterでURLを貼った際に表示される画像と文章を設定できます。twitterで宣伝する場合は設定しましょう。</p>
+          <h3>10.favicon</h3>
+          <p>タブの左側につくアイコンです。スマホではショートカットを作成した場合のアイコンにもなります。
+            SEOとは関係ないようですが、自分のサイトだと一目でわかるようにアイコンを設定してみましょう。</p>          
+            faviconの作り方に関しては、↓が凄くわかりやすいです。
+            https://keywordfinder.jp/blog/seo/favicon/#i-5
+          <h3>11.フォント</h3>
+          <p>こちらもSEOとは関係ありませんが、フォントを変えてみましょう。Google FontsのNote Sans JPを使用しています。
+            https://fonts.google.com/?subset=japanese
+          </p>
+          <h3>12.google analytics</h3>
+          <p>サイトの訪問者数等いろいろなデータを知ることができます。使ってみましょう。</p>
+          https://analytics.google.com/
+          <h3>さいごに</h3>
+          <p>webページ作成って結構奥が深いんですね。このページで紹介した以外にも様々なtipsがあるようです。仕事でwebサイト作ってる人は大変ですね、、、。</p>
+        </div><!-- /.blog-post -->
+    <!--
+        <nav class="blog-pagination">
+          <a class="btn btn-outline-primary" href="#">Older</a>
+          <a class="btn btn-outline-secondary disabled" href="#">Newer</a>
+        </nav>
+      -->
+      </div><!-- /.blog-main -->
+  
+<aside class="col-md-3 blog-sidebar">
+    <div class="p-3 mb-3 bg-light rounded">
+      <div style="text-align:center;">
+      <img src="https://matyalatte.github.io/images/icon.png" width="100" height="100" alt="my icon">
+      <h4>まちゃラテのプロフィール</h4>
+      </div>
+      <p class="mb-0">道産子京都住み。主にプチコン界隈で活動している。プチコン以外だとpythonでpytorch, kerasあたりをよくいじっている。太鼓の達人が好き(ハウス9段)。</p>
+    </div>
+    <div class="p-3 border rounded">
+      <div class="d-md-none">
+        <a class="twitter-timeline" data-tweet-limit="3" data-height="400" href="https://twitter.com/matyalatte_?ref_src=twsrc%5Etfw">Tweets by matyalatte_</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+      </div>
+      <div class="d-none d-md-block">
+      <a class="twitter-timeline" data-height="400" href="https://twitter.com/matyalatte_?ref_src=twsrc%5Etfw">Tweets by matyalatte_</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+      </div>
+    </div>
+</aside><!-- /.blog-sidebar -->  
+    </div><!-- /.row -->
+  
+  </main><!-- /.container -->
+
+<footer class="page-footer bg-light border">        
+    <div class="footer-copyright text-center py-3">
+      <a href="#top">一番上にもどる</a>
+      <p>© 2020 まちゃラテ  
+      </p>
+    </div>
+  </footer>
+
+
+  </body>
+</html>
