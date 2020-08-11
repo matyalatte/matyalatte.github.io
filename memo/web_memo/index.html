@@ -35,7 +35,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400&display=swap" rel="stylesheet">
 <link rel="icon" href="https://matyalatte.github.io/favicon.ico">
 <link rel="apple-touch-icon" sizes="180x180" href="https://matyalatte.github.io/images/icon.png">
 <link rel="icon" type="image/png" href="https://matyalatte.github.io/images/icon.png" sizes="192x192">
@@ -82,14 +81,14 @@
           <p>webページを作る前は「webサイト作るのってhtmlで文章書くだけでしょ？」と思っていました。
           たしかに、僕のようにGithub pagesとBootstrapを使えば、htmlを書くだけでwebサイトを作れます。
           しかし、「google検索でヒットする」等、アクセスを増やすためにはいろいろやらなければならないことがあるようです。
-          webページ作成をしたことがある人にとっては当たり前の知識なのだとは思いますが、今回webページを作ってみて自分が知らなかった(あるいは見落としていた)ことを備忘録として書いていきます。
+          今回webページを作ってみて自分が知らなかった(あるいは見落としていた)ことを備忘録として書いていきます。
           webページ作成に関しては素人ですので、間違いがあれば遠慮せずに指摘していただけるとありがたいです。
           </p>
           <h3>はじめに</h3>
           <p>このページで紹介するtipsは主にSEO(検索で上位に表示してもらえるようにすること)に関するものです。
           google等の検索エンジンはクローラと呼ばれるプログラムを用いて世の中のwebページを定期的に訪問し、どのページにどんなコンテンツがあるのかを調べています。
-          クローラに認識してもらい、クローラからの評価を高くなるようにwebページを設計することで、自分のwebページが検索上位にヒットしやすくなります。
-          各tipsに関する詳しい情報に関しては外部サイトで情報を集めてください。このページでは最低限度の簡潔な説明をします。
+          クローラに認識してもらい、クローラからの評価を高くなるようにwebページを設計することで、自分のwebページが検索上位にヒットしやすくなります。<br>
+          各tipsに関する詳しい情報に関しては外部サイトで情報を集めてください。このページでは最低限度の簡潔な説明をします。<br>
           <br>
           すでに自分のwebページを持っているという方は、各項目を自力でチェックするのは大変ですので、<br>
           ↓こういうサイトを使って修正すべき点を教えてもらうと良いでしょう。<br>
@@ -112,6 +111,7 @@
           </p>
           <h3>4.表示速度</h3>
           <p>重要です。クローラからの評価に影響します。最低限、画像サイズの変更やフォーマットの最適化くらいはしましょう。
+            可能であれば、cssやjsの読み込みはヘッダ以外で行いましょう。
           </p>
           <h3>5.meta description</h3>
           <p>検索結果に小さい文字で書かれる文章。自分のwebページがどんなページなのかを説明しましょう。
@@ -132,8 +132,11 @@
             faviconの作り方に関しては、↓が凄くわかりやすいです。
             https://keywordfinder.jp/blog/seo/favicon/#i-5
           <h3>11.フォント</h3>
-          <p>こちらもSEOとは関係ありませんが、フォントを変えてみましょう。Google FontsのNote Sans JPを使用しています。
-            https://fonts.google.com/?subset=japanese
+          <p>こちらもSEOとは関係ありませんが、フォントを変えてみましょう。Google FontsのNote Sans JPを使用しています。<br>
+            https://fonts.google.com/?subset=japanese<br>
+            <br>
+            google fontsを使う場合はヘッダ以外でフォントを読み込みましょう。コンテンツの表示が速くなります。<br>
+            https://mogumogu-design.com/googlefont-yomikomi/            
           </p>
           <h3>12.google analytics</h3>
           <p>サイトの訪問者数等いろいろなデータを知ることができます。使ってみましょう。</p>
@@ -172,6 +175,22 @@
       <p>© 2020 まちゃラテ  
       </p>
     </div>
+    <script>
+      window.WebFontConfig = {
+        google: { families: ['Noto+Sans+JP'] },
+        active: function() {
+          sessionStorage.fonts = true;
+        }
+      };
+      (function() {
+        var wf = document.createElement('script');
+        wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js';
+        wf.type = 'text/javascript';
+        wf.async = 'true';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(wf, s);
+      })();
+      </script>
   </footer>
 
 
