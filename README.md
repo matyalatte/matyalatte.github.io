@@ -19,8 +19,10 @@ https://www.irasutoya.com/<br>
 その他の画像は僕が作成した画像、またはプチコンのスクショです。フリー素材ではありません。<br>
 <br>
 css,jsはBootstrapを利用しています。<br>
-↓からダウンロードしました。<br>
-https://getbootstrap.com/docs/4.5/getting-started/download/<br>
+https://getbootstrap.jp/<br>
 <br>
-このレポジトリのコンテンツ(動画像以外)とBootstrapはMITライセンスに準拠しています。<br>
+フォントはGoogle FontsのNoto Sans JPを利用しています(フリーのフォントです)。<br>
+https://fonts.google.com/?subset=japanese<br>
+<br>
+このレポジトリの動画像以外のファイルとBootstrapはMITライセンスに準拠しています。<br>
 https://ja.osdn.net/projects/opensource/wiki/licenses%2FMIT_license
