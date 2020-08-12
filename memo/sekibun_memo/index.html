@@ -29,7 +29,7 @@
       processEscapes: true
     },
     "HTML-CSS": { matchFontHeight: false }});
-</script>  <title>積分で円周率を求める(simpson's role) 勉強メモ｜まちゃラテのなんちゃら</title>
+</script>  <title>積分で円周率を求める(シンプソン則) 勉強メモ｜まちゃラテのなんちゃら</title>
     <!-- BootstrapのCSS読み込み -->
     <link rel="stylesheet" rel="preload" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" as="style">
     <style>
@@ -105,16 +105,36 @@
   <main role="main" class="container">
     <div class="row">
       <div class="col-md-8 blog-main">
-<a href="https://matyalatte.github.io/">トップ</a>&gt<a href="https://matyalatte.github.io/memo">勉強メモ</a>&gt***        <h3 class="pb-3 mb-4 border-bottom">
+<a href="https://matyalatte.github.io/">トップ</a>&gt<a href="https://matyalatte.github.io/memo">勉強メモ</a>&gt積分で円周率計算        <h3 class="pb-3 mb-4 border-bottom">
           勉強メモ
         </h3>
   
         <div class="blog-post">
-          <h1 class="blog-post-title"> 積分で円周率を求める(simpson's role)</h1>
+          <h1 class="blog-post-title"> 積分で円周率を求める(シンプソン則)</h1>
           <p class="blog-post-meta">2020/08/12 </p>
-          <p>円周率を求める方法ってたくさんありますよね。このページでは、定積分の計算で円周率を求める方法と定積分の数値計算で使われるSimpson's roleを紹介します。
+          <p>円周率を求める方法ってたくさんありますよね。このページでは、定積分の計算で円周率を求める方法と定積分の数値計算で使われるシンプソン則を紹介します。
           </p>
-          <h3 class="border-bottom">答えが\(\pi\)になる定積分</h3>
+
+          <ul class="page-contents">
+            <li>目次</li>
+            <li>
+           <ol>
+            <li><a href="#1">答えが\(\pi\)になる定積分</a></li>
+            <li><a href="#2">区分求積で求める</a></li>
+            <li><a href="#3">本当に区分求積で求められる?</a></li>
+            <li><a href="#4">なぜ区分求積じゃだめなの？</a></li>
+            <li><a href="#5">一次関数で近似(台形則)</a></li>
+            <li><a href="#6">台形則で円周率を計算</a></li>
+            <li><a href="#7">一次関数近似で精度が上がったということは、、、</a></li>
+            <li><a href="#8">シンプソン則で円周率を計算</a></li>
+            <li><a href="#9">さいごに</a></li>
+            
+           </ol>
+           </li>
+           </ul>
+        
+
+          <h3 class="border-bottom" id="1">答えが\(\pi\)になる定積分</h3>
           <p>いきなり本題ですが、こちらの式をご覧ください。
             \[
             \int_0^1{\frac{4}{1+x^2}}dx=\pi
@@ -122,29 +142,108 @@
             \(x=tan\theta\)で置換するパターンの例題として、高校数学でよく目にする形の式ですね。
             この式は「下図の赤い部分の面積が円周率になる」ということを表しています。
             <div style="text-align:center;">
-              <img src="../../images/sekibun_memo.jpg" class="img-fluid" alt="定積分が円周率になる">
+              <img src="../../images/memo/sekibun_memo/sekibun_memo.jpg" class="img-fluid" alt="定積分が円周率になる">
               </div>
             つまり、この赤い部分の面積を正確に計算できれば、円周率を求めることができるわけです。<br>
             ということで、この定積分(赤い部分の面積)を数値計算で求める手法について考えていきます。<br>
           </p>
-          <h3 class="border-bottom">区分求積で求められる</h3>
-          まず初めに考えられる方法として、高校数学で習う「区分求積法」があります。下図のように積分する関数をいくつかの区間に分け、各区間の関数を定数(f(x)=a)で近似する方法です。
+          <h3 class="border-bottom" id="2">区分求積で求める</h3>
+          <p>まず初めに考えられる方法として、高校数学で習う「区分求積法」があります。
+          積分する関数をいくつかの区間に分け、各区間の関数を定数(f(x)=a)で近似する方法です（下図参照）。
           近似後の赤い部分の面積は長方形の面積の足し算で表せるため、容易に計算できます。
           <div style="text-align:center;">
-            <img src="../../images/sekibun_memo.jpg" class="img-fluid" alt="定積分が円周率になる">
+            <img src="../../images/memo/sekibun_memo/sekibun_memo2.jpg" class="img-fluid" alt="区分求積で円周率">
             </div>
-          0~1の区間をn個に分割した場合、各長方形の大きさは横の長さが\(\frac{1}{n}\)、縦の長さが\(f(x)\)になっています。
-          したがって、次の式で赤い部分の面積(の近似値)を求められます。
+          0~1の区間をn個に分割した場合、各長方形は横の長さが\(\frac{1}{n}\)、縦の長さが\(f(x)\)の長方形になっています。
+          したがって、次の式で赤い部分の面積(円周率の近似値)を求められます。
           \[
-          赤い部分の面積=\frac{1}{n}f(0)+\frac{1}{n}f(\frac{1}{n})+\frac{1}{n}f(\frac{2}{n})+...+\frac{1}{n}f(\frac{n-1}{n})
+          赤い部分の面積=\frac{1}{n}f(0)+\frac{1}{n}f(\frac{1}{n})+\frac{1}{n}f(\frac{2}{n})+...+\frac{1}{n}f(\frac{n-1}{n})\\
+          =\frac{1}{n}(f(0)+f(\frac{1}{n})+f(\frac{2}{n})+...+f(\frac{n-1}{n}))
           \]
-          nを大きくすればするほど、もとの関数との誤差が小さくなり、精度の高い値を得られます。
-          <h3 class="border-bottom">本当に区分求積で求められる?</h3>
-          では実際に区分求積で円周率を求めてみましょう。
-          <a href="">
-          https://www.geogebra.org/m/sfxn5pcw
-          <h3 class="border-bottom">さいごに</h3>
-          <p></p>
+          nを大きくすればするほど、もとの関数との誤差が小さくなり、円周率に近い値を得られます。<br></p>
+          
+          <h3 class="border-bottom" id="3">本当に区分求積で求められる?</h3>
+          <p>では実際に区分求積で円周率を求めてみましょう。数値計算は倍精度で行っています。<br>
+        <br>
+            n=6のときは3.30362...。まあnが小さいからこんなもんかな。<br>
+          n=100のときは3.15157...。まだ3.15なの、、、。<br>
+          n=1000のときは3.14259...。3.14までしか一致してない、、、。<br>
+          <br>
+          1000分割もしたのに、小数点以下2桁しか一致していませんでした。
+          理論上ではn=\(\infty\)で正確な円周率を求められるはずですが、この方法で円周率を計算することはあまり現実的でないようです。<br>
+          <br>
+        </p>
+          <h3 class="border-bottom" id="4">なぜ区分求積じゃだめなの？</h3>
+          <p>なぜ区分求積ではうまく計算できないのでしょうか。原因は「近似の誤差」にあります。
+            図に示すように、定数の近似では元の関数との誤差がとても大きいのです。そのため、誤差を小さくするためにはnの値をとても大きくする必要があります。
+            逆に言えば、この誤差を小さくできれば、nが小さな値でも十分精度の高い近似値を得られるということになります。
+            <div style="text-align:center;">
+              <img src="../../images/memo/sekibun_memo/sekibun_memo3.jpg" class="img-fluid" alt="区分求積の誤差">
+              </div>
+          </p>
+          <h3 class="border-bottom" id="5">一次関数で近似(台形則)</h3>
+          <p>誤差を小さくするために、近似の方法を変えてみましょう。
+            区分求積では、各区間の関数を定数(f(x)=a)で近似していましたが、
+            今度は一次関数(f(x)=ax+b)で近似します(この近似方法を台形則といいます)。
+            結果は下図のようになります。
+            <div style="text-align:center;">
+              <img src="../../images/memo/sekibun_memo/sekibun_memo4.png" class="img-fluid" alt="台形則で円周率">
+              </div>
+              上の図では殆ど誤差がないように見えます。グラフを拡大してみましょう。
+              <div style="text-align:center;">
+                <img src="../../images/memo/sekibun_memo/sekibun_memo5.png" class="img-fluid" alt="台形則で円周率">
+                </div>
+              まだ若干誤差がありますね。でも区分求積に比べるとかなり誤差が小さくなりました。<br>
+            </p>
+
+              <h3 class="border-bottom" id="6">台形則で円周率を計算</h3>  
+              <p>では台形則で円周率を計算してみましょう。
+              区分求積法では赤い部分の面積は長方形の面積の和になっていましたが、
+              台形則では赤い部分の面積の和は台形の面積の和になっています。
+              各台形は上底\(f(x)\),下底\(f(x+\frac{1}{n})\),高さ\(\frac{1}{n}\)の台形となっていますから、
+              次の式で赤い部分の面積(円周率の近似値)を求められます。
+              \[
+              赤い部分の面積=\frac{1}{2}\frac{1}{n}(f(0)+f(\frac{1}{n}))+\frac{1}{2}\frac{1}{n}(f(\frac{1}{n})+f(\frac{2}{n}))+...+\frac{1}{2}\frac{1}{n}(f(\frac{n-1}{n})+f(1))\\
+              =\frac{1}{2n}(f(0)+2f(\frac{1}{n})+2f(\frac{2}{n})+...+2f(\frac{n-2}{n})+2f(\frac{n-1}{n})+f(1))
+              \]
+              お気づきでしょうか。この式、区分求積の計算式と同じような形をしています。区分求積の計算式とは係数や項数が違いますが、係数の掛け算をまとめて処理すれば計算量はほぼ同じです。<br>
+              実際の数値を計算してみましょう。<br>
+              <br>
+              n=6のときは3.136963...。なんと小数第一位が一致しています!<br>
+              n=100のときは3.14157598...。すでに区分求積のn=1000の精度を超えています。<br>
+              n=1000のときは3.14159248...。小数第6位まで一致している！<br>
+              <br>
+              小数第6位まで計算できました。区分求積と比べるとかなりの進歩です。
+              しかし、「n=1000で小数第6位まで一致」というのも高精度計算には不向きな精度だと言えます。
+              より誤差の小さい近似方法はないのでしょうか。<br>
+             </p>
+          
+             <h3 class="border-bottom" id="7">一次関数近似で精度が上がったということは、、、</h3>
+             <p>台形則では、近似方法を定数近似から一次関数近似に変えることで精度が向上しました。ということは、
+               二次関数で近似すればもっと精度が上がるのではないでしょうか。<br>
+               実際、二次関数による近似はシンプソン則と呼ばれ、高速かつ高精度な手法の一つとして知られています。<br>
+              </p>
+            <h3 class="border-bottom" id="8"> シンプソン則で円周率を計算</h3>
+             <p>ではシンプソン則で円周率を計算してみましょう。シンプソン則の式の導出は若干複雑ですので、割愛します。
+               気になる方は<a href="https://qiita.com/omu58n/items/4025ac6fafbe3d8c1a64">こちら</a>を参考にしてみてください。<br>
+               <br>
+               シンプソン則で近似した定積分の値は次の式で求められます。
+              \[
+               \frac{1}{3n}(f(0)+4f(\frac{1}{n})+2f(\frac{2}{n})+4f(\frac{3}{n})+2f(\frac{4}{n})+...+2f(\frac{n-3}{n})+4f(\frac{n-2}{n})+2f(\frac{n-1}{n})+f(1))
+              \]
+              台形則同様、非常にシンプルです。nが偶数でなければならないという制約があるものの、台形則とほぼ同じ計算量で計算できます。<br>
+              実際の数値を計算してみましょう。<br>
+              <br>
+              n=6のときは3.1415917...。なんと小数第5位まで一致しています!<br>
+              n=100のときは3.14159265358975...。小数第13位まで一致しています。<br>
+              n=1000のときは3.141592653589789...。倍精度計算の限界かな、、、<br>
+              <br>
+              倍精度計算では扱いきれないほどの精度で計算できるようです。
+              数値積分において、シンプソン則が有用であることが理解いただけたかと思います。
+             </p>
+          <h3 class="border-bottom" id="9">さいごに</h3>
+          <p>数値積分の手法であるシンプソン則を用いて、円周率を計算してみました。
+            より精度の高い計算をするための手法が他にもいろいろあるようですので、気になる方は調べてみてください。</p>
         </div><!-- /.blog-post -->
     <!--
         <nav class="blog-pagination">
