@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-174921482-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-174921482-1');
+</script>
+<meta http-equiv="Expires" content=86400>    <meta name="twitter:card" content="summary">
+    <meta name="Twitter:site" content="@matyalatte_">
+    <meta name="twitter:title" content="まちゃラテの勉強メモ">
+    <meta name="twitter:description" content="勉強したことをいろいろ書いていきます。情報系、数学系の話が多め。">
+    <meta name="twitter:image" content="https://matyalatte.github.io/images/irasutoya/study.jpg">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<script type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    TeX: { equationNumbers: { autoNumber: "AMS" }},
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { matchFontHeight: false }});
+</script>  <title>積分で円周率を求める(simpson's role) 勉強メモ｜まちゃラテのなんちゃら</title>
+    <!-- BootstrapのCSS読み込み -->
+    <link rel="stylesheet" rel="preload" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" as="style">
+    <style>
+          body{ 
+              padding-top: 70px; 
+              font-family: 'Noto Sans JP', sans-serif;
+          }
+          .media:hover {
+              opacity: 0.5;
+              width: 100%;
+              height: auto;
+              transition: .2s ease;
+              backface-visibility: hidden;
+              background-color: white;
+          } 
+          .carousel-item .img-fluid {
+  width:100%;
+  height:auto;
+}
+
+.carousel-item{
+  height: auto;
+}
+
+.carousel-item a {
+  display: block;
+  width:100%;
+}
+
+.carousel-item .show-image {
+  display: block;
+  width:100%;
+}
+    </style>
+
+    <!-- jQuery読み込み -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <link rel="icon" href="https://matyalatte.github.io/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://matyalatte.github.io/images/icon.png">
+    <link rel="icon" type="image/png" href="https://matyalatte.github.io/images/icon.png" sizes="192x192">
+  </head>  <body>
+<div class='fixed-top'>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <a href="https://matyalatte.github.io/" class="navbar-brand">
+      <img src="https://matyalatte.github.io/images/icon_s.png" width="30" height="30" alt="my icon to home">
+      まちゃラテのなんちゃら
+    </a>
+    <button class="navbar-toggler" type="button"
+    data-toggle="collapse"
+    data-target="#navmenu1"
+    aria-controls="navmenu1"
+    aria-expanded="false"
+    aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse justify-content-end" id="navmenu1">
+
+  <div class="navbar-nav">
+    <a class="nav-item nav-link" href="https://matyalatte.github.io/memo/">勉強メモ</a>
+    <a class="nav-item nav-link" href="https://matyalatte.github.io/petitcom/">プチコン</a>
+    <a class="nav-item nav-link" href="https://matyalatte.github.io/petitcom/qrcoder/">QR CODER</a>
+  </div>
+  <a href="https://twitter.com/matyalatte_" target="_blank"><img src="https://matyalatte.github.io/images/logo/twitter.png" witdh="24" height="24" alt="to my twitter"></a>
+  &nbsp;
+  <a href="https://github.com/matyalatte" target="_blank"><img src="https://matyalatte.github.io/images/logo/git.png" witdh="24" height="24" alt="to my github"></a>
+</div>
+</nav>
+</div>
+<a name="top"></a>
+  <main role="main" class="container">
+    <div class="row">
+      <div class="col-md-8 blog-main">
+<a href="https://matyalatte.github.io/">トップ</a>&gt<a href="https://matyalatte.github.io/memo">勉強メモ</a>&gt***        <h3 class="pb-3 mb-4 border-bottom">
+          勉強メモ
+        </h3>
+  
+        <div class="blog-post">
+          <h1 class="blog-post-title"> 積分で円周率を求める(simpson's role)</h1>
+          <p class="blog-post-meta">2020/08/12 </p>
+          <p>円周率を求める方法ってたくさんありますよね。このページでは、定積分の計算で円周率を求める方法と定積分の数値計算で使われるSimpson's roleを紹介します。
+          </p>
+          <h3 class="border-bottom">答えが\(\pi\)になる定積分</h3>
+          <p>いきなり本題ですが、こちらの式をご覧ください。
+            \[
+            \int_0^1{\frac{4}{1+x^2}}dx=\pi
+            \]
+            \(x=tan\theta\)で置換するパターンの例題として、高校数学でよく目にする形の式ですね。
+            この式は「下図の赤い部分の面積が円周率になる」ということを表しています。
+            <div style="text-align:center;">
+              <img src="../../images/sekibun_memo.jpg" class="img-fluid" alt="定積分が円周率になる">
+              </div>
+            つまり、この赤い部分の面積を正確に計算できれば、円周率を求めることができるわけです。<br>
+            ということで、この定積分(赤い部分の面積)を数値計算で求める手法について考えていきます。<br>
+          </p>
+          <h3 class="border-bottom">区分求積で求められる</h3>
+          まず初めに考えられる方法として、高校数学で習う「区分求積法」があります。下図のように積分する関数をいくつかの区間に分け、各区間の関数を定数(f(x)=a)で近似する方法です。
+          近似後の赤い部分の面積は長方形の面積の足し算で表せるため、容易に計算できます。
+          <div style="text-align:center;">
+            <img src="../../images/sekibun_memo.jpg" class="img-fluid" alt="定積分が円周率になる">
+            </div>
+          0~1の区間をn個に分割した場合、各長方形の大きさは横の長さが\(\frac{1}{n}\)、縦の長さが\(f(x)\)になっています。
+          したがって、次の式で赤い部分の面積(の近似値)を求められます。
+          \[
+          赤い部分の面積=\frac{1}{n}f(0)+\frac{1}{n}f(\frac{1}{n})+\frac{1}{n}f(\frac{2}{n})+...+\frac{1}{n}f(\frac{n-1}{n})
+          \]
+          nを大きくすればするほど、もとの関数との誤差が小さくなり、精度の高い値を得られます。
+          <h3 class="border-bottom">本当に区分求積で求められる?</h3>
+          では実際に区分求積で円周率を求めてみましょう。
+          <a href="">
+          https://www.geogebra.org/m/sfxn5pcw
+          <h3 class="border-bottom">さいごに</h3>
+          <p></p>
+        </div><!-- /.blog-post -->
+    <!--
+        <nav class="blog-pagination">
+          <a class="btn btn-outline-primary" href="#">Older</a>
+          <a class="btn btn-outline-secondary disabled" href="#">Newer</a>
+        </nav>
+      -->
+      </div><!-- /.blog-main -->
+  
+<aside class="col-md-3 blog-sidebar">
+    <div class="p-3 mb-3 bg-light rounded">
+      <div style="text-align:center;">
+      <img src="https://matyalatte.github.io/images/icon.png" width="100" height="100" alt="my icon">
+      <h4>まちゃラテのプロフィール</h4>
+      </div>
+      <p class="mb-0">道産子京都住み。主にプチコン界隈で活動している。プチコン以外だとpythonでpytorch, kerasあたりをよくいじっている。太鼓の達人が好き(ハウス9段)。</p>
+    </div>
+    <div class="p-3 border rounded">
+      <a class="twitter-timeline" data-tweet-limit="3" data-height="400" href="https://twitter.com/matyalatte_?ref_src=twsrc%5Etfw">Tweets by matyalatte_</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+      <!-- created by matometools.com -->
+    </div>
+</aside><!-- /.blog-sidebar -->  
+    </div><!-- /.row -->
+  
+  </main><!-- /.container -->
+
+<footer class="page-footer bg-light border">        
+    <div class="footer-copyright text-center py-3">
+      <a href="#top">一番上にもどる</a>
+      <p>© 2020 まちゃラテ  
+      </p>
+    </div>
+    <script>
+      window.WebFontConfig = {
+        google: { families: ['Noto+Sans+JP'] },
+        active: function() {
+          sessionStorage.fonts = true;
+        }
+      };
+      (function() {
+        var wf = document.createElement('script');
+        wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js';
+        wf.type = 'text/javascript';
+        wf.async = 'true';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(wf, s);
+      })();
+      </script>
+  </footer>
+
+
+  </body>
+</html>
