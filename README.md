@@ -5,9 +5,10 @@ Bootstrapを使って、ホームページを作ってみました。<br>
 https://matyalatte.github.io/<br>
 <br>
 ### 改変・再配布について
-動画像以外のファイルの改変・再配布は自由です(ただし、Bootstrapのライセンスには注意してください)。<br>
-動画像の改変・再配布を行う場合は各コンテンツのライセンスを確認してください(twitterのロゴ等、完全フリーでない素材が含まれています)。<br>
-
+文章・動画像をすべて差し替えた場合のみ、改変・再配布が可能です。<br>
+つまり、Bootstrapの使いかた、サイトのデザイン等は流用OKということです。<br>
+ただし、Bootstrapのライセンスには注意してください。<br>
+<br>
 ### ライセンス等
 ./images/logo以下の画像(twitter, githubのロゴ)は公式で配布されているものを使用しています。<br>
 https://about.twitter.com/ja/company/brand-resources.html<br>
