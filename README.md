@@ -25,5 +25,5 @@ https://getbootstrap.jp/<br>
 フォントはGoogle FontsのNoto Sans JPを利用しています(フリーのフォントです)。<br>
 https://fonts.google.com/?subset=japanese<br>
 <br>
-このレポジトリの動画像以外のファイルとBootstrapはMITライセンスに準拠しています。<br>
+BootstrapはMITライセンスに準拠しています。<br>
 https://ja.osdn.net/projects/opensource/wiki/licenses%2FMIT_license
