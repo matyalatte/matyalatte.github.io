@@ -165,7 +165,7 @@
           
           <h3 class="border-bottom" id="3">本当に区分求積で求められる?</h3>
           <p>では実際に区分求積で円周率を求めてみましょう。<br>
-            pythonで倍精度計算を行います。コードは<a href="./sekibun.py" target="_blank">こちら</a><br>
+            pythonで倍精度計算を行います。コードは<a href="./sekibun.txt" target="_blank">こちら</a><br>
         <br>
             n=10のときは3.23992...。まあnが小さいからこんなもんかな。<br>
           n=100のときは3.15157...。まだ3.15なの、、、。<br>
@@ -186,7 +186,7 @@
           <h3 class="border-bottom" id="5">一次関数で近似(台形則)</h3>
           <p>誤差を小さくするために、近似の方法を変えてみましょう。
             区分求積では、各区間の関数を定数(f(x)=a)で近似していましたが、
-            今度は一次関数(f(x)=ax+b)で近似します(この近似方法を台形則といいます)。
+            今度は一次関数(f(x)=ax+b)で近似します（この近似方法を「台形則」といいます）。
             結果は下図のようになります。
             <div style="text-align:center;">
               <img src="../../images/memo/sekibun_memo/sekibun_memo4.png" class="img-fluid" alt="台形則で円周率">
@@ -201,7 +201,7 @@
               <h3 class="border-bottom" id="6">台形則で円周率を計算</h3>  
               <p>では台形則で円周率を計算してみましょう。
               区分求積法では赤い部分の面積は長方形の面積の和になっていましたが、
-              台形則では赤い部分の面積は台形の面積の和になっています。
+              台形則では台形の面積の和になっています。
               各台形は上底\(f(x)\),下底\(f(x+\frac{1}{n})\),高さ\(\frac{1}{n}\)の台形となっていますから、
               次の式で赤い部分の面積(円周率の近似値)を求められます。
               \[
@@ -209,9 +209,12 @@
               =\frac{1}{2}\frac{1}{n}(f(0)+f(\frac{1}{n}))+\frac{1}{2}\frac{1}{n}(f(\frac{1}{n})+f(\frac{2}{n}))+...+\frac{1}{2}\frac{1}{n}(f(\frac{n-1}{n})+f(1))\\
               =\frac{1}{2n}(f(0)+2f(\frac{1}{n})+2f(\frac{2}{n})+...+2f(\frac{n-2}{n})+2f(\frac{n-1}{n})+f(1))
               \]
-              お気づきでしょうか。この式、区分求積の計算式と同じような形をしています。区分求積の計算式とは係数や項数が違いますが、係数の掛け算をまとめて処理すれば計算量はほぼ同じです。<br>
+              お気づきでしょうか。この式、区分求積の計算式と同じような形をしています。
+              区分求積の計算式とは係数や項数が違いますが、係数の掛け算をまとめて処理すれば計算量はほぼ同じです。
+              「誤差が小さいのに計算量が変わらない」というのはうれしいですね。<br>
+              <br>
               実際の数値を計算してみましょう。<br>
-              先ほどと同様に、pythonで倍精度計算を行います。コードは<a href="./sekibun2.py" target="_blank">こちら</a><br>
+              先ほどと同様に、pythonで倍精度計算を行います。コードは<a href="./sekibun2.txt" target="_blank">こちら</a><br>
               <br>
               n=10のときは3.139925...。小数第1位が一致しています!<br>
               n=100のときは3.14157598...。すでに区分求積のn=1000の精度を超えています。<br>
@@ -237,7 +240,7 @@
               \]
               台形則同様、非常にシンプルです。nが偶数でなければならないという制約があるものの、台形則とほぼ同じ計算量で計算できます。<br>
               実際の数値を計算してみましょう。<br>
-              pythonで倍精度計算を行います。コードは<a href="./sekibun3.py" target="_blank">こちら</a><br>
+              pythonで倍精度計算を行います。コードは<a href="./sekibun3.txt" target="_blank">こちら</a><br>
               <br>
               n=10のときは3.1415926139...。なんとすでに台形則のn=1000の精度を超えています！<br>
               n=100のときは3.14159265358975...。小数第13位まで一致しています。<br>
@@ -275,10 +278,13 @@
     </div>
     <div class="p-3">
       <h5>おすすめページ</h5>
+      <a href="https://matyalatte.github.io/petitcom/">プチコン作品一覧</a><br>
       <a href="https://matyalatte.github.io/petitcom/qrcoder/">QR CODER</a><br>
-      <a href="https://matyalatte.github.io/petitcom/softbody/">SOFTBODYsimulator</a>
+      <a href="https://matyalatte.github.io/petitcom/softbody/">SOFTBODYsimulator</a><br>
+      <a href="https://matyalatte.github.io/memo/">勉強メモ</a>
+
      <h5>最新ページ</h5>
-     <a href="https://matyalatte.github.io/memo/sekibun_memo/">2020/08/13 積分で円周率計算</a>
+     <a href="https://matyalatte.github.io/memo/sekibun_memo/">2020/08/13 積分で円周率計算</a><br>
      <a href="https://matyalatte.github.io/memo/web_memo/">2020/08/12 webページ作成の備忘録</a>
     </div>
     <div class="p-3 border rounded">
