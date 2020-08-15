@@ -71,7 +71,7 @@
           <h1 class="blog-post-title">GithubとBootstrapでお手軽ホームページ作成</h1>
           <p class="blog-post-meta">2020/08/15 </p>
           <p>僕のホームページはGithubとBootstrapを利用して作られています。Githubでは、htmlファイルをアップロードするだけでホームページを公開できます。
-            Bootstrapを利用すれば、cssやjsを書く必要もありません！このページではGithubとBootstrapを使ったホームページの作成手順をまとめています。
+            Bootstrapを利用すれば、cssやjsを書く必要もありません！ということで、GithubとBootstrapを使ったホームページの作成手順をまとめてみました。
           </p>
           <ul class="page-contents">
             <li>目次</li>
@@ -94,7 +94,7 @@
            <br>
            <h3 class="border-bottom" id="1">はじめに</h3>
            <p>僕のホームページの作成手順をまとめました。<br>
-             このページで紹介するホームページの作り方は、Github使いにとってはとても簡単な手順ですが、
+             ここで紹介するホームページの作り方は、Github使いにとってはとても簡単な手順ですが、
             「Githubって何？」「Github使ったことない！」という方には少々難しいかもしれません、、、。<br>
             また、Github Pagesは静的なウェブサイトのみをサポートしています。CMSの利用やウェブアプリの作成はできませんのでご注意ください。
             <br></p>
@@ -124,11 +124,12 @@
           </p>
           <br>
           <h3 class="border-bottom" id="5">STEP4:Github PagesのSourceをmasterに設定</h3>
-          <p>「Settings」をクリックします。<br>
+          <p>レポジトリのフロントページから「Settings」をクリックします。<br>
             <div style="text-align:center;">
               <img src="../../images/memo/github_memo/github4.jpg" class="img-fluid" alt="Githubで設定変更">
             </div>
-            画面を下の方にスクロールすると「GitHub Pages」という項目があります。「Source」から「master」を選択してください。ここで「masterを選択できない」「なんか支払い画面がでた」という場合はレポジトリの公開設定がPrivateになっていると思われます。
+            画面を下の方にスクロールすると「GitHub Pages」という項目があります。「Source」のBranchを「master」に設定してください(おそらくデフォルトではNoneが選択されています)。
+            ここで「masterを選択できない」「なんか支払い画面がでた」という場合はレポジトリの公開設定がPrivateになっていると思われます。
             一つ下の項目「Danger Zone」の「Change repository visibility」から公開設定をPublicに変更してください。<br>
             <div style="text-align:center;">
               <img src="../../images/memo/github_memo/github5.jpg" class="img-fluid" alt="Github PagesのSource変更">
@@ -144,9 +145,9 @@
           </p>
           <br>
           <h3 class="border-bottom" id="7">cssやjsは必要ないの？</h3>         
-          <p>Bootstrap CDNを利用すればcssやjsを用意する必要ありません！htmlファイルのみでページ作成ができます。<br>
-            このページではBootstrapの詳しい説明はしませんが、有用な外部サイトを紹介します。参考にしてみてください。<br>
-            「どうしてもBootstrapの使い方がわからない」あるいは「使い方を勉強するのが面倒くさい」という方は僕のホームページのhtmlファイルを丸パクリしても構いません。
+          <p>Bootstrap CDNを利用すればcssやjsを用意する必要はありません！htmlファイルのみでページ作成ができます。<br>
+            ここではBootstrapの詳しい説明をしませんが、有用な外部サイトを紹介します。参考にしてみてください。<br>
+            「どうしてもBootstrapの使い方がわからない」あるいは「使い方を勉強するのが面倒くさい」という方は僕のホームページのhtmlファイルを丸パクリしても構いません(ただし、文章や画像は差し替えてください)。
           </p>
             <br>
             <h5><a href="https://tonari-it.com/bootstrap-cdn-background/" target="_blank">CSS初心者の強い味方！Bootstrapで簡単レスポンシブサイト制作</a></h5>
