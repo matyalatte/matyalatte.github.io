@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <include ./include/google.html>
+        <meta name="twitter:card" content="summary">
+        <meta name="Twitter:site" content="@matyalatte_">
+        <meta name="twitter:title" content="勉強メモ：GithubとBootstrapでお手軽ホームページ作成">
+        <meta name="twitter:description" content="GithubとBootstapを使えばhtmlファイルをアップロードするだけでホームページを公開できます。cssやjsを書く必要もありません！このページではGithubとBootstrapを使ったホームページの作成手順をまとめています。">
+        <meta name="twitter:image" content="https://matyalatte.github.io/images/irasutoya/study.jpg">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GithubとBootstrapでお手軽ホームページ作成｜まちゃラテのなんちゃら</title>
+
+
+<!-- BootstrapのCSS読み込み -->
+<link rel="stylesheet" rel="preload" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" as="style">
+<style>
+      body{ 
+          padding-top: 70px; 
+          font-family: 'Noto Sans JP', sans-serif;
+      }
+</style>
+
+<!-- jQuery読み込み -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<link rel="icon" href="https://matyalatte.github.io/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="https://matyalatte.github.io/images/icon.png">
+<link rel="icon" type="image/png" href="https://matyalatte.github.io/images/icon.png" sizes="192x192">
+</head>
+  <body>
+<div class='fixed-top'>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <a href="https://matyalatte.github.io/" class="navbar-brand">
+      <img src="https://matyalatte.github.io/images/icon_s.png" width="30" height="30" alt="my icon to home">
+      まちゃラテのなんちゃら
+    </a>
+    <button class="navbar-toggler" type="button"
+    data-toggle="collapse"
+    data-target="#navmenu1"
+    aria-controls="navmenu1"
+    aria-expanded="false"
+    aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse justify-content-end" id="navmenu1">
+
+  <div class="navbar-nav">
+    <a class="nav-item nav-link" href="https://matyalatte.github.io/memo/">勉強メモ</a>
+    <a class="nav-item nav-link" href="https://matyalatte.github.io/petitcom/">プチコン</a>
+    <a class="nav-item nav-link" href="https://matyalatte.github.io/petitcom/qrcoder/">QR CODER</a>
+  </div>
+  <a href="https://twitter.com/matyalatte_" target="_blank"><img src="https://matyalatte.github.io/images/logo/twitter.png" witdh="24" height="24" alt="to my twitter"></a>
+  &nbsp;
+  <a href="https://github.com/matyalatte" target="_blank"><img src="https://matyalatte.github.io/images/logo/git.png" witdh="24" height="24" alt="to my github"></a>
+</div>
+</nav>
+</div>
+<a name="top"></a>
+  <main role="main" class="container">
+    <div class="row">
+      <div class="col-md-8 blog-main">
+<a href="https://matyalatte.github.io/">トップ</a>&gt<a href="https://matyalatte.github.io/memo">勉強メモ</a>&gtお手軽ホームページ作成        <h3 class="pb-3 mb-4 border-bottom">
+          勉強メモ
+        </h3>
+  
+        <div class="blog-post">
+          <h1 class="blog-post-title">GithubとBootstrapでお手軽ホームページ作成</h1>
+          <p class="blog-post-meta">2020/08/15 </p>
+          <p>僕のホームページはGithubとBootstrapを利用して作られています。Githubでは、htmlファイルをアップロードするだけでホームページを公開できます。
+            Bootstrapを利用すれば、cssやjsを書く必要もありません！このページではGithubとBootstrapを使ったホームページの作成手順をまとめています。
+          </p>
+          <ul class="page-contents">
+            <li>目次</li>
+            <li>
+           <ul>
+            <li><a href="#1">はじめに</a></li>
+            <li><a href="#2">STEP1:Githubのアカウントを作る</a></li>
+            <li><a href="#3">STEP2:"ユーザ名".github.ioという名前のレポジトリを作る</a></li>
+            <li><a href="#4">STEP3:作成したレポジトリにindex.htmlをアップロードする</a></li>
+            <li><a href="#5">STEP4:Github PagesのSourceをmasterに設定</a></li>
+            <li><a href="#6">STEP5:ブラウザで"ユーザ名".github.ioにアクセス！</a></li>
+            <li><a href="#7">cssやjsは必要ないの？</a></li>
+            <li><a href="#8">おまけ1:フォントを変えてみよう</a></li>
+            <li><a href="#9">おまけ2:faviconを作ろう</a></li>
+            <li><a href="#10">おまけ3:Google検索でヒットするようにしよう</a></li>
+            <li><a href="#11">さいごに</a></li>
+          </ul>
+           </li>
+           </ul>
+           <br>
+           <h3 class="border-bottom" id="1">はじめに</h3>
+           <p>僕のホームページの作成手順をまとめました。<br>
+             このページで紹介するホームページの作り方は、Github使いにとってはとても簡単な手順ですが、
+            「Githubって何？」「Github使ったことない！」という方には少々難しいかもしれません、、、。<br>
+            また、Github Pagesは静的なウェブサイトのみをサポートしています。CMSの利用やウェブアプリの作成はできませんのでご注意ください。
+            <br></p>
+            <br>
+          <h3 class="border-bottom" id="2">STEP1:Githubのアカウントを作る</h3>
+          「Githubを使ったことがない」という方は<a href="https://github.com/" target="_blank">こちら</a>でアカウントを作りましょう。<br>
+          <div style="text-align:center;">
+            <img src="../../images/memo/github_memo/github1.jpg" class="img-fluid" alt="Githubでアカウント作成">
+          </div>
+          STEP2以降はGithubを使ったことがある前提で話を進めますので、
+          <p><a href="https://qiita.com/TakumaKurosawa/items/79a75026327d8deb9c04" target="_blank">こちらのQiitaの記事</a>等でGithubアカウントの作り方やGithubの使い方を学びましょう。
+          </p>
+          <br>
+          <h3 class="border-bottom" id="3">STEP2:"ユーザ名".github.ioという名前のレポジトリを作る</h3>
+          <p>"ユーザ名".github.ioという名前のレポジトリを作りましょう。例えば、ユーザ名がmatyalatteならmatyalatte.github.ioという名前のレポジトリを作ります。
+            公開設定をPublicにしないと無料でホームページを公開できませんので注意してください。レポジトリの作り方はSTEP1で紹介したqiitaの記事を参考にしてください。
+            <div style="text-align:center;">
+              <img src="../../images/memo/github_memo/github2.jpg" class="img-fluid" alt="Githubでレポジトリ作成">
+            </div>
+          </p> 
+          <br> 
+          <h3 class="border-bottom" id="4">STEP3:作成したレポジトリにindex.htmlをアップロードする</h3>
+          <p>なんでもよいのでindex.htmlという名前のhtmlファイルを作成してアップロードしましょう。とりあえず<a href="./templete.txt" target="_blank">僕のホームページのテンプレート</a>をコピペしてindex.htmlというファイル名で保存してアップロードするとよいです。
+            <div style="text-align:center;">
+              <img src="../../images/memo/github_memo/github3.jpg" class="img-fluid" alt="Githubにファイルをアップロード">
+            </div>
+          </p>
+          <br>
+          <h3 class="border-bottom" id="5">STEP4:Github PagesのSourceをmasterに設定</h3>
+          <p>「Settings」をクリックします。<br>
+            <div style="text-align:center;">
+              <img src="../../images/memo/github_memo/github4.jpg" class="img-fluid" alt="Githubで設定変更">
+            </div>
+            画面を下の方にスクロールすると「GitHub Pages」という項目があります。「Source」から「master」を選択してください。ここで「masterを選択できない」「なんか支払い画面がでた」という場合はレポジトリの公開設定がPrivateになっていると思われます。
+            一つ下の項目「Danger Zone」の「Change repository visibility」から公開設定をPublicに変更してください。<br>
+            <div style="text-align:center;">
+              <img src="../../images/memo/github_memo/github5.jpg" class="img-fluid" alt="Github PagesのSource変更">
+            </div>
+          </p>
+          <br>
+          <h3 class="border-bottom" id="6">STEP5:ブラウザで"ユーザ名".github.ioにアクセス！</h3>
+          <p>これであなたのホームページが公開されたました！ブラウザのURLにhttps://"ユーザ名".github.ioを入力して確認してみましょう。
+          こんな感じでhtmlファイルが読み込まれているはずです。あとは好きなように自分のホームページをデザインしましょう。
+          <div style="text-align:center;">
+            <img src="../../images/memo/github_memo/github6.jpg" class="img-fluid" alt="Github PagesのSource変更">
+          </div>
+          </p>
+          <br>
+          <h3 class="border-bottom" id="7">cssやjsは必要ないの？</h3>         
+          <p>Bootstrap CDNを利用すればcssやjsを用意する必要ありません！htmlファイルのみでページ作成ができます。<br>
+            このページではBootstrapの詳しい説明はしませんが、有用な外部サイトを紹介します。参考にしてみてください。<br>
+            「どうしてもBootstrapの使い方がわからない」あるいは「使い方を勉強するのが面倒くさい」という方は僕のホームページのhtmlファイルを丸パクリしても構いません。
+          </p>
+            <br>
+            <h5><a href="https://tonari-it.com/bootstrap-cdn-background/" target="_blank">CSS初心者の強い味方！Bootstrapで簡単レスポンシブサイト制作</a></h5>
+            「Bootstrap CDNって何？」という人用の解説。<br>
+            <br>
+            <h5><a href="http://www.tohoho-web.com/bootstrap/index.html" target="_blank">とほほのBootstrap 4入門</a></h5>
+            リファレンス形式でBootstrapの使い方が載っています。<br>
+            <br>
+            <h5><a href="https://getbootstrap.jp/docs/4.3/examples/" target="_blank">サンプル - Bootstrap 4.3 - 日本語リファレンス</a></h5>
+            Bootstrapの公式ページ。サンプルページがたくさん用意されています。自分のサイトに使えそうなコンポーネントを探してみましょう。<br>
+            <br>
+            <br>
+
+           <h3 class="border-bottom" id="8">おまけ1:フォントを変えてみよう</h3>
+           <p>フォントを変えてみましょう。僕は<a href="https://fonts.google.com/?subset=japanese"  target="_blank">Google Fonts</a>のNote Sans JPを使用しています。<br>
+            ※index.htmlの作成をするときに僕のホームページのテンプレートをコピーした場合は、すでにフォントがNote Sans JPになっています。<br>
+            <br>
+            Google Fontsを使う場合はheadタグの外でフォントを読み込みましょう。コンテンツの表示が速くなります。
+            詳細は<a href="https://mogumogu-design.com/googlefont-yomikomi/">こちら</a><br>
+            
+          </p>
+          <br>
+            <h3 class="border-bottom" id="9">おまけ2:faviconを作ろう</h3>
+            <p>faviconとはタブの左側につくアイコンのことです。スマホではショートカットを作成した場合のアイコンにもなります。自分のサイトだと一目でわかるように、faviconを作ってみましょう。
+            <div style="text-align:center;">
+              <img src="../../images/memo/github_memo/github7.jpg" class="img-fluid" alt="faviconを作ろう">
+            </div>
+            作り方はこちら↓<br>
+            <a href="https://keywordfinder.jp/blog/seo/favicon/" target="_blank">favicon（ファビコン）とは？表示場所や作成・設置方法について</a><br>
+
+
+             <br></p>
+             <h3 class="border-bottom" id="10">おまけ3:Google検索でヒットするようにしよう</h3>
+             <p>ホームページを公開しただけでは、ブラウザで検索しても自分のホームページはヒットしません。<br>
+               Google Search ConsoleにURLを登録するなどの工夫が必要です。<br>
+               下記ページにGoogle検索でヒットするための要点をまとめたので、参考にしてください。(まとめ方が雑なのでちょっとわかりにくいかも)<br>
+             <a href="https://matyalatte.github.io/memo/web_memo/">Webページでアクセスを増やすための備忘録</a>
+ 
+              <br></p>
+            <h3 class="border-bottom" id="11">さいごに</h3>
+            GithubとBootstrapを使ったホームページの作り方についてまとめました。ぜひ皆さんも自分のホームページを作ってみてください。
+        </div><!-- /.blog-post -->
+    <!--
+        <nav class="blog-pagination">
+          <a class="btn btn-outline-primary" href="#">Older</a>
+          <a class="btn btn-outline-secondary disabled" href="#">Newer</a>
+        </nav>
+      -->
+      </div><!-- /.blog-main -->
+  
+<aside class="col-md-3 blog-sidebar">
+    <div class="p-3 mb-3 bg-light rounded">
+      <div style="text-align:center;">
+      <img src="https://matyalatte.github.io/images/icon.png" width="100" height="100" alt="my icon">
+      <h4>まちゃラテのプロフィール</h4>
+      </div>
+      <p class="mb-0">道産子京都住み。主にプチコン界隈で活動している。プチコン以外だとpythonでpytorch, kerasあたりをよくいじっている。太鼓の達人が好き(ハウス9段)。</p>
+    </div>
+    <div class="p-3">
+      <h5>おすすめページ</h5>
+      <a href="https://matyalatte.github.io/petitcom/">プチコン作品一覧</a><br>
+      <a href="https://matyalatte.github.io/petitcom/qrcoder/">QR CODER</a><br>
+      <a href="https://matyalatte.github.io/petitcom/softbody/">SOFTBODYsimulator</a><br>
+      <a href="https://matyalatte.github.io/memo/">勉強メモ</a>
+
+     <h5>最新ページ</h5>
+     <a href="https://matyalatte.github.io/memo/github_memo/">2020/08/15 お手軽ホームページ作成</a><br>
+     <a href="https://matyalatte.github.io/memo/sekibun_memo/">2020/08/13 積分で円周率計算</a><br>
+     <a href="https://matyalatte.github.io/memo/web_memo/">2020/08/12 webページ作成の備忘録</a>
+    </div>
+    <div class="p-3 border rounded">
+      <a class="twitter-timeline" data-tweet-limit="3" data-height="400" href="https://twitter.com/matyalatte_?ref_src=twsrc%5Etfw">Tweets by matyalatte_</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+      <!-- created by matometools.com -->
+    </div>
+</aside><!-- /.blog-sidebar -->  
+    </div><!-- /.row -->
+  
+  </main><!-- /.container -->
+
+<footer class="page-footer bg-light border">        
+    <div class="footer-copyright text-center py-3">
+      <a href="#top">一番上にもどる</a>
+      <p>© 2020 まちゃラテ  
+      </p>
+    </div>
+    <script>
+      window.WebFontConfig = {
+        google: { families: ['Noto+Sans+JP'] },
+        active: function() {
+          sessionStorage.fonts = true;
+        }
+      };
+      (function() {
+        var wf = document.createElement('script');
+        wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js';
+        wf.type = 'text/javascript';
+        wf.async = 'true';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(wf, s);
+      })();
+      </script>
+  </footer>
+
+
+  </body>
+</html>
