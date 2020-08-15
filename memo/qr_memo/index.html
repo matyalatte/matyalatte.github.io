@@ -1,24 +1,16 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-174921482-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-174921482-1');
-</script>
-<meta http-equiv="Expires" content=86400>    <meta name="twitter:card" content="summary">
-    <meta name="Twitter:site" content="@matyalatte_">
-    <meta name="twitter:title" content="まちゃラテの勉強メモ">
-    <meta name="twitter:description" content="勉強したことをいろいろ書いていきます。情報系、数学系の話が多め。">
-    <meta name="twitter:image" content="https://matyalatte.github.io/images/irasutoya/study.jpg">
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>勉強メモ｜まちゃラテのなんちゃら</title>
+  <head>
+    <include ./include/google.html>
+        <meta name="twitter:card" content="summary">
+        <meta name="Twitter:site" content="@matyalatte_">
+        <meta name="twitter:title" content="勉強メモ：GithubとBootstrapでお手軽ホームページ作成">
+        <meta name="twitter:description" content="GithubとBootstapを使えばhtmlファイルをアップロードするだけでホームページを公開できます。cssやjsを書く必要もありません！このページではGithubとBootstrapを使ったホームページの作成手順をまとめています。">
+        <meta name="twitter:image" content="https://matyalatte.github.io/images/irasutoya/study.jpg">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>QRコードの作り方まとめ｜まちゃラテのなんちゃら</title>
 
 
 <!-- BootstrapのCSS読み込み -->
@@ -71,27 +63,52 @@
   <main role="main" class="container">
     <div class="row">
       <div class="col-md-8 blog-main">
-<a href="https://matyalatte.github.io/">トップ</a>&gt勉強メモ        <h3 class="pb-3 mb-4 border-bottom">
+<a href="https://matyalatte.github.io/">トップ</a>&gt<a href="https://matyalatte.github.io/memo">勉強メモ</a>&gtQRコードまとめ        <h3 class="pb-3 mb-4 border-bottom">
           勉強メモ
         </h3>
   
         <div class="blog-post">
-          <h1 class="blog-post-title">勉強メモ一覧</h1>
-          <p class="blog-post-meta">最終更新日 2020/08/13 </p>
-          勉強したことをいろいろ書いていきます。情報系、数学系の話が多め。<br>
-          <br>
-          <h4><a href="./web_memo">1.Webページでアクセスを増やすための備忘録</a></h4>
-          webページ作成をするまで知らなかったことをメモしました。<br>
-          <br>
-          <h4><a href="./sekibun_memo">2.積分で円周率を求める(シンプソン則)</a></h4>
-          定積分を使って円周率を求めます。また、定積分の計算手法の一つである「シンプソン則」を紹介します。
-          <br>
-          <h4><a href="./github_memo/">3.GithubとBootstrapでお手軽ホームページ作成</a></h4>
-          僕のホームページの作成手順を簡単にまとめる予定。
-          <br>
-          <h4><a href="./qr_memo">4.QRコードの作り方</a></h4>
-          QRコードの作成方法を勉強するために使ったサイトをまとめる予定
-          <br>
+          <h1 class="blog-post-title">QRコードの作り方まとめ</h1>
+          <p class="blog-post-meta">2020/xx/xx </p>
+          <p>QRコードの作り方を学ぶために利用したサイトをまとめました。QRコードの作り方についてはいつか詳しい解説ページをつくる予定ですが、忘れないうちに簡単にまとめておきます。
+          </p>
+          <ul class="page-contents">
+            <li>目次</li>
+            <li>
+           <ul>
+            <li><a href="#1">有用ページ一覧</a></li>
+
+          </ul>
+           </li>
+           </ul>
+           <br>
+           <h3 class="border-bottom" id="1">有用ページ一覧</h3>
+           <h5><a href="http://www.swetake.com/qrcode/qr1.html" target="_blank">ＱＲコードをつくってみる</a></h5>
+           おそらく日本語のサイトで一番詳しい。でもversion7以降のQRコード生成には対応していません。一部解説が分かりにくい部分もあります。このサイトだけでQRコードの作り方を理解するのは難しい。
+           <br>
+           <br>
+           <h5><a href="https://www.thonky.com/qr-code-tutorial/" target="_blank">QR Code Tutorial</a></h5>
+           神。とりあえずここ見ればなんとかなる。ただし全部英語。
+           <br>
+           <br>
+           <h5><a href="https://kikakurui.com/x0/X0510-2004-01.html" target="_blank">JIS X 0510:2004 二次元コードシンボル—QRコード—基本仕様</a></h5>
+           QRコードの仕様書。たぶん、ここに全ての情報があるんだろうけど、仕様書なのでめちゃくちゃ分かりにくい。
+           <br>
+           <br>
+           <h5><a href="https://monika-heusinger.net/qr/" target="_blank">QR Code Generator</a></h5>
+           バージョンとかマスクとか細かい条件を指定して、ブラウザ上でQRコードを生成できる。デバッグに使える。
+           <br>
+           <br>
+           <h5><a href="http://www.ee.unb.ca/cgi-bin/tervo/calc2.pl?num=1+0+7+6&den=1+6+3&f=d&p=37&d=1&y=1" target="_blank">Galois Field GF(2m) Calculator</a></h5>
+           ガロア体の多項式の割り算を計算できる。誤り訂正コードのデバッグに使う。
+           <br>
+           <br>
+           <h5><a href="http://itrestaurant.hatenablog.com/entry/2012/12/21/004734" target="_blank">QRコードを作る時に使う生成多項式g(x)の求め方</a></h5>
+           生成多項式の係数をポチポチ手打ちする必要はない。計算で求められる。
+           <br>
+           <br>
+           <h5><a href=""></a></h5>
+           <br>
         </div><!-- /.blog-post -->
     <!--
         <nav class="blog-pagination">
