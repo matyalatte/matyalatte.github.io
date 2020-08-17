@@ -73,17 +73,18 @@
     <div class="row">
       <div class="col-md-8 blog-main">
 <a href="https://matyalatte.github.io/">トップ</a>&gt<a href="https://matyalatte.github.io/petitcom">プチコン作品一覧</a>&gt<a href="https://matyalatte.github.io/petitcom/qrcoder">QR CODER</a>&gt<a href="https://matyalatte.github.io/petitcom/qrcoder/reference">リファレンス</a>&gtQR_MAKE<h3 class="pb-3 mb-4 border-bottom">
-  QR_CODER ver0.6.1 リファレンス
+  QR_CODER ver0.7 リファレンス
 </h3>
         <div class="blog-post">
 
           <h2>QR_MAKE</h2>
             文字列からQRコードを生成し、グラフィック画面に描画する。<br>
-            ASCII(バイト)モード、英数字モードに対応。<br>
+            ASCII、英数字、UTF-8の出力に対応。<br>
             ※ASCIIコードに変換できない文字はアスタリスク(*)に変換されます。<br>
             ※英数字モードでは、小文字の英字が大文字に変換されます。<br>
             ※バージョンが大きくなるとスマホで読み取りづらくなります。<br>
             ※マスクに-1を指定するとマスクの自動選択が行われますが、結構重いです。非推奨。<br>
+            ※UTF-8の符号は可変長であるため、最大字数より少ない字数でもエラーが発生する可能性があります。
             <br>
             <table class="table table-bordered">
                 <tr><th>書式</th><th>QR_MAKE STR,X,Y[,LV[,MASK[,VER[,MODE]]]] [OUT SIZE]</th></tr>
@@ -99,7 +100,7 @@
                 <tr><th>LV</th><th>QRコードの誤り訂正レベル。1がL、0がM、3がQ、2がHを表す。省略可。初期値は0</th></tr>
                 <tr><th>MASK</th><th>QRコードのマスクの番号。0~7あるいは-1を指定する。-1を指定した場合は自動で適切なマスクが選択されるが、その分、生成に時間がかかる。省略可。初期値は1。</th></tr>
                 <tr><th>VER</th><th>QRコードのバージョン。1~40あるいは-1を指定する。-1を指定した場合は自動で適切なバージョンが選択される。省略可。初期値は-1。</th></tr>
-                <tr><th>MODE</th><th>QRコードのモード。1が英数字モード、2がASCII(バイト)モード。</th></tr>
+                <tr><th>MODE</th><th>QRコードのモード。1が英数字、2がASCII、3がUTF-8。</th></tr>
               </tbody>
             </table>
             <table class="table table-bordered">

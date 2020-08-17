@@ -96,14 +96,15 @@
   <main role="main" class="container">
     <div class="row">
       <div class="col-md-8 blog-main">
-<a href="https://matyalatte.github.io/">トップ</a>&gt<a href="https://matyalatte.github.io/petitcom">プチコン作品一覧</a>&gtQR CODER  <h1>QR CODER ver0.6.1</h1>
+<a href="https://matyalatte.github.io/">トップ</a>&gt<a href="https://matyalatte.github.io/petitcom">プチコン作品一覧</a>&gtQR CODER  <h1>QR CODER ver0.7</h1>
   <h4>公開キー:4Q4E323S3</h4>
-  <p class="blog-post-meta">最終更新日 2020/08/11</p>
+  <p class="blog-post-meta">最終更新日 2020/08/17</p>
   <div id="qrcoder" class="carousel slide" data-interval=3000 data-ride="carousel">
     <ol class="carousel-indicators">
       <li data-target="#qrcoder" data-slide-to="0" class="active"></li>
       <li data-target="#qrcoder" data-slide-to="1"></li>
       <li data-target="#qrcoder" data-slide-to="2"></li>
+      <li data-target="#qrcoder" data-slide-to="3"></li>
     </ol>
     <div class="carousel-inner" role="listbox">
       <div class="carousel-item active">
@@ -114,6 +115,9 @@
       </div>
       <div class="carousel-item">
         <img src="../../images/deco_qr1_s.jpg" alt="QR CODER 生成例3" class="d-block img-fluid">
+      </div>
+      <div class="carousel-item">
+        <img src="../../images/petitcom/qrcoder/qr_tool.jpg" alt="QR CODERツール" class="d-block img-fluid">
       </div>
     </div>
     <a class="carousel-control-prev" href="#qrcoder" role="button" data-slide="prev">
@@ -126,10 +130,17 @@
     </a>
   </div>
   <h4><b>概要</b></h4>
-  QR CODERはプチコン4でQRコードを生成するためのライブラリです。<br>
+  <p>QR CODERはプチコン4でQRコードを生成するためのライブラリです。<br>
   QRでURLを貼り、自分のSNSアカウントやブログを宣伝しましょう！<br>
   QRをグラフィック画面に描画したり、QRをSLOTに書き出したり、SLOTの内容をQRに変換したり、色々な使い方ができます。<br>
   QRを使ったゲームも作れそう、、、？<br>
+  <br>
+  ※追記(2020/08/17)<br>
+  QR生成用のツールを作りました！MAIN.PRGから起動できます。<br>
+  ライブラリの使い方を知らなくても、ジョイコンorキーボード操作でQRを生成できます！<br>
+  QRコードをグラフィック画面またはコンソール画面に描画して保存できます。<br>
+  txtファイルの分割生成にも対応！日本語(UTF-8)の出力にも対応！<br>
+  </p>
   <br>
   <div class="media position-relative">      
     <img src="https://matyalatte.github.io/images/irasutoya/ref.jpg" class="mr-3 img-fluid" alt="QR CODER リファレンス">
@@ -148,7 +159,7 @@
     </div>
   </div>
   <br>
-  <h3>導入方法</h3>
+  <h3>ライブラリの導入方法</h3>
     <h4>STEP1:プチコン4でQR CODERをダウンロード！</h4>
     <div style="text-align:center;">
     <img src="../../images/petitcom/qrcoder/top_demo3_s.jpg" class="img-fluid" alt="QRCODERをダウンロード">
