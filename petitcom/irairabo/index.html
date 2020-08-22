@@ -12,14 +12,13 @@
 </script>
 <meta http-equiv="Expires" content=86400>    <meta name="twitter:card" content="summary">
     <meta name="Twitter:site" content="@matyalatte_">
-    <meta name="twitter:title" content="QR CODER">
-    <meta name="twitter:description" content="プチコン4でQRコードを作成するためのツール「QR CODER」です。">
-    <meta name="twitter:image" content="https://matyalatte.github.io/images/qr.jpg">
+    <meta name="twitter:title" content="まちゃラテの作品一覧">
+    <meta name="twitter:description" content="まちゃラテがプチコンで作った作品の一覧です。">
+    <meta name="twitter:image" content="https://matyalatte.github.io/images/irasutoya/pc.jpg">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <title>QR_MAKE_ARRAY|まちゃラテのなんちゃら</title>
+    <title>イライラ棒 プチコン4｜まちゃラテのなんちゃら</title>
 
 
 <!-- BootstrapのCSS読み込み -->
@@ -69,50 +68,63 @@
 </nav>
 </div>
 <a name="top"></a>
+
   <main role="main" class="container">
     <div class="row">
       <div class="col-md-8 blog-main">
-<a href="https://matyalatte.github.io/">トップ</a>&gt<a href="https://matyalatte.github.io/petitcom">プチコン作品一覧</a>&gt<a href="https://matyalatte.github.io/petitcom/qrcoder">QR CODER</a>&gt<a href="https://matyalatte.github.io/petitcom/qrcoder/reference">リファレンス</a>&gtQR_MAKE_ARRAY<h3 class="pb-3 mb-4 border-bottom">
-  QR_CODER ver0.7.1 リファレンス
-</h3>  
-        <div class="blog-post">
+<a href="https://matyalatte.github.io/">トップ</a>&gt<a href="https://matyalatte.github.io/petitcom">プチコン作品一覧</a>&gt***  <h1>イライラ棒 ver1.0</h1>
+  <h4>公開キー:4D2K42EQV</h4>
+  <div id="iraira" class="carousel slide" data-interval=3000 data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#iraira" data-slide-to="0" class="active"></li>
+      <li data-target="#iraira" data-slide-to="1"></li>
+      <li data-target="#iraira" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active" style="text-align:center;">
+        <img src="https://matyalatte.github.io/images/petitcom/irairabo/irairabo.jpg" class="d-block img-fluid" alt="イライラ棒 スクショ1">
+      </div>
+      <div class="carousel-item" style="text-align:center;">
+        <img src="https://matyalatte.github.io/images/petitcom/irairabo/irairabo2.jpg" class="d-block img-fluid" alt="イライラ棒 スクショ2">
+      </div>
+      <div class="carousel-item" style="text-align:center;">
+        <img src="https://matyalatte.github.io/images/petitcom/irairabo/irairabo3.jpg" class="d-block img-fluid" alt="イライラ棒 スクショ3">
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#iraira" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#iraira" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+  <h4><b>概要</b></h4>
+  イライラ棒です。プチコン3号から移植しました。<br>
+  タッチまたはマウスで操作します。<br>
+  細かい操作が必要となるため、タッチで遊ぶ場合はタッチペンの使用を推奨します。<br>
+  マウスで遊ぶ場合はマウスの感度を低くすることをお勧めします。<br>
+  <br>
+  <h4><b>難しくてクリアできない場合は...</b></h4>
+  ステージ選択画面で右下の旗マークをタッチすると、練習モードが起動します。<br>
+  練習モードではステージ内に複数のスタート地点が追加され、ギミックごとに練習することができます。<br>
+  <br>
 
-          <h2>QR_MAKE_ARRAY()</h2>
-            文字列からQRコードを生成し、生成したQRコードを2次配列として取得する。<br>
-            <br>
-            <table class="table table-bordered">
-              <tr><th>書式</th><th>QR_MAKE_ARRAY(STR[,LV[,MASK[,VER[,MODE]]]])</th></tr>
-          </table>
-            <table class="table table-bordered">
-              <thead class="thead-light">
-                <tr><th>引数</th><th>詳細</th></tr>
-              </thead>
-              <tbody>
-                <tr><th>STR</th><th>QRに変換する文字列。</th></tr>
-                <tr><th>LV</th><th>QRコードの誤り訂正レベル。1がL、0がM、3がQ、2がHを表す。省略可。初期値は0</th></tr>
-                <tr><th>MASK</th><th>QRコードのマスクの番号。0~7あるいは-1を指定する。-1を指定した場合は自動で適切なマスクが選択されるが、その分、生成に時間がかかる。省略可。初期値は1。</th></tr>
-                <tr><th>VER</th><th>QRコードのバージョン。1~40あるいは-1を指定する。-1を指定した場合は自動で適切なバージョンが選択される。省略可。初期値は-1。</th></tr>
-                <tr><th>MODE</th><th>QRコードのモードを選択。1が英数字、2がASCII、3がUTF-8。</th></tr>
-              </tbody>
-            </table>
-            <table class="table table-bordered">
-              <thead class="thead-light">
-                <tr><th>返値</th><th>詳細</th></tr>
-              </thead>
-              <tbody>
-                <tr><th>2次配列</th><th>生成したQRコードを表す2次配列。一般的なQRコードの色で言うと、0が白、1が黒を表す。</th></tr>
-              </tbody>
-            </table>
-            <h5>使用例</h5>
-            <pre style="font-size: 18px">
-EXEC "QR.LIB",1
-TXT="ABCDEFG"
-SIZE=QR_CAL_SIZE(TXT)
-VAR QR[SIZE,SIZE]
-QR=QR_MAKE_ARRAY(TXT)
-            </pre>
-        </div><!-- /.blog-post -->
+    <h4><b>自作ステージの作り方</b></h4>
+    物足りない方は、自分でステージを作ってみましょう。<br>
+<br>
+    プログラム内に書かれた説明を参考に、<br>
+    緑でスタート地点、赤でクリア地点、白で壁を描きます。<br>
+    (緑に触れるとゲーム開始、赤に触れるとクリア、白に触れるとゲームオーバーという仕組み)<br>
+    <br>
+    ステージを動かしたい場合はL=1にしてサブルーチンを作って下さい。<br>
+    ステージをつくったらSTGNの値を+1して下さい。<br>
+     <br>
+     質問・要望があれば<a href="https://twitter.com/matyalatte_" target="_blank">twitter</a>まで。<br>
+   <br>
 
+         ※「プチコン」は株式会社スマイルブームの登録商標です。<br>
       </div><!-- /.blog-main -->
   
 <aside class="col-md-3 blog-sidebar">
@@ -140,10 +152,10 @@ QR=QR_MAKE_ARRAY(TXT)
       <!-- created by matometools.com -->
     </div>
 </aside><!-- /.blog-sidebar -->  
-    </div><!-- /.row -->
+      </div><!-- /.row -->
+    
+    </main><!-- /.container -->
   
-  </main><!-- /.container -->
-
 <footer class="page-footer bg-light border">        
     <div class="footer-copyright text-center py-3">
       <a href="#top">一番上にもどる</a>
@@ -166,6 +178,6 @@ QR=QR_MAKE_ARRAY(TXT)
         s.parentNode.insertBefore(wf, s);
       })();
       </script>
-  </footer>
-  </body>
-</html>
+  </footer>  
+    </body>
+  </html>
