@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-174921482-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-174921482-1');
+</script>
+<meta http-equiv="Expires" content=86400>        <meta name="twitter:card" content="summary">
+        <meta name="Twitter:site" content="@matyalatte_">
+        <meta name="twitter:title" content="勉強メモ：GradCAM ~AIはどこを見ているのか~">
+        <meta name="twitter:description" content="このページでは、画像処理AIの注目領域を可視化する技術「GradCAM」を紹介します。 ブラックボックスと言われている深層学習AIの思考を可視化することは、学術・ビジネスの両面で有用なものとなります。">
+        <meta name="twitter:image" content="https://matyalatte.github.io/images/irasutoya/study.jpg">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+<script type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    TeX: { equationNumbers: { autoNumber: "AMS" }},
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { matchFontHeight: false }});
+</script>  <title>GradCAM ~AIは何を見ているのか~ 勉強メモ｜まちゃラテのなんちゃら</title>
+
+
+<!-- BootstrapのCSS読み込み -->
+<link rel="stylesheet" rel="preload" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" as="style">
+<style>
+      body{ 
+          padding-top: 70px; 
+          font-family: 'Noto Sans JP', sans-serif;
+      }
+</style>
+
+<!-- jQuery読み込み -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<link rel="icon" href="https://matyalatte.github.io/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="https://matyalatte.github.io/images/icon.png">
+<link rel="icon" type="image/png" href="https://matyalatte.github.io/images/icon.png" sizes="192x192">
+</head>
+  <body>
+<div class='fixed-top'>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <a href="https://matyalatte.github.io/" class="navbar-brand">
+      <img src="https://matyalatte.github.io/images/icon_s.png" width="30" height="30" alt="my icon to home">
+      まちゃラテのなんちゃら
+    </a>
+    <button class="navbar-toggler" type="button"
+    data-toggle="collapse"
+    data-target="#navmenu1"
+    aria-controls="navmenu1"
+    aria-expanded="false"
+    aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse justify-content-end" id="navmenu1">
+
+  <div class="navbar-nav">
+    <a class="nav-item nav-link" href="https://matyalatte.github.io/memo/">勉強メモ</a>
+    <a class="nav-item nav-link" href="https://matyalatte.github.io/petitcom/">プチコン</a>
+    <a class="nav-item nav-link" href="https://matyalatte.github.io/petitcom/qrcoder/">QR CODER</a>
+  </div>
+  <a href="https://twitter.com/matyalatte_" target="_blank"><img src="https://matyalatte.github.io/images/logo/twitter.png" witdh="24" height="24" alt="to my twitter"></a>
+  &nbsp;
+  <a href="https://github.com/matyalatte" target="_blank"><img src="https://matyalatte.github.io/images/logo/git.png" witdh="24" height="24" alt="to my github"></a>
+</div>
+</nav>
+</div>
+<a name="top"></a>
+  <main role="main" class="container">
+    <div class="row">
+      <div class="col-md-8 blog-main">
+<a href="https://matyalatte.github.io/">トップ</a>&gt<a href="https://matyalatte.github.io/memo">勉強メモ</a>&gtGradCAM        <h3 class="pb-3 mb-4 border-bottom">
+          勉強メモ
+        </h3>
+  
+        <div class="blog-post">
+          <h1 class="blog-post-title">GradCAM ~AIはどこを見ているのか~</h1>
+          <p class="blog-post-meta">2020/08/24 </p>
+          <p>このページでは、画像処理AIの注目領域を可視化する技術「GradCAM」を簡単に紹介します。
+            ブラックボックスと言われている深層学習AIの思考を可視化することは、学術・ビジネスの両面で有用なものとなります。
+          </p>
+          <div style="text-align:center;">
+            <img src="../../images/memo/gradcam/gradcam2.jpg" class="img-fluid" alt="GradCAM出力">
+          </div> 
+          <br>
+          <p><b>想定している事前知識</b><br>
+            画像の数値表現の仕方　微分
+            </p>
+
+          <ul class="page-contents">
+            <li>目次</li>
+            <li>
+           <ul>
+            <li><a href="#1">はじめに</a></li>
+            <li><a href="#2">GradCAMって何？</a></li>
+            <li><a href="#3">GradCAMの活用法</a></li>
+            <li><a href="#4">そもそも注目領域って何？</a></li>
+            <li><a href="#5">注目領域の計算方法</a></li>
+            <li><a href="#6">もう少し具体的な計算方法</a></li>
+            <li><a href="#7">さいごに</a></li>
+           </ul>
+           </li>
+           </ul>
+          <h3 class="border-bottom" id="1">はじめに</h3>
+          <p>ここ数年、機械学習の分野では「深層学習」が大流行しています。
+            従来手法の勉強が馬鹿らしくなるほどに圧倒的な性能を誇るため、
+            現在「機械学習」を扱っている研究者の殆どが深層学習を使った研究をしている状態です。<br>
+            しかし、この深層学習という技術には1つ欠点があります。<br>
+            それは「AIの判断根拠がわからない」というもの。<br>
+            <br>
+            「高性能で実用上は全く問題ないんだけど、AIが何を根拠に結論を導いているのか設計者でさえわからない」
+            <br>
+            <br>
+            という状況が発生しているわけです。<br>
+            そのため、最近では「AIの判断根拠を解釈できるようにしよう」という研究が行われています。<br>
+            このページでは、「画像処理AIがどこを見て判断しているのかを可視化する」技術である
+            「GradCAM(グラッドカム)」を紹介します。<br>
+            <br>
+
+            ※このページで使われている画像（いらすとやの画像をのぞく）は全て以下の論文から引用しています。<br>
+            <a href="https://arxiv.org/abs/1610.02391" target="_blank">Grad-CAM: Visual Explanations from Deep Networks via Gradient-based Localization</a>
+            ※このページの文章には、わかりやすさのため、一部不正確な記述や主観的な解釈が含まれています。
+
+          </p>
+          <br>
+          <h3 class="border-bottom" id="2">GradCAMって何？</h3>
+          <p>GradCAMは画像処理AIの注目領域を可視化します。<br>
+          例えば、犬を検出するAIにGradCAMを適用すると以下のような画像が得られます。<br>
+          <div style="text-align:center;">
+            <img src="../../images/memo/gradcam/gradcam2.jpg" class="img-fluid" alt="GradCAM出力">
+          </div>          
+          犬の顔周辺が赤くなっていますね。四足歩行の動物は犬以外にもたくさんいるので、顔を見て判断しているのでしょうか。<br>
+          <br>
+          このように、GradCAMを用いると「AIがどこを見ているのか」を分かりやすく図で表すことができます。
+
+          </p>
+          <br>
+          <h3 class="border-bottom" id="3">GradCAMの活用法</h3>
+          <p>
+            GradCAMはどのような場面で活用されるのでしょうか。<br>
+            考えられる活用法を2つ紹介します。
+          </p>
+          <h4>1.学習結果の解析につかう</h4>
+          <p>まず1つ目はエンジニア視点の活用法です。<br>
+          「深層学習はブラックボックス」などとよく言われますが、良い学習結果が出ているのであれば（多くの場合は）ブラックボックスだろうと何も問題ありません。<br>
+          <br>
+          問題となるのは、「学習が失敗したとき」です。<br>
+          <br>
+          AIが何を考えているのかが分からないため、「なぜ学習に失敗したのか」を解析する作業が結構大変です。<br>
+          GradCAMを使えば、学習データの偏り等、学習に失敗した原因を特定できることがあります。<br>
+          <p>
+          <h4>2.プレゼンの材料につかう</h4>
+          <p>
+            2つ目はビジネス視点の活用法です。<br>
+            GradCAMの出力結果は視覚的なインパクトがあるため、プレゼン用の図として使えます。<br>
+            <br>
+            例えば、会議でGradCAMの画像を使うと<br>
+            「AIがここを見ているので、学習が失敗した原因は〇〇にあると考えられます」<br>
+            などと具体的な根拠をわかりやすく示すことができます。<br>
+            <br>
+            自社のお偉いさんやお客さんなど、機械学習の知識があまりない人に説明するときにも役立ちます。
+          </p>
+          <br>
+          <h3 class="border-bottom" id="4">そもそも注目領域って何？</h3>
+          <p>
+            概要の説明はこの辺にして、具体的な議論に入っていきます。<br>
+            <br>
+
+            GradCAMはAIの「注目領域」を可視化する技術ですが、この「注目領域」とは何なのでしょうか。<br>
+            何をもって「AIはここを見ている」と考えればよいのでしょうか。<br>
+            <br>
+            GradCAMでは、<br>
+            「AIの判断に大きな影響を与える領域は注目領域である」<br>
+            と考えます。<br>
+            言い方を少し変えると、<br>
+            「ある領域の色を変えたとき、AIの判断も変わるならば、AIはその領域に注目している」<br>
+            ということになります。<br>
+            <br>
+            例えば、先ほどの犬を検出するAIの場合、以下のように画像の背景を隠したところで、AIは「犬がいる！」と判断できるため、背景は「注目領域でない」と考えられます。<br>
+            <div style="text-align:center;">
+              <img src="../../images/memo/gradcam/gradcam4.jpg" class="img-fluid" alt="GradCAM隠す1">
+            </div> 
+            <br>
+            しかし、次の画像のように犬が写っている領域を隠してしまうと、AIが「この画像に犬はいない」と判断してしまうため、「AIはこの領域に注目している」と考えることができます。
+            <div style="text-align:center;">
+              <img src="../../images/memo/gradcam/gradcam5.jpg" class="img-fluid" alt="GradCAM隠す2">
+            </div> 
+          </p>
+          <br>
+          <h3 class="border-bottom" id="5">注目領域の計算方法</h3>
+          <p>では「AIの判断に大きな影響を与える領域」はどのように求めればよいのでしょうか。<br>
+            深層学習AIの思考は計算量が大きいため、「元画像を何度も加工してAIの判断の変化を調べる」
+            という方法は現実的ではありません。<br>
+            より効率の良い手法を探るため、「注目領域」を数学的に考えてみましょう。<br>
+            <br>
+            「注目領域」の説明を数学的に書くと次のようになります。<br>
+            <br><br>
+            \(i\)番目のピクセルの色情報を\(x_i\)、AIが行う計算を\(f\)とおくと、<br>
+            AIの判断は\(f(x_1,x_2,x_3,...)\)と表せる。<br>
+            \(x_i\)の変化量に対して、\(f(x_1,x_2,x_3,...)\)の変化量が大きい場合、
+            \(i\)番目のピクセルはAIの注目領域である。<br>
+            <br><br>
+            つまり、\(x_i\)の変化量に対する\(f(x_1,x_2,x_3,...)\)の変化量を計算すればよいわけです。<br>
+            <br>
+            \(x\)の変化量に対する\(f(x)\)の変化量...<br>
+            <br>
+            なんか聞いたことありますよね？<br>
+
+            そう！これは微分で計算できます！(正確には偏微分ですが)<br>
+            <br>
+            深層学習の場合、AIの計算過程\(f\)は微分可能な関数になっているため、微分値を求めることができます。<br>
+            計算した微分値をヒートマップで表現したものが、注目領域を可視化したGradCAMの出力となります。
+
+          </p>
+          <br>
+          <h3 class="border-bottom" id="6">もう少し具体的な計算方法</h3>
+          <p>ここからは、深層学習に詳しい人向けの説明です。CNN、誤差伝播を理解していることを前提とします。<br>
+            <br>
+            GradCAMの計算過程を図で表すと以下のようになります(Guided GradCAMの部分は無視してください)。
+            <div style="text-align:center;">
+              <img src="../../images/memo/gradcam/gradcam3.jpg" class="img-fluid" alt="GradCAM概要">
+            </div>
+            まず、通常通り画像を入力し、モデルの出力を計算します。出力を計算したら、
+            モデルの出力層からCNN層まで誤差伝播して、ピクセル毎に勾配の大きさを計算します。(Lossの勾配を計算しているわけではないので誤差伝播という表現は不適切かも)<br>
+            さらに詳しく知りたいかたは以下のページを参考にしてください。<br>
+            <a href="https://blog.brainpad.co.jp/entry/2017/07/10/163000" target="_blank">深層学習は画像のどこを見ている！？ CNNで「お好み焼き」と「ピザ」の違いを検証</a>
+          </p>
+          <br>
+          <h3 class="border-bottom" id="7">さいごに</h3>
+          <p>画像処理AIの注目領域を可視化する技術「GradCAM」を紹介しました。<br>
+            今回紹介したGradCAMは注目領域の可視化技術の中で最も単純なものになります。<br>
+            GradCAMが提案されたのは2016年とわりと最近ですが、発展著しい深層学習の分野では「2016年は古代」といっても過言ではありません(いや過言かも笑)。<br>
+            現在では、GradCAMの進化系がたくさん存在するので、気になる人は調べてみてください。
+          </p>
+        </div><!-- /.blog-post -->
+    <!--
+        <nav class="blog-pagination">
+          <a class="btn btn-outline-primary" href="#">Older</a>
+          <a class="btn btn-outline-secondary disabled" href="#">Newer</a>
+        </nav>
+      -->
+      </div><!-- /.blog-main -->
+  
+<aside class="col-md-3 blog-sidebar">
+    <div class="p-3 mb-3 bg-light rounded">
+      <div style="text-align:center;">
+      <img src="https://matyalatte.github.io/images/icon.png" width="100" height="100" alt="my icon">
+      <h4>まちゃラテのプロフィール</h4>
+      </div>
+      <p class="mb-0">道産子京都住み。主にプチコン界隈で活動している。プチコン以外だとpythonでpytorch, kerasあたりをよくいじっている。太鼓の達人が好き(ハウス9段)。</p>
+    </div>
+    <div class="p-3">
+      <h5>おすすめページ</h5>
+      <a href="https://matyalatte.github.io/petitcom/">プチコン作品一覧</a><br>
+      <a href="https://matyalatte.github.io/petitcom/qrcoder/">QR CODER</a><br>
+      <a href="https://matyalatte.github.io/petitcom/softbody/">SOFTBODYsimulator</a><br>
+      <a href="https://matyalatte.github.io/memo/">勉強メモ</a>
+
+     <h5>最新ページ</h5>
+     <a href="https://matyalatte.github.io/memo/github_memo/">2020/08/15 お手軽ホームページ作成</a><br>
+     <a href="https://matyalatte.github.io/memo/sekibun_memo/">2020/08/13 積分で円周率計算</a><br>
+     <a href="https://matyalatte.github.io/memo/web_memo/">2020/08/12 webページ作成の備忘録</a>
+    </div>
+    <div class="p-3 border rounded">
+      <a class="twitter-timeline" data-tweet-limit="3" data-height="400" href="https://twitter.com/matyalatte_?ref_src=twsrc%5Etfw">Tweets by matyalatte_</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+      <!-- created by matometools.com -->
+    </div>
+</aside><!-- /.blog-sidebar -->  
+    </div><!-- /.row -->
+  
+  </main><!-- /.container -->
+
+<footer class="page-footer bg-light border">        
+    <div class="footer-copyright text-center py-3">
+      <a href="#top">一番上にもどる</a>
+      <p>© 2020 まちゃラテ  
+      </p>
+    </div>
+    <script>
+      window.WebFontConfig = {
+        google: { families: ['Noto+Sans+JP'] },
+        active: function() {
+          sessionStorage.fonts = true;
+        }
+      };
+      (function() {
+        var wf = document.createElement('script');
+        wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js';
+        wf.type = 'text/javascript';
+        wf.async = 'true';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(wf, s);
+      })();
+      </script>
+  </footer>
+
+
+  </body>
+</html>
