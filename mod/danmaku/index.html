@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
-  <head>
+<head>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-174921482-1"></script>
 <script>
@@ -12,18 +12,18 @@
 </script>
 <meta http-equiv="Expires" content=86400>    <meta name="twitter:card" content="summary">
     <meta name="Twitter:site" content="@matyalatte_">
-    <meta name="twitter:title" content="まちゃラテのなんちゃら">
-    <meta name="twitter:description" content="プチコンの作品一覧とか勉強のメモとか。">
-    <meta name="twitter:image" content="https://matyalatte.github.io/images/icon.jpg">
+    <meta name="twitter:title" content="まちゃラテの作品一覧">
+    <meta name="twitter:description" content="まちゃラテがプチコンで作った作品の一覧です。">
+    <meta name="twitter:image" content="https://matyalatte.github.io/images/irasutoya/pc.jpg">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>まちゃラテのなんちゃら｜プチコンの話とか勉強の話とか</title>
+    <title>弾幕ボスバトル プチコン4｜まちゃラテのなんちゃら</title>
     <!-- BootstrapのCSS読み込み -->
     <link rel="stylesheet" rel="preload" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" as="style">
     <style>
           body{ 
-              padding-top: 56px; 
+              padding-top: 70px; 
               font-family: 'Noto Sans JP', sans-serif;
           }
           .media:hover {
@@ -34,7 +34,24 @@
               backface-visibility: hidden;
               background-color: white;
           } 
-              
+          .carousel-item .img-fluid {
+  width:100%;
+  height:auto;
+}
+
+.carousel-item{
+  height: auto;
+}
+
+.carousel-item a {
+  display: block;
+  width:100%;
+}
+
+.carousel-item .show-image {
+  display: block;
+  width:100%;
+}
     </style>
 
     <!-- jQuery読み込み -->
@@ -42,11 +59,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-    <link rel="icon" href="/favicon.ico">
+    <link rel="icon" href="https://matyalatte.github.io/favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="https://matyalatte.github.io/images/icon.png">
     <link rel="icon" type="image/png" href="https://matyalatte.github.io/images/icon.png" sizes="192x192">
-  </head>
-  <body>
+  </head>  <body>
 <div class='fixed-top'>
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
     <a href="https://matyalatte.github.io/" class="navbar-brand">
@@ -75,72 +91,64 @@
 </div>
 </nav>
 </div>
-<a name="top"></a>  
-    <div class="jumbotron jumbotron-fluid p-3 p-md-1 text-white bg-dark">
-      <div class="container">
-      <div class="col-md-11 px-0">
-        <h1>まちゃラテのなんちゃら</h1>
-        <p class="lead my-3">GithubとBootstrapで作ったお手軽ホームページです。<br>
-    プチコン(petitcom)の作品一覧とか、勉強のメモとか置く予定です。</br>
-    ソースは<a href="https://github.com/matyalatte/matyalatte.github.io" target="_blank" class="text-white font-weight-bold media-hover">こちら</a>。<br>
-    文章・動画像をすべて差し替えた場合に限り、改変・再配布可能です。<br>
-        </p>
-      </div>
-    </div>
-    </div>
+<a name="top"></a>
+
   <main role="main" class="container">
     <div class="row">
       <div class="col-md-8 blog-main">
-        <div class="media position-relative">      
-          <img src="./images/irasutoya/study.jpg" class="mr-3 img-fluid" alt="勉強メモ">
-          <div class="media-body">
-            <h3 class="mt-2">勉強メモ</h3>
-            <p>勉強したことを備忘録として書いていきます。情報系、数学系の話が多め。<br>
-              最終更新日 2020/08/29
-            <a href="./memo" class="stretched-link"></a></p>
-          </div>
-        </div>
-        <div class="media position-relative">
-          <img src="./images/irasutoya/pc.jpg" class="mr-3" alt="プチコンの作品一覧">
-          <div class="media-body">
-            <h3 class="mt-2">プチコンの作品一覧</h3>
-            <p>自分が作ったプチコンの作品を紹介します。<br>
-              
-            The list of my petitcom works<br>
-            最終更新日 2020/08/22
-            </p>
-            <a href="./petitcom" class="stretched-link"></a>
-          </div>
-        </div>
-        <div class="media position-relative">
-          <img src="./images/irasutoya/pc.jpg" class="mr-3" alt="MOD">
-          <div class="media-body">
-            <h3 class="mt-2">MOD工房</h3>
-            <p>MOD作成に関する情報や自分が作ったMODを共有します。<br>
-              現在ページ作成中
-            <br>
-            最終更新日 2021/06/05
-            </p>
-            <a href="./mod" class="stretched-link"></a>
-          </div>
-        </div>
-      <!--
-        </div>
-        <div class="media position-relative">
-          <img src="./images/qr.jpg" class="mr-3" alt="QRコードの作り方">
-          <div class="media-body">
-            <h3 class="mt-2">QRコードの作り方</h3>
-            <p>QRコードの作り方を解説します。(現在ページ準備中)</p>
-            <a href="./qrcode-tutorial" class="stretched-link"></a>
-          </div>
-        </div>
-      -->
-    <!--
-        <nav class="blog-pagination">
-          <a class="btn btn-outline-primary" href="#">Older</a>
-          <a class="btn btn-outline-secondary disabled" href="#">Newer</a>
-        </nav>
-      -->
+<a href="https://matyalatte.github.io/">トップ</a>&gt<a href="https://matyalatte.github.io/mod">MOD</a>&gt弾幕ボスバトル  <h1>弾幕ボスバトル ver1.2</h1>
+  <h4>公開キー:44Z2DRE2D</h4>
+  <div id="danmaku" class="carousel slide" data-interval=3000 data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#danmaku" data-slide-to="0" class="active"></li>
+      <li data-target="#danmaku" data-slide-to="1"></li>
+      <li data-target="#danmaku" data-slide-to="2"></li>
+      <li data-target="#danmaku" data-slide-to="3"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active" style="text-align:center;">
+        <img src="https://matyalatte.github.io/images/petitcom/danmaku/danmaku.jpg" class="d-block img-fluid" alt="弾幕　スクショ1">
+      </div>:
+      <div class="carousel-item" style="text-align:center;">
+        <img src="https://matyalatte.github.io/images/petitcom/danmaku/danmaku3.jpg" class="d-block img-fluid" alt="弾幕　スクショ2">
+      </div>
+      <div class="carousel-item" style="text-align:center;">
+        <img src="https://matyalatte.github.io/images/petitcom/danmaku/danmaku2.jpg" class="d-block img-fluid" alt="弾幕　スクショ3">
+      </div>
+      <div class="carousel-item" style="text-align:center;">
+        <img src="https://matyalatte.github.io/images/petitcom/danmaku/danmaku4.jpg" class="d-block img-fluid" alt="弾幕 スクショ4">
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#danmaku" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#danmaku" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+  <br>
+  <h4><b>概要</b></h4>
+  1vs1の弾幕シューティングゲームです。<br>
+  ステージは全部で６つ。<br>
+  ステージの番号と難易度に相関はありません。<br>
+  プチコン3号から移植しました。<br>
+  <br>
+
+    <h4><b>遊び方</b></h4>
+    スティック・十字キー：移動<br>
+    Aボタン：攻撃<br>
+    Bボタン：スピードアップ<br>
+    Xボタン：ステージ選択画面で押すと当たり判定の確認画面が起動<br>
+    <br>
+    <h4><b>動画</b></h4>
+    <blockquote class="twitter-tweet"><p lang="ja" dir="ltr">タイトル : 弾幕ボスバトル<br>公開キー : 44Z2DRE2D<br>1対1の弾幕STG。<br>数年前に作った作品をプチコン4に移植しました。<br>ボスは全部で6体。<a href="https://twitter.com/hashtag/sbkey?src=hash&amp;ref_src=twsrc%5Etfw">#sbkey</a> <a href="https://twitter.com/hashtag/petitcom?src=hash&amp;ref_src=twsrc%5Etfw">#petitcom</a> <a href="https://twitter.com/hashtag/%E3%83%97%E3%83%81%E3%82%B3%E3%83%B34?src=hash&amp;ref_src=twsrc%5Etfw">#プチコン4</a> <a href="https://twitter.com/hashtag/NintendoSwitch?src=hash&amp;ref_src=twsrc%5Etfw">#NintendoSwitch</a> <a href="https://t.co/9SkwY99j0F">pic.twitter.com/9SkwY99j0F</a></p>&mdash; まちゃラテ (@matyalatte_) <a href="https://twitter.com/matyalatte_/status/1227269816437788672?ref_src=twsrc%5Etfw">February 11, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+     <br>
+     質問・要望があれば<a href="https://twitter.com/matyalatte_" target="_blank">twitter</a>まで。<br>
+   <br>
+
+         ※「プチコン」は株式会社スマイルブームの登録商標です。<br>
       </div><!-- /.blog-main -->
   
 <aside class="col-md-3 blog-sidebar">
@@ -169,10 +177,10 @@
       <!-- created by matometools.com -->
     </div>
 </aside><!-- /.blog-sidebar -->  
-    </div><!-- /.row -->
+      </div><!-- /.row -->
+    
+    </main><!-- /.container -->
   
-  </main><!-- /.container -->
-
 <footer class="page-footer bg-light border">        
     <div class="footer-copyright text-center py-3">
       <a href="#top">一番上にもどる</a>
@@ -195,6 +203,6 @@
         s.parentNode.insertBefore(wf, s);
       })();
       </script>
-  </footer>
-  </body>
-</html>
+  </footer>  
+    </body>
+  </html>
