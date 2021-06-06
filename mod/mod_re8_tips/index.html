@@ -81,13 +81,14 @@
            <ul>
             <li><a href="#1">はじめに</a></li>
             <li><a href="#2">1.MOD全般</a></li>
-            <li><a href="#3">2.テクスチャMOD関連</a></li>
-            <li><a href="#4">3.モデルMOD関連</a></li>
-            <li><a href="#5">4.オーディオMOD関連</a></li>
-            <li><a href="#6">5.テキストMOD関連</a></li>
-            <li><a href="#6">6.パラメータMOD関連</a></li>
-            <li><a href="#7">7.trainer関連</a></li>
-            <li><a href="#8">さいごに</a></li>
+            <li><a href="#3">2.テクスチャMOD</a></li>
+            <li><a href="#4">3.モデルMOD</a></li>
+            <li><a href="#5">4.オーディオMOD</a></li>
+            <li><a href="#6">5.テキストMOD</a></li>
+            <li><a href="#7">6.パラメータMOD</a></li>
+            <li><a href="#8">7.アニメーションMOD</a></li>
+            <li><a href="#9">8.trainer</a></li>
+            <li><a href="#10">さいごに</a></li>
 
           </ul>
            </li>
@@ -97,10 +98,13 @@
            最近、バイオハザードヴィレッジ(以下バイオ8)のMODの作成にハマっており、MODの作成手順について調べています。<br>
            MODの導入方法については解説サイトが多数存在するのですが、MODの作成に関して日本語で説明しているサイトがなかったので、自分でまとめることにしました。<br>
            このページでは、バイオ8のMOD作成に関して僕が知る情報をMODの種類ごとに記載します。<br>
-           なお、MOD作成に詰まったときの情報の集め方を<a href="../mod_re8_info">別ページ</a>にまとめてありますので、よろしければそちらもご覧ください。<br>           
+           なお、このページはMOD製作に必要な情報を大まかにまとめたページであり、チュートリアルではありませんのでご了承ください。<br>
+           また、MOD作成に詰まったときの情報の集め方を<a href="../mod_re8_info">別ページ</a>にまとめてありますので、よろしければそちらもご覧ください。<br>           
            <br>
 
            <h3 class="border-bottom" id="2">1.MOD全般</h3>
+           はじめにMOD全般に関わるツールや情報を記述します。<br>
+           どの種類のMODを作るにしても「これを知らないと話にならない」というレベルの必須事項ばかりです。<br>
            <br>
            <h5>1.1.Fllufy Manager</h5>
            <div style="text-align:center;">
@@ -140,31 +144,88 @@
            <h5>1.5.Filepath Dumper</h5>
            Filepath Dumperはゲームがアクセスしたリソースのパスを記録するためのツールです。<br>
            Fllufy Manager同様、FlluffyQuack氏が開発しています。<br>
-           編集したいリソースのパスを探すときに使えます。<br>
+           このツールは必須ではありませんが、編集したいリソースのパスを探すときに使えます。<br>
            <br>
            ↓Filepath Dumperのダウンロードはこちら<br>
            <a href="https://www.patreon.com/posts/50988759" target="_blank">RE Engine Filepath Dumper - Resident Evil Village | FluffyQuack on Patreon</a><br>
            <br>
 
-           <h3 class="border-bottom" id="3">2.テクスチャMOD関連</h3>
+           <h3 class="border-bottom" id="3">2.テクスチャMOD</h3>
+           テクスチャMODとは、3Dモデルに使われるテクスチャ画像を変更するMODです。<br>
+           画像を編集するだけの手軽なMODなので、
+           多くのMOD初心者が最初に手をつけるMODだと思います。<br>
+           <br>
+           <h5>2.1.ワークフロー</h5>
+           テクスチャMODの大まかな作成手順は以下の通りです。
+           <ol>
+             <li>リソースファイルの抽出(REtool)</li>
+             <li>テクスチャファイルのフォーマットを.tex.30から.dds, .tga等に変換(Noesis)</li>
+             <li>テクスチャファイルを加工(Photoshop, GIMP等)</li>
+             <li>テクスチャファイルのフォーマットを.tex.30に変換(Noesis)</li>
+             <li>完成したMODファイルを.rarに圧縮(WinRAR等)</li>
+             <li>Fllufy Managerで適用</li>
+           </ol>
+           具体的な手順は下記のページで確認できます。<br>
+           <a href="https://residentevilmodding.boards.net/thread/12234/texture-editing-photoshop-neck-seam" target="_blank">Texture Editing with Photoshop (Neck Seam)</a><br>
+           なお、上記ページでは、テクスチャのフォーマットを変更する際にバイナリデータの編集を行っていますが、この工程は最新版のNoesisでサポートされているため、バイナリデータを編集する必要はありません。<br>
+           <br>
+           <h5>2.2.各テクスチャファイルの役割</h5>
+           バイオ８には4種類のテクスチャファイルが存在します。<br>
+           通常の画像データとはフォーマットが異なるため、各テクスチャファイルの役割を理解しておく必要があります。<br>
+           各テクスチャファイルの役割は以下の通りです。<br>
+           <ul>
+             <li><b>albm</b>: RGBがベースカラー、αチャンネルがメタリックを表す。</li>
+             <li><b>nrmr</b>: RGBがノーマルマップ、αチャンネルがラフネスを表す。</li>
+             <li><b>atoc</b>: Rが透明度、Gが半透明度(曇りガラスみたいな感じ)を表す。Bとαに関してはよくわかっていないが、おそらくオクルージョンを表している。</li>
+             <li><b>mskm</b>: GPUの物理演算が適用されるようなモデル(衣服等)に関連しているようだが、詳しいことはわからない。
+           </ul>
+           ソースは下記のページです。<br>
+           <a href="https://residentevilmodding.boards.net/thread/13115/individual-texture-maps-meaning" target="_blank">The individual texture maps and their meaning</a><br>
+           <br>
+           <h3 class="border-bottom" id="4">3.モデルMOD</h3>
+           モデルMODとは、ゲーム内で使われる3Dモデルを変更するMODです。<br>
+           「バイオハザードのMOD」と聞いてほとんどの人思い浮かべるMODがこのモデルMODです。<br>
+           <br>
+           <h5>3.1.ワークフロー</h5>
+           モデルMODの大まかな作成手順は以下の通りです。
+           <ol>
+             <li>リソースファイルの抽出(REtool)</li>
+             <li>メッシュファイルを.mesh.2101050001から.fbxに変換(Noesis)</li>
+             <li>fbxを加工(blender)</li>
+             <li>fbxを.tex.30に変換(Noesis)</li>
+             <li>完成したMODファイルを.rarに圧縮(WinRAR等)</li>
+             <li>Fllufy Managerで適用</li>
+           </ol>
+           具体的な手順は下記のページで確認できます。<br>
+           <a href="https://residentevilmodding.boards.net/thread/13501/exporting-custom-models-dmc5-noesis" target="_blank">Exporting custom models to RE2, RE3 and DMC5 with Noesis</a><br>
+           <br>
+           <h5>3.2.blenderではボーンの編集ができない</h5>
+           ワークフローに「fbxを加工(blender)」と書きましたが、blenderでボーンの編集を行ってもうまくゲームに反映されません。<br>
+           この問題は掲示板内でも度々取り上げられるのですが、「blenderでは編集できない」というのがテンプレ回答となっています。<br>
+           ハッキリした原因はわかりませんが、blenderでfbxを扱う際にboneIDが変わってしまうことが関係していると思われます。<br>
+           ボーンの編集を行う場合は3dx maxが必要です。<br>
+           専用プラグインを用いてメッシュファイルの編集ができます。<br>
+           <br>
+           ↓3dx max用プラグインの詳細はこちら。<br>
+           <a href="https://residentevilmodding.boards.net/thread/11868/engine-mesh-tool-maxscript-updated" target="_blank">RE-ENGINE MESH TOOL (Maxscript) v1.39 updated</a><br>
+           <br>
+
+           <h3 class="border-bottom" id="5">4.オーディオMOD</h3>
            今後追記予定です<br>
            <br>
-           <h3 class="border-bottom" id="4">3.モデルMOD関連</h3>
+           <h3 class="border-bottom" id="6">5.テキストMOD</h3>
            今後追記予定です<br>
            <br>
-           <h3 class="border-bottom" id="5">4.オーディオMOD関連</h3>
+           <h3 class="border-bottom" id="7">6.パラメータMOD</h3>
            今後追記予定です<br>
            <br>
-           <h3 class="border-bottom" id="6">5.テキストMOD関連</h3>
+           <h3 class="border-bottom" id="8">7.アニメーションMOD</h3>
            今後追記予定です<br>
            <br>
-           <h3 class="border-bottom" id="7">6.パラメータMOD関連</h3>
+           <h3 class="border-bottom" id="9">8.trainer</h3>
            今後追記予定です<br>
            <br>
-           <h3 class="border-bottom" id="7">7.trainer関連</h3>
-           今後追記予定です<br>
-           <br>
-           <h3 class="border-bottom" id="8">さいごに</h3>
+           <h3 class="border-bottom" id="10">さいごに</h3>
            バイオ8のMOD作成に関する情報をまとめました。MOD作成の手助けになれば幸いです。<br>
            <br>
         </div><!-- /.blog-post -->
