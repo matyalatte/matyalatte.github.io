@@ -70,7 +70,7 @@
   
         <div class="blog-post">
           <h1 class="blog-post-title">バイオ8 MOD作成に関する情報まとめ</h1>
-          <p class="blog-post-meta">2021/06/05 </p>
+          <p class="blog-post-meta">2021/06/07 </p>
           <p>
             このページではバイオ8のMOD作成に関して僕が知る情報を記載します。<br>
             なお、ここで紹介する情報やツールの信頼性、安全性は保証できません。MODの作成は自己責任でお願いします。<br>
@@ -103,7 +103,7 @@
            <br>
 
            <h3 class="border-bottom" id="2">1.MOD全般</h3>
-           はじめにMOD全般に関わるツールや情報を記述します。<br>
+           はじめに、MOD全般に関わるツールや情報を紹介します。<br>
            どの種類のMODを作るにしても「これを知らないと話にならない」というレベルの必須事項ばかりです。<br>
            <br>
            <h5>1.1.Fllufy Manager</h5>
@@ -151,7 +151,10 @@
            <br>
 
            <h3 class="border-bottom" id="3">2.テクスチャMOD</h3>
-           テクスチャMODとは、3Dモデルに使われるテクスチャ画像を変更するMODです。<br>
+           <div style="text-align:center;">
+            <img src="https://staticdelivery.nexusmods.com/mods/3669/images/headers/125_1622241838.jpg" class="img-fluid" alt="texturemod">
+           </div>
+           テクスチャMODとは、3Dモデルに使われるテクスチャ画像を変更するMODのことです(上記画像はskull198氏が作成した、ナイフのテクスチャMOD)。<br>
            画像を編集するだけの手軽なMODなので、
            多くのMOD初心者が最初に手をつけるMODだと思います。<br>
            <br>
@@ -183,8 +186,11 @@
            <a href="https://residentevilmodding.boards.net/thread/13115/individual-texture-maps-meaning" target="_blank">The individual texture maps and their meaning</a><br>
            <br>
            <h3 class="border-bottom" id="4">3.モデルMOD</h3>
-           モデルMODとは、ゲーム内で使われる3Dモデルを変更するMODです。<br>
-           「バイオハザードのMOD」と聞いてほとんどの人思い浮かべるMODがこのモデルMODです。<br>
+           <div style="text-align:center;">
+            <img src="https://staticdelivery.nexusmods.com/mods/3669/images/119/119-1622033693-1174654967.jpeg" class="img-fluid" alt="modelmod" width="400">
+           </div>
+           モデルMODとは、ゲーム内で使われる3Dモデルを変更するMODのことです(上記画像は僕が作成した、鶏をアヒルに変えるMOD)。<br>
+           「バイオハザードのMOD」と聞いてほとんどの人が思い浮かべるMODはこのモデルMODです。<br>
            <br>
            <h5>3.1.ワークフロー</h5>
            モデルMODの大まかな作成手順は以下の通りです。
@@ -201,7 +207,7 @@
            <br>
            <h5>3.2.blenderではボーンの編集ができない</h5>
            ワークフローに「fbxを加工(blender)」と書きましたが、blenderでボーンの編集を行ってもうまくゲームに反映されません。<br>
-           この問題は掲示板内でも度々取り上げられるのですが、「blenderでは編集できない」というのがテンプレ回答となっています。<br>
+           この問題は掲示板内でも度々取り上げられるのですが、「blenderでは編集できない」というのが結論のようです。<br>
            ハッキリした原因はわかりませんが、blenderでfbxを扱う際にboneIDが変わってしまうことが関係していると思われます。<br>
            ボーンの編集を行う場合は3dx maxが必要です。<br>
            専用プラグインを用いてメッシュファイルの編集ができます。<br>
@@ -211,19 +217,76 @@
            <br>
 
            <h3 class="border-bottom" id="5">4.オーディオMOD</h3>
-           今後追記予定です<br>
+           オーディオMODとは、ゲーム内の音(BGM、SE、ボイス等)を置き換えるMODのことです。<br>
+           バイオではBGMやSEを過去作のものに置き換えるオーディオMODが多いです。<br>
+           <br>
+           <h5>4.1.ワークフロー</h5>
+           オーディオMODの大まかな作成手順は以下の通りです。
+           <ol>
+             <li>リソースファイルの抽出(REtool)</li>
+             <li>オーディオファイル(.bnk or .pck)から.wemを抽出(RingingBloom)</li>
+             <li>wemをoggに変換(ww2ogg)</li>
+             <li>oggを加工し、wav形式で出力(Audacity等)</li>
+             <li>wavからwemを作成(Wwise)</li>
+             <li>オーディオファイル(.bnk or .pck)のwemを置き換え(RingingBloom)</li>
+             <li>完成したMODファイルを.rarに圧縮(WinRAR等)</li>
+             <li>Fllufy Managerで適用</li>
+           </ol>
+           上記ではwemファイルの抽出、置換にRingingBloomを用いると書かれていますが、同様のツールが他にもいくつか存在するようです。<br>
+           オーディオMODは情報が少ないにも関わらず、専用ツールが複数存在するため、正直どのツールを使えばよいのか僕にもわかりません。<br>
+           自分は「バイナリデータを弄らなくてよい」という理由でRingingBloomを使っています。<br>
+           <br>
+           ↓RingingBloomの詳細はこちら<br>
+           <a href="https://github.com/Silvris/RingingBloom" target="_blank">Silvris/RingingBloom</a><br>
+           <br>
+           ↓オーディオMODのチュートリアルはこちら(RingingBloomではなくwwiseutilというツールを使ったチュートリアルですが、手順はだいたい同じです)<br>
+           <a href="https://residentevilmodding.boards.net/thread/10211/method-audio-modding" target="_blank">My method of audio modding</a><br>
            <br>
            <h3 class="border-bottom" id="6">5.テキストMOD</h3>
-           今後追記予定です<br>
+           <div style="text-align:center;">
+            <img src="https://staticdelivery.nexusmods.com/mods/3669/images/82/82-1621403970-843265112.jpeg" class="img-fluid" alt="modelmod" width="400">
+           </div>
+           テキストMODとは、ゲーム内のテキストデータ(字幕、UIの文字等)を書き換えるMODのことです(上記画像は僕が作成した2言語表示MOD)。<br>
+           テキストMODは非公式の翻訳MODがたまに発表されるくらいで、ほとんど見かけることはありません。<br>
+           txtファイルを書き換えるだけのMODなので、一番簡単に作れます。<br>
            <br>
-           <h3 class="border-bottom" id="7">6.パラメータMOD</h3>
-           今後追記予定です<br>
+           <h5>5.1.ワークフロー</h5>
+           テキストMODの大まかな作成手順は以下の通りです。
+           <ol>
+             <li>リソースファイルの抽出(REtool)</li>
+             <li>テキストファイル(.msg)を.txtに変換(REngine_Text-Tool)</li>
+             <li>txtを編集(テキストエディタ)</li>
+             <li>.txtを.msgに変換(REngine_Text-Tool)</li>
+             <li>完成したMODファイルを.rarに圧縮(WinRAR等)</li>
+             <li>Fllufy Managerで適用</li>
+           </ol>
+           <br>
+           ↓REngine_Text-Toolの詳細はこちら<br>
+           <a href="https://zenhax.com/viewtopic.php?t=13337" target="_blank">Resident Evil msg Tool - ZenHAX</a><br>
+           <br>
+           <br>
+           <h3 class="border-bottom" id="7">6.データベースMOD</h3>
+           データベースMODはゲーム内のデータベース(出現する敵のID、商品価格等)を変更するMODです。<br>
+           REtoolで抽出したバイナリファイルを編集することで作成します。<br>
+           例えば、出現する敵の種類を変更するMODのチュートリアルが以下のページにあります。<br>
+           <a href="https://residentevilmodding.boards.net/thread/14758/re8-enemy-swapping-tutorial" target="_blank">RE8 enemy swapping tutorial</a><br>
+
            <br>
            <h3 class="border-bottom" id="8">7.アニメーションMOD</h3>
-           今後追記予定です<br>
+           アニメーションMODとはキャラクターのアニメーションを変更するMODのことです。<br>
+           自分はアニメーションMODに関与していないため詳細は分かりませんが、以下のページにチュートリアルがあります。<br>
+           <a href="https://residentevilmodding.boards.net/thread/14132/motlist-maxscript-custom-animations-engine" target="_blank">Motlist Tool (Maxscript) - Custom Animations in RE Engine</a><br>
+           <br>
+           なお、アニメーションMODの作成には3dx maxが必要です。blenderは使えません。<br>
            <br>
            <h3 class="border-bottom" id="9">8.trainer</h3>
-           今後追記予定です<br>
+           trainerとは、動作中のゲームにリアルタイムで干渉してメモリの書き換え等を行うチートツールです。<br>
+           バイオ8では、ゲーム体験の向上(視点変更、FOV変更等)に使われる場合が多いです。<br>
+           「体力無限」等のいわゆるチートツールとしての使われ方はあまりされてないように思います。<br>
+           僕はtrainerを作ったことがないので詳細はわかりませんが、作成方法はバイオ以外のゲームと同じだと思います。<br>
+           ↓こういうチュートリアルを参考にすれば作れるのではないでしょうか。<br>
+           <a href="https://youtu.be/A_MrrAo8uLk" target="_blank">C++ HOW TO HACK any game TUTORIAL Pt 1 Intro - YouTube</a><br>
+
            <br>
            <h3 class="border-bottom" id="10">さいごに</h3>
            バイオ8のMOD作成に関する情報をまとめました。MOD作成の手助けになれば幸いです。<br>
@@ -248,7 +311,8 @@
     <div class="p-3">
 
      <h5>最新ページ</h5>
-     <a href="https://matyalatte.github.io/mod/mod_re8_info">2021/06/05 MOD作成に関する情報の集め方</a><br>
+     <a href="https://matyalatte.github.io/mod/mod_re8_tips">2021/06/07 MOD作成に関する情報まとめ</a><br>
+     <a href="https://matyalatte.github.io/mod/mod_re8_info">2021/06/06 MOD作成に関する情報の集め方</a><br>
      <a href="https://matyalatte.github.io/memo/gradcam/">2020/08/29 AIはどこを見ているのか</a><br>
      <a href="https://matyalatte.github.io/memo/github_memo/">2020/08/15 お手軽ホームページ作成</a><br>
      <a href="https://matyalatte.github.io/memo/sekibun_memo/">2020/08/13 積分で円周率計算</a><br>
