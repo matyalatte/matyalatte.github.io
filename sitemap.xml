@@ -4,51 +4,126 @@
 <!--  created with free sitemap generation system www.sitemapxml.jp  --> 
 <url>
   <loc>https://matyalatte.github.io/</loc>
-  <lastmod>2020-08-11T05:54:39+09:00</lastmod>
+  <priority>1.0</priority>
+  <lastmod>2021-06-06T09:37:03+09:00</lastmod>
 </url>
 <url>
   <loc>https://matyalatte.github.io/memo/</loc>
-  <lastmod>2020-08-11T05:54:39+09:00</lastmod>
+  <priority>0.8</priority>
+  <lastmod>2021-06-06T09:37:03+09:00</lastmod>
 </url>
 <url>
   <loc>https://matyalatte.github.io/petitcom/</loc>
-  <lastmod>2020-08-11T05:54:39+09:00</lastmod>
+  <priority>0.8</priority>
+  <lastmod>2021-06-06T09:37:03+09:00</lastmod>
+</url>
+<url>
+  <loc>https://matyalatte.github.io/mod/</loc>
+  <priority>0.8</priority>
+  <lastmod>2021-06-06T09:37:03+09:00</lastmod>
+</url>
+<url>
+  <loc>https://matyalatte.github.io/memo</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://matyalatte.github.io/petitcom</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://matyalatte.github.io/mod</loc>
+  <priority>0.8</priority>
 </url>
 <url>
   <loc>https://matyalatte.github.io/petitcom/qrcoder/</loc>
-  <lastmod>2020-08-11T05:54:39+09:00</lastmod>
-</url>
-<url>
-  <loc>https://matyalatte.github.io/petitcom/qrcoder/reference/</loc>
-</url>
-<url>
-  <loc>https://matyalatte.github.io/petitcom/qrcoder/sample/</loc>
-</url>
-<url>
-  <loc>https://matyalatte.github.io/memo/sekibun_memo/</loc>
-</url>
-<url>
-  <loc>https://matyalatte.github.io/memo/github_memo/</loc>
-</url>
-<url>
-  <loc>https://matyalatte.github.io/memo/web_memo</loc>
-</url>
-<url>
-  <loc>https://matyalatte.github.io/memo/gradcam</loc>
-</url>
-<url>
-  <loc>https://matyalatte.github.io/petitcom/ballfall/</loc>
+  <priority>0.8</priority>
+  <lastmod>2021-06-06T09:37:03+09:00</lastmod>
 </url>
 <url>
   <loc>https://matyalatte.github.io/petitcom/softbody/</loc>
+  <priority>0.8</priority>
+  <lastmod>2021-06-06T09:37:03+09:00</lastmod>
 </url>
 <url>
-  <loc>https://matyalatte.github.io/petitcom/danmaku/</loc>
+  <loc>https://matyalatte.github.io/memo/gradcam/</loc>
+  <priority>0.8</priority>
+  <lastmod>2021-06-06T09:37:03+09:00</lastmod>
+</url>
+<url>
+  <loc>https://matyalatte.github.io/memo/github_memo/</loc>
+  <priority>0.8</priority>
+  <lastmod>2021-06-06T09:37:03+09:00</lastmod>
+</url>
+<url>
+  <loc>https://matyalatte.github.io/memo/sekibun_memo/</loc>
+  <priority>0.8</priority>
+  <lastmod>2021-06-06T09:37:03+09:00</lastmod>
+</url>
+<url>
+  <loc>https://matyalatte.github.io/memo/web_memo/</loc>
+  <priority>0.8</priority>
+  <lastmod>2021-06-06T09:37:03+09:00</lastmod>
+</url>
+<url>
+  <loc>https://matyalatte.github.io/memo/web_memo</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://matyalatte.github.io/memo/sekibun_memo</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://matyalatte.github.io/memo/qr_memo</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://matyalatte.github.io/memo/gradcam</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://matyalatte.github.io/petitcom/qrcoder</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://matyalatte.github.io/petitcom/softbody</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://matyalatte.github.io/petitcom/danmaku</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://matyalatte.github.io/petitcom/irairabo</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://matyalatte.github.io/petitcom/ballfall</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://matyalatte.github.io/petitcom/onepage</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://matyalatte.github.io/mod/mod_re8_info</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://matyalatte.github.io/mod/mod_re8_tips</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://matyalatte.github.io/petitcom/qrcoder/reference</loc>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://matyalatte.github.io/petitcom/qrcoder/sample</loc>
+  <priority>0.7</priority>
 </url>
 <url>
   <loc>https://matyalatte.github.io/petitcom/onepage/</loc>
+  <priority>0.7</priority>
+  <lastmod>2021-06-06T09:37:03+09:00</lastmod>
 </url>
-<url>
-  <loc>https://matyalatte.github.io/petitcom/irairabo/</loc>
-</url>
+
 </urlset>
