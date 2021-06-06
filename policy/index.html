@@ -1,26 +1,11 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-174921482-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-174921482-1');
-</script>
-<meta http-equiv="Expires" content=86400>
-<script data-ad-client="ca-pub-1273067756399266" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>    <meta name="twitter:card" content="summary">
-    <meta name="Twitter:site" content="@matyalatte_">
-    <meta name="twitter:title" content="QR CODER">
-    <meta name="twitter:description" content="プチコン4でQRコードを作成するためのツール「QR CODER」です。">
-    <meta name="twitter:image" content="https://matyalatte.github.io/images/qr.jpg">
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <title>QR_CAL_SIZE|まちゃラテのなんちゃら</title>
+  <head>
+    <include ./include/google.html>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>プライバシーポリシー・免責事項｜まちゃラテのなんちゃら</title>
 
 
 <!-- BootstrapのCSS読み込み -->
@@ -74,47 +59,36 @@
   <main role="main" class="container">
     <div class="row">
       <div class="col-md-8 blog-main">
-<a href="https://matyalatte.github.io/">トップ</a>&gt<a href="https://matyalatte.github.io/petitcom">プチコン作品一覧</a>&gt<a href="https://matyalatte.github.io/petitcom/qrcoder">QR CODER</a>&gt<a href="https://matyalatte.github.io/petitcom/qrcoder/reference">リファレンス</a>&gtQR_CAL_SIZE<h3 class="pb-3 mb-4 border-bottom">
-  QR_CODER ver0.7.1 リファレンス
-</h3>  
+<a href="https://matyalatte.github.io/">トップ</a>&gtプライバシーポリシー・免責事項  
         <div class="blog-post">
-
-          <h2>QR_CAL_SIZE()</h2>
-            生成されるQRコードの大きさを調べる。大きさを計算するだけで、QRコードは生成されない。<br>
-
+          <h1 class="blog-post-title">プライバシーポリシー・免責事項</h1>
+          <p class="blog-post-meta">2021/06/05 </p>
+           <h3 class="border-bottom">プライバシーポリシー</h3>
             <br>
-            <table class="table table-bordered">
-              <tr><th>書式</th><th>QR_CAL_SIZE(STR[,LV[,VER[,MODE]]]])</th></tr>
-          </table>
-            <table class="table table-bordered">
-              <thead class="thead-light">
-                <tr><th>引数</th><th>詳細</th></tr>
-              </thead>
-              <tbody>
-                <tr><th>STR</th><th>QRに変換する文字列。</th></tr>
-                <tr><th>LV</th><th>QRコードの誤り訂正レベル。1がL、0がM、3がQ、2がHを表す。省略可。初期値は0</th></tr>
-                <tr><th>VER</th><th>QRコードのバージョン。1~40あるいは-1を指定する。-1を指定した場合は自動で適切なバージョンが選択される。省略可。初期値は-1。</th></tr>
-                <tr><th>MODE</th><th>QRコードのモードを選択する。1が英数字、2がASCII、3がUTF-8。</th></tr>
-              </tbody>
-            </table>
-            <table class="table table-bordered">
-              <thead class="thead-light">
-                <tr><th>返値</th><th>詳細</th></tr>
-              </thead>
-              <tbody>
-                <tr><th>SIZE</th><th>生成されるQRコードの大きさ。SIZE×SIZEの大きさのQRコードが生成される。</th></tr>
-              </tbody>
-            </table>
-            <h5>使用例</h5>
-            <pre style="font-size: 18px">
-EXEC "QR.LIB",1
-TXT="ABCDEFG"
-SIZE=QR_CAL_SIZE(TXT)
-VAR QR[SIZE,SIZE]
-QR=QR_MAKE_ARRAY(TXT)
-            </pre>
-        </div><!-- /.blog-post -->
+           <h5>広告について</h5>
+           当サイトでは、第三者配信の広告サービス（Googleアドセンス）を利用しており、ユーザーの興味に応じた商品やサービスの広告を表示するため、クッキー（Cookie）を使用しております。<br>
+           クッキーを使用することで当サイトはお客様のコンピュータを識別できるようになりますが、お客様個人を特定できるものではありません。<br>
+           <br>           
+           Cookieを無効にする方法やGoogleアドセンスに関する詳細は<a href="https://policies.google.com/technologies/ads?gl=jp" target="_blank">「広告 – ポリシーと規約 – Google」</a>をご確認ください。<br>
+           <br>
 
+           <h5>アクセス解析ツールについて</h5>
+           当ブログでは、Googleによるアクセス解析ツール「Googleアナリティクス」を利用しています。このGoogleアナリティクスはトラフィックデータの収集のためにクッキー（Cookie）を使用しております。<br>
+           トラフィックデータは匿名で収集されており、個人を特定するものではありません。<br>
+           <br>
+           <h3 class="border-bottom">免責事項</h3>
+          当サイトからのリンクやバナーなどで移動したサイトで提供される情報、サービス等について一切の責任を負いません。<br>
+          また当サイトのコンテンツ・情報について、できる限り正確な情報を提供するように努めておりますが、正確性や安全性を保証するものではありません。情報が古くなっていることもございます。<br>
+          当サイトに掲載された内容によって生じた損害等の一切の責任を負いかねますのでご了承ください。<br>
+          <br>
+
+        </div><!-- /.blog-post -->
+    <!--
+        <nav class="blog-pagination">
+          <a class="btn btn-outline-primary" href="#">Older</a>
+          <a class="btn btn-outline-secondary disabled" href="#">Newer</a>
+        </nav>
+      -->
       </div><!-- /.blog-main -->
   
 <aside class="col-md-3 blog-sidebar">
@@ -171,5 +145,7 @@ QR=QR_MAKE_ARRAY(TXT)
       })();
       </script>
   </footer>
+
+
   </body>
 </html>
