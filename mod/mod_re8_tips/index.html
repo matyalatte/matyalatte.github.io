@@ -4,13 +4,13 @@
     <include ./include/google.html>
         <meta name="twitter:card" content="summary">
         <meta name="Twitter:site" content="@matyalatte_">
-        <meta name="twitter:title" content="MOD工房：RE8 MOD作成に関する情報の集め方">
-        <meta name="twitter:description" content="GithubとBootstapを使えばhtmlファイルをアップロードするだけでホームページを公開できます。cssやjsを書く必要もありません！このページではGithubとBootstrapを使ったホームページの作成手順をまとめています。">
-        <meta name="twitter:image" content="https://matyalatte.github.io/images/irasutoya/study.jpg">
+        <meta name="twitter:title" content="MOD工房：RE8 MOD作成に関する情報まとめ">
+        <meta name="twitter:description" content="バイオ8のMOD作成に関して僕が知る情報を記載します。">
+        <meta name="twitter:image" content="https://matyalatte.github.io/images/mod/mod_re8_info/mod_re8_info_icon.jpg">
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>バイオ8 MOD作成に関する情報の集め方｜まちゃラテのなんちゃら</title>
+  <title>バイオ8 MOD作成に関する情報まとめ｜まちゃラテのなんちゃら</title>
 
 
 <!-- BootstrapのCSS読み込み -->
@@ -64,51 +64,108 @@
   <main role="main" class="container">
     <div class="row">
       <div class="col-md-8 blog-main">
-<a href="https://matyalatte.github.io/">トップ</a>&gt<a href="https://matyalatte.github.io/mod">MOD</a>&gtRE8MODに関する情報        <h3 class="pb-3 mb-4 border-bottom">
+<a href="https://matyalatte.github.io/">トップ</a>&gt<a href="https://matyalatte.github.io/mod">MOD工房</a>&gtバイオ8MOD作成に関する情報        <h3 class="pb-3 mb-4 border-bottom">
           MOD工房
         </h3>
   
         <div class="blog-post">
-          <h1 class="blog-post-title">バイオ8 MOD作成に関する情報の集め方</h1>
+          <h1 class="blog-post-title">バイオ8 MOD作成に関する情報まとめ</h1>
           <p class="blog-post-meta">2021/06/05 </p>
-          <p>QRコードの作り方を学ぶために利用したサイトをまとめました。QRコードの作り方についてはいつか詳しい解説ページをつくる予定ですが、忘れないうちに簡単にまとめておきます。
+          <p>
+            このページではバイオ8のMOD作成に関して僕が知る情報を記載します。<br>
+            なお、ここで紹介する情報やツールの信頼性、安全性は保証できません。MODの作成は自己責任でお願いします。<br>
           </p>
           <ul class="page-contents">
             <li>目次</li>
             <li>
            <ul>
-            <li><a href="#1">有用ページ一覧</a></li>
+            <li><a href="#1">はじめに</a></li>
+            <li><a href="#2">1.MOD全般</a></li>
+            <li><a href="#3">2.テクスチャMOD関連</a></li>
+            <li><a href="#4">3.モデルMOD関連</a></li>
+            <li><a href="#5">4.オーディオMOD関連</a></li>
+            <li><a href="#6">5.テキストMOD関連</a></li>
+            <li><a href="#6">6.パラメータMOD関連</a></li>
+            <li><a href="#7">7.trainer関連</a></li>
+            <li><a href="#8">さいごに</a></li>
 
           </ul>
            </li>
            </ul>
            <br>
-           <h3 class="border-bottom" id="1">有用ページ一覧</h3>
-           <h5><a href="http://www.swetake.com/qrcode/qr1.html" target="_blank">ＱＲコードをつくってみる</a></h5>
-           おそらく日本語のサイトで一番詳しい。でもversion7以降のQRコード生成には対応していない。一部解説が分かりにくい部分もある。このサイトだけでQRコードの作り方を理解するのは難しい。
+           <h3 class="border-bottom" id="1">はじめに</h3>
+           最近、バイオハザードヴィレッジ(以下バイオ8)のMODの作成にハマっており、MODの作成手順について調べています。<br>
+           MODの導入方法については解説サイトが多数存在するのですが、MODの作成に関して日本語で説明しているサイトがなかったので、自分でまとめることにしました。<br>
+           このページでは、バイオ8のMOD作成に関して僕が知る情報をMODの種類ごとに記載します。<br>
+           なお、MOD作成に詰まったときの情報の集め方を<a href="../mod_re8_info">別ページ</a>にまとめてありますので、よろしければそちらもご覧ください。<br>           
            <br>
+
+           <h3 class="border-bottom" id="2">1.MOD全般</h3>
            <br>
-           <h5><a href="https://www.thonky.com/qr-code-tutorial/" target="_blank">QR Code Tutorial</a></h5>
-           神。とりあえずここ見ればなんとかなる。ただし全部英語。
+           <h5>1.1.Fllufy Manager</h5>
+           <div style="text-align:center;">
+            <img src="../../images/mod/mod_re8_tips/fluffymanager.jpg" class="img-fluid" alt="fllufymanager">
+           </div> 
+           <a href="https://www.nexusmods.com/residentevilvillage/mods/18" target="_blank">Fllufy Manager</a>はMODの管理ツールです。<br>
+           日本のサイトでも紹介ページが多数存在するので、知っている方も多いと思います。<br>
+           開発はバイオMOD界の大ボスであるFllufyQuack氏が行っています。<br>
+           完成したMODはこのツールを使って適用します。<br>
            <br>
+
+           <h5>1.2.REtool</h5>
+           REtoolは.pakファイルから3Dモデル等のリソースを抽出するためのツールです。<br>
+           Fllufy Manager同様、FlluffyQuack氏が開発しています。<br>
+           ただし、抽出後のファイルは独自フォーマットとなっており、blender、photoshop等で中身を閲覧することはできません。<br>
            <br>
-           <h5><a href="https://kikakurui.com/x0/X0510-2004-01.html" target="_blank">JIS X 0510:2004 二次元コードシンボル—QRコード—基本仕様</a></h5>
-           QRコードの仕様書。たぶん、ここに全ての情報があるんだろうけど、仕様書なのでめちゃくちゃ分かりにくい。
+           ↓REtoolの詳細はこちら<br>
+           <a href="https://residentevilmodding.boards.net/thread/10567/pak-tex-editing-tool" target="_blank">PAK/TEX editing tool</a><br>
            <br>
+           <h5>1.3.Noesis</h5>
+           <div style="text-align:center;">
+            <img src="../../images/mod/mod_re8_tips/noesis.jpg" class="img-fluid" alt="noesis">
+           </div> 
+           Noesisは3Dモデル、テクスチャ、アニメーション等のファイルを閲覧、変換するためのツールです。<br>
+           バイオ用のプラグインが存在し、独自フォーマットのファイルをfbxやdds等に変換できます。<br>
            <br>
-           <h5><a href="https://monika-heusinger.net/qr/" target="_blank">QR Code Generator</a></h5>
-           バージョンとかマスクとか細かい条件を指定して、ブラウザ上でQRコードを生成できる。デバッグに使える。
+           ↓Noesisのダウンロードはこちら<br>
+           <a href="https://richwhitehouse.com/index.php?content=inc_projects.php&showproject=91" target="_blank">Rich Whitehouse</a><br>
+           ↓バイオ用プラグインの詳細はこちら<br>
+           <a href="https://residentevilmodding.boards.net/thread/13501/exporting-custom-models-dmc5-noesis" target="_blank">Exporting custom models to RE2, RE3 and DMC5 with Noesis</a><br>
            <br>
+           <h5>1.4.Ultimate File List</h5>
+           MOD掲示板の<a href="https://residentevilmodding.boards.net/thread/14720/re8-ultimate-file-list" target="_blank">Ultimate File List</a>というスレには各ファイルの内容が大まかに記されています。<br>
+           ファイル名にはキャラ名等の情報が記載されていない場合もあるため、このファイルリストを確認することで目的のファイルが探しやすくなります。<br>
+           ただし、全てのファイルを網羅しているわけではありません。<br>
            <br>
-           <h5><a href="http://www.ee.unb.ca/cgi-bin/tervo/calc2.pl?num=1+0+7+6&den=1+6+3&f=d&p=37&d=1&y=1" target="_blank">Galois Field GF(2m) Calculator</a></h5>
-           ガロア体の多項式の割り算を計算できる。誤り訂正コードのデバッグに使う。
+           <h5>1.5.Filepath Dumper</h5>
+           Filepath Dumperはゲームがアクセスしたリソースのパスを記録するためのツールです。<br>
+           Fllufy Manager同様、FlluffyQuack氏が開発しています。<br>
+           編集したいリソースのパスを探すときに使えます。<br>
            <br>
+           ↓Filepath Dumperのダウンロードはこちら<br>
+           <a href="https://www.patreon.com/posts/50988759" target="_blank">RE Engine Filepath Dumper - Resident Evil Village | FluffyQuack on Patreon</a><br>
            <br>
-           <h5><a href="http://itrestaurant.hatenablog.com/entry/2012/12/21/004734" target="_blank">QRコードを作る時に使う生成多項式g(x)の求め方</a></h5>
-           生成多項式の係数をポチポチ手打ちする必要はない。計算で求められる。
+
+           <h3 class="border-bottom" id="3">2.テクスチャMOD関連</h3>
+           今後追記予定です<br>
            <br>
+           <h3 class="border-bottom" id="4">3.モデルMOD関連</h3>
+           今後追記予定です<br>
            <br>
-           <h5><a href=""></a></h5>
+           <h3 class="border-bottom" id="5">4.オーディオMOD関連</h3>
+           今後追記予定です<br>
+           <br>
+           <h3 class="border-bottom" id="6">5.テキストMOD関連</h3>
+           今後追記予定です<br>
+           <br>
+           <h3 class="border-bottom" id="7">6.パラメータMOD関連</h3>
+           今後追記予定です<br>
+           <br>
+           <h3 class="border-bottom" id="7">7.trainer関連</h3>
+           今後追記予定です<br>
+           <br>
+           <h3 class="border-bottom" id="8">さいごに</h3>
+           バイオ8のMOD作成に関する情報をまとめました。MOD作成の手助けになれば幸いです。<br>
            <br>
         </div><!-- /.blog-post -->
     <!--
