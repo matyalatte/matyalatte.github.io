@@ -81,6 +81,10 @@
   <priority>0.7</priority>
 </url>
 <url>
+  <loc>https://matyalatte.github.io/memo/rakugaki</loc>
+  <priority>0.7</priority>
+</url>
+<url>
   <loc>https://matyalatte.github.io/petitcom/qrcoder</loc>
   <priority>0.7</priority>
 </url>
@@ -129,5 +133,12 @@
   <priority>0.7</priority>
   <lastmod>2021-06-06T09:37:03+09:00</lastmod>
 </url>
-
+<url>
+  <loc>https://matyalatte.github.io/etc/policy</loc>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://matyalatte.github.io/etc/feedback</loc>
+  <priority>0.6</priority>
+</url>
 </urlset>

@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-174921482-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-174921482-1');
+</script>
+<meta http-equiv="Expires" content=86400>
+<script data-ad-client="ca-pub-1273067756399266" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>    <meta name="twitter:card" content="summary">
+    <meta name="Twitter:site" content="@matyalatte_">
+    <meta name="twitter:title" content="まちゃラテの勉強メモ">
+    <meta name="twitter:description" content="勉強したことをいろいろ書いていきます。情報系、数学系の話が多め。">
+    <meta name="twitter:image" content="https://matyalatte.github.io/images/irasutoya/study.jpg">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>手描きの丸から良い感じの3Dモデルを生成する 勉強メモ｜まちゃラテのなんちゃら</title>
+    <!-- BootstrapのCSS読み込み -->
+    <link rel="stylesheet" rel="preload" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" as="style">
+    <style>
+          body{ 
+              padding-top: 70px; 
+              font-family: 'Noto Sans JP', sans-serif;
+          }
+          .media:hover {
+              opacity: 0.5;
+              width: 100%;
+              height: auto;
+              transition: .2s ease;
+              backface-visibility: hidden;
+              background-color: white;
+          } 
+          .carousel-item .img-fluid {
+  width:100%;
+  height:auto;
+}
+
+.carousel-item{
+  height: auto;
+}
+
+.carousel-item a {
+  display: block;
+  width:100%;
+}
+
+.carousel-item .show-image {
+  display: block;
+  width:100%;
+}
+    </style>
+
+    <!-- jQuery読み込み -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <link rel="icon" href="https://matyalatte.github.io/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://matyalatte.github.io/images/icon.png">
+    <link rel="icon" type="image/png" href="https://matyalatte.github.io/images/icon.png" sizes="192x192">
+  </head>  <body>
+<div class='fixed-top'>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <a href="https://matyalatte.github.io/" class="navbar-brand">
+      <img src="https://matyalatte.github.io/images/icon_s.png" width="30" height="30" alt="my icon to home">
+      まちゃラテのなんちゃら
+    </a>
+    <button class="navbar-toggler" type="button"
+    data-toggle="collapse"
+    data-target="#navmenu1"
+    aria-controls="navmenu1"
+    aria-expanded="false"
+    aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse justify-content-end" id="navmenu1">
+
+  <div class="navbar-nav">
+    <a class="nav-item nav-link" href="https://matyalatte.github.io/memo/">勉強メモ</a>
+    <a class="nav-item nav-link" href="https://matyalatte.github.io/petitcom/">プチコン</a>
+    <a class="nav-item nav-link" href="https://matyalatte.github.io/mod/">MOD</a>
+    <!--<a class="nav-item nav-link" href="https://matyalatte.github.io/qrcode-tutorial">QRコードの作り方</a>-->
+  </div>
+  <a href="https://twitter.com/matyalatte_" target="_blank"><img src="https://matyalatte.github.io/images/logo/twitter.png" witdh="24" height="24" alt="to my twitter"></a>
+  &nbsp;
+  <a href="https://github.com/matyalatte" target="_blank"><img src="https://matyalatte.github.io/images/logo/git.png" witdh="24" height="24" alt="to my github"></a>
+</div>
+</nav>
+</div>
+<a name="top"></a>
+  <main role="main" class="container">
+    <div class="row">
+      <div class="col-md-8 blog-main">
+<a href="https://matyalatte.github.io/">トップ</a>&gt<a href="https://matyalatte.github.io/memo">勉強メモ</a>&gt多角形からの3Dモデル生成        <h3 class="pb-3 mb-4 border-bottom">
+          勉強メモ
+        </h3>
+  
+        <div class="blog-post">
+          <h1 class="blog-post-title"> 手描きの丸から良い感じの3Dモデルを生成する</h1>
+          <p class="blog-post-meta">2021/09/25 </p>
+          <p>「ラクガキ王国シリーズ」が開発されるきっかけとなった、3Dモデルの生成アルゴリズムを紹介します。
+          </p>
+          <div style="text-align:center;">
+            <img src="https://user-images.githubusercontent.com/69258547/133283432-dc701180-57e2-4796-9c75-4d0a10fb0ce3.gif" class="img-fluid" alt="３Dモデル生成デモ">
+          </div>
+          <br>
+
+          <ul class="page-contents">
+            <li>目次</li>
+            <li>
+           <ol>
+            <li><a href="#1">はじめに</a></li>
+            <li><a href="#2">概要</a></li>
+            <li><a href="#3">制約付きドロネー三角形分割(CDT)</a></li>
+            <li><a href="#4">中心線の推定</a></li>
+            <li><a href="#5">中心線の持ち上げ</a></li>
+            <li><a href="#6">さいごに</a></li>
+            
+           </ol>
+           </li>
+           </ul>
+        
+
+          <h3 class="border-bottom" id="1">はじめに</h3>
+          <p>
+            皆さんは「ラクガキ王国」というゲームをご存じでしょうか？<br>
+            2002年にタイトーから発売されたPS2用のゲームソフトで、「自分が描いた3Dのキャラクターで敵と戦う」という斬新なシステムが特徴のゲームです。<br>
+            <br>
+            (ここにゲーム画面貼りたかったけど、実機持ってないので貼れませんでした...）<br>
+            <br>
+            僕が物心ついた頃には既にこのゲームが家にあり、下手くそながらにキャラクターを描いて遊んでいた記憶があります。<br>
+            <br>
+            当時はその斬新なゲームシステムを当たり前のように受け入れていたのですが、昨年、「シリーズ最新作の<a href="https://rakugaki-kingdom.com/" target="_brank">ラクガキキングダム</a>がスマホアプリとして配信される」というニュースを見てから、
+            「実はあれって結構凄い技術なのでは...?」と思うようになりました。<br>
+            <br>
+            そこで、ラクガキ王国のモデル生成アルゴリズムについて調査したところ、以下の論文にたどり着きました。<br>
+            <br>
+            <a href="https://www-ui.is.s.u-tokyo.ac.jp/~takeo/papers/siggraph99-j.pdf" target="_brank">五十嵐 健夫, 松岡 聡, 田中 英彦 (1999). 手書きスケッチによるモデリングシステム Teddy</a><br>
+            <br>
+            今回は、上記の論文の中から「新規生成アルゴリズム（任意の多角形から3Dモデルを生成するアルゴリズム）」について解説します。<br>
+            <br>
+            なお、今回紹介するアルゴリズムを参考にして作成したデモを<a href="https://github.com/matyalatte/2dPolyTo3d" target="_brank">github</a>で公開しています。よろしければそちらもご覧ください。<br>
+          </p>
+          <h3 class="border-bottom" id="2">概要</h3>
+          <p>
+            今回紹介するアルゴリズムは、<br>
+            「多角形から良い感じの3Dモデルを生成する」<br>
+            ことを目的としています。<br>
+            <br>
+            下図左のように手描きのストロークを多角形として入力すると、下図右のように3Dモデルを生成することができます。<br>
+            <div style="text-align:center;">
+              <img src="../../images/memo/rakugaki/define.png" class="img-fluid" alt="目的">
+            </div>
+            <br>
+            下図のように、アルゴリズムの基本方針は<br>
+            「中心線を求めて、中心線に沿って厚みを持たせる」<br>
+            というものであり、<br>
+            「どのように中心線を決定するのか」<br>
+            「どのように中心線部分の厚みを決定するのか」<br>
+            という部分が実装する上で重要になってきます。<br>
+            <div style="text-align:center;">
+              <img src="../../images/memo/rakugaki/alg_desc.png" class="img-fluid" alt="方針"><br>
+              ※上図は論文より引用
+              </div>
+            <br>
+            <br>
+
+
+            このページでは、モデル生成のアルゴリズムを以下の３ステップに分けて説明していきます。
+            <ol>
+              <li>2Dメッシュの生成</li>
+              <li>中心線の推定</li>
+              <li>中心線の持ち上げ</li>
+            </ol>
+            <div style="text-align:center;">
+              <img src="../../images/memo/rakugaki/abst.png" class="img-fluid" alt="概要">
+              </div>
+            <br>
+          </p>
+          
+          <h3 class="border-bottom" id="3">1.2Dメッシュの生成</h3>
+          <p>
+            初めに、入力多角形を三角形で分割し、2Dメッシュを生成します。<br>
+            メッシュの生成には「制約付きドロネー三角形分割」という手法を用います。<br>
+            <br>
+            ※このページでは、制約付きドロネー三角形分割の具体的なアルゴリズムには触れません。
+            詳細を知りたい方は以下のページを参考にしてください。<br>
+            <br>
+            <a href="http://takashiijiri.com/study/miscs/DelaunayTriangulation.htm" target="_brank">制約付きドロネー三角形分割</a><br>
+            <br>
+
+            ドロネー三角形分割は「平面を三角形で分割する手法」の一つです。<br>
+            下図のように、点群を与えると辺を自動で生成することができます。<br>
+            <div style="text-align:center;">
+              <img src="../../images/memo/rakugaki/dt_ex.png" class="img-fluid" alt="ドロネー三角形分割">
+              </div>
+            <br>
+            そして、このドロネー三角形分割に「特定の2頂点が辺を成す」ように制約を課したものが「制約付きドロネー三角形分割(以下CDTと呼ぶ)」です。<br>
+            CDTを用いることで、「最初にいくつか辺を作って、残りの辺は自動で生成する」という操作が可能になります。<br>
+            <div style="text-align:center;">
+              <img src="../../images/memo/rakugaki/cdt_ex.png" class="img-fluid" alt="CDT">
+              </div>
+            <br>
+            今回のモデル生成アルゴリズムでは、入力多角形に対してCDTを適用します。<br>
+            多角形の頂点を点群、多角形の辺を制約としてCDTを行うことで2Dメッシュが生成されます。<br>
+            なお、多角形の外側に辺が生成されてしまった場合は該当する辺を削除します。
+            <div style="text-align:center;">
+              <img src="../../images/memo/rakugaki/cdt_ex2.png" class="img-fluid" alt="CDT2">
+              </div>
+            <br>
+
+
+        </p>
+          <h3 class="border-bottom" id="4">2.中心線の推定</h3>
+          <p>
+            生成された2Dメッシュを見ると、「多角形の形状に合わせて縞模様状に辺が生成されている」ことが分かります。<br>
+            したがって、生成された2Dメッシュに対して、内辺の中点を結ぶことで中心線(のようなもの)をつくることができます。<br>
+            <div style="text-align:center;">
+              <img src="../../images/memo/rakugaki/gen_spine.png" class="img-fluid" alt="中心線の推定"><br>
+              ※赤線が中心線
+              </div>
+            <br>
+          
+            次に、3Dモデルに丸みを持たせるため、中心線の先端を切り落とします。<br>
+            中心線は以下２つのどちらかの条件を満たすまで切り落とします。
+            <ul>
+              <li>切り落とし部分のメッシュが「中心線の先端に接する辺を直径とする円」に収まらない</li>
+              <li>中心線の先端が枝分かれ地点に到達する</li>
+            </ul>
+            中心線を切り落とした部分のメッシュは、扇状に三角形が並ぶように配置し直します。<br>
+            <div style="text-align:center;">
+              <img src="../../images/memo/rakugaki/cut_spine.png" class="img-fluid" alt="中心線の切り落とし">
+              </div>
+            <br>
+
+            さらに、中心線の持ち上げに備えて、中心線を2Dメッシュに挿入します。
+            <div style="text-align:center;">
+              <img src="../../images/memo/rakugaki/split_spine.png" class="img-fluid" alt="中心線で分割">
+              </div>
+            </p>
+
+              <h3 class="border-bottom" id="5">3.中心線の持ち上げ</h3>  
+              <p>
+                下図のように、中心線に含まれる頂点を持ち上げてメッシュを3Dにします。<br>
+                各頂点の高さは、頂点に接する辺（中心線を除く）の長さの平均とします。<br>
+                また、中心線と入力多角形を結ぶ辺を楕円形に変形させることで3Dメッシュに丸みを持たせます。<br>
+                <div style="text-align:center;">
+                  <img src="../../images/memo/rakugaki/up_spine.png" class="img-fluid" alt="中心線の持ち上げ"><br>
+                  ※上図は論文より引用
+                  </div>
+                <br>
+                最後に上下反転したメッシュをくっつけると3Dモデルが完成します。
+                <div style="text-align:center;">
+                  <img src="../../images/memo/rakugaki/result.gif" class="img-fluid" alt="結果">
+                  </div>
+                <br>
+
+              </p>
+
+          <h3 class="border-bottom" id="6">さいごに</h3>
+          <p>今回は、任意の多角形から3Dモデルを生成するアルゴリズムを解説しました。<br>
+            <br>
+            論文では、新規生成以外にもメッシュの追加、削除、変形など、ラクガキ王国のペイントツールに関連する様々な技術が紹介されています。<br>
+            (ただし、アルゴリズムの解説は<a href="https://www-ui.is.s.u-tokyo.ac.jp/~takeo/papers/siggraph99.pdf" target="_brank">英語版</a>にしか載ってないものがあるので注意)<br>
+            <br>
+            また、論文著者である五十嵐健夫先生のホームページには、ユニークなユーザインターフェースに関する論文が他にも多数掲載されています。<br>
+            ラクガキ王国に関連する論文もいくつかあるようなので、気になる方はぜひ読んでみてください！<br>
+            <br>
+            ↓五十嵐健夫先生のホームページはこちら<br>
+            <a href="https://www-ui.is.s.u-tokyo.ac.jp/~takeo/index-j.html" target="_brank">HomePage of Takeo Igarashi</a>
+            <br>
+            
+          </p>
+        </div><!-- /.blog-post -->
+    <!--
+        <nav class="blog-pagination">
+          <a class="btn btn-outline-primary" href="#">Older</a>
+          <a class="btn btn-outline-secondary disabled" href="#">Newer</a>
+        </nav>
+      -->
+      </div><!-- /.blog-main -->
+  
+<aside class="col-md-3 blog-sidebar">
+    <div class="p-3 mb-3 bg-light rounded">
+      <div style="text-align:center;">
+      <img src="https://matyalatte.github.io/images/icon.png" width="100" height="100" alt="my icon">
+      <h4>まちゃラテのプロフィール</h4>
+      </div>
+      <p class="mb-0">道産子京都住み。趣味はMOD製作、機械学習、太鼓の達人、プチコン、etc...。</p>
+    </div>
+    <div class="p-3">
+
+     <h5>最新ページ</h5>
+     <a href="https://matyalatte.github.io/memo/rakugaki">2021/09/25 手描きの丸から良い感じの3Dモデルを生成する</a><br>
+     <a href="https://matyalatte.github.io/mod/mod_re8_tips">2021/06/07 バイオ8 MOD作成に関する情報まとめ</a><br>
+     <a href="https://matyalatte.github.io/mod/mod_re8_info">2021/06/06 バイオ8 MOD作成に関する情報の集め方</a><br>
+     <a href="https://matyalatte.github.io/memo/gradcam/">2020/08/29 AIはどこを見ているのか</a><br>
+     
+    </div>
+    <div class="p-3 border rounded">
+      <a class="twitter-timeline" data-tweet-limit="3" data-height="400" href="https://twitter.com/matyalatte_?ref_src=twsrc%5Etfw">Tweets by matyalatte_</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+      <!-- created by matometools.com -->
+    </div>
+</aside><!-- /.blog-sidebar -->  
+    </div><!-- /.row -->
+  
+  </main><!-- /.container -->
+
+<footer class="page-footer bg-light border">        
+    <div class="footer-copyright text-center py-3">
+      <a href="#top">一番上にもどる</a>
+      <p>© 2020 まちゃラテ  
+      </p>
+      <a href="https://matyalatte.github.io/etc/policy">プライバシーポリシー・免責事項</a><br>
+      <a href="https://matyalatte.github.io/etc/feedback">お問い合わせ</a>
+    </div>
+    <script>
+      window.WebFontConfig = {
+        google: { families: ['Noto+Sans+JP'] },
+        active: function() {
+          sessionStorage.fonts = true;
+        }
+      };
+      (function() {
+        var wf = document.createElement('script');
+        wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js';
+        wf.type = 'text/javascript';
+        wf.async = 'true';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(wf, s);
+      })();
+      </script>
+  </footer>
+
+
+  </body>
+</html>
