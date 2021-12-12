@@ -61,28 +61,16 @@
 </url>
 <url>
   <loc>https://matyalatte.github.io/memo/web_memo/</loc>
-  <priority>0.8</priority>
+  <priority>0.7</priority>
   <lastmod>2021-06-06T09:37:03+09:00</lastmod>
-</url>
-<url>
-  <loc>https://matyalatte.github.io/memo/web_memo</loc>
-  <priority>0.7</priority>
-</url>
-<url>
-  <loc>https://matyalatte.github.io/memo/sekibun_memo</loc>
-  <priority>0.7</priority>
 </url>
 <url>
   <loc>https://matyalatte.github.io/memo/qr_memo</loc>
   <priority>0.7</priority>
 </url>
 <url>
-  <loc>https://matyalatte.github.io/memo/gradcam</loc>
-  <priority>0.7</priority>
-</url>
-<url>
   <loc>https://matyalatte.github.io/memo/rakugaki</loc>
-  <priority>0.7</priority>
+  <priority>0.8</priority>
 </url>
 <url>
   <loc>https://matyalatte.github.io/petitcom/qrcoder</loc>
@@ -109,22 +97,6 @@
   <priority>0.7</priority>
 </url>
 <url>
-  <loc>https://matyalatte.github.io/mod/ff7r_info</loc>
-  <priority>0.7</priority>
-</url>
-<url>
-  <loc>https://matyalatte.github.io/mod/mod_re8_info</loc>
-  <priority>0.7</priority>
-</url>
-<url>
-  <loc>https://matyalatte.github.io/mod/mod_re8_tips</loc>
-  <priority>0.7</priority>
-</url>
-<url>
-  <loc>https://matyalatte.github.io/mod/mod_re8_dualsub</loc>
-  <priority>0.7</priority>
-</url>
-<url>
   <loc>https://matyalatte.github.io/petitcom/qrcoder/reference</loc>
   <priority>0.7</priority>
 </url>
@@ -133,16 +105,27 @@
   <priority>0.7</priority>
 </url>
 <url>
-  <loc>https://matyalatte.github.io/petitcom/onepage/</loc>
-  <priority>0.7</priority>
-  <lastmod>2021-06-06T09:37:03+09:00</lastmod>
+  <loc>https://matyalatte.github.io/mod/ff7r_info</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://matyalatte.github.io/mod/mod_re8_info</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://matyalatte.github.io/mod/mod_re8_tips</loc>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://matyalatte.github.io/mod/mod_re8_dualsub</loc>
+  <priority>0.8</priority>
 </url>
 <url>
   <loc>https://matyalatte.github.io/etc/policy</loc>
-  <priority>0.6</priority>
+  <priority>0.5</priority>
 </url>
 <url>
   <loc>https://matyalatte.github.io/etc/feedback</loc>
-  <priority>0.6</priority>
+  <priority>0.5</priority>
 </url>
 </urlset>
