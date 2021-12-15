@@ -23,28 +23,6 @@
   <lastmod>2021-06-06T09:37:03+09:00</lastmod>
 </url>
 <url>
-  <loc>https://matyalatte.github.io/memo</loc>
-  <priority>0.8</priority>
-</url>
-<url>
-  <loc>https://matyalatte.github.io/petitcom</loc>
-  <priority>0.8</priority>
-</url>
-<url>
-  <loc>https://matyalatte.github.io/mod</loc>
-  <priority>0.8</priority>
-</url>
-<url>
-  <loc>https://matyalatte.github.io/petitcom/qrcoder/</loc>
-  <priority>0.8</priority>
-  <lastmod>2021-06-06T09:37:03+09:00</lastmod>
-</url>
-<url>
-  <loc>https://matyalatte.github.io/petitcom/softbody/</loc>
-  <priority>0.8</priority>
-  <lastmod>2021-06-06T09:37:03+09:00</lastmod>
-</url>
-<url>
   <loc>https://matyalatte.github.io/memo/gradcam/</loc>
   <priority>0.8</priority>
   <lastmod>2021-06-06T09:37:03+09:00</lastmod>
@@ -73,12 +51,14 @@
   <priority>0.8</priority>
 </url>
 <url>
-  <loc>https://matyalatte.github.io/petitcom/qrcoder</loc>
+  <loc>https://matyalatte.github.io/petitcom/qrcoder/</loc>
   <priority>0.7</priority>
+  <lastmod>2021-06-06T09:37:03+09:00</lastmod>
 </url>
 <url>
-  <loc>https://matyalatte.github.io/petitcom/softbody</loc>
+  <loc>https://matyalatte.github.io/petitcom/softbody/</loc>
   <priority>0.7</priority>
+  <lastmod>2021-06-06T09:37:03+09:00</lastmod>
 </url>
 <url>
   <loc>https://matyalatte.github.io/petitcom/danmaku</loc>
