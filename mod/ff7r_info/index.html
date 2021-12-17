@@ -72,7 +72,7 @@
           <h1 class="blog-post-title">FF7RのMOD作成に関する情報まとめ</h1>
           <p class="blog-post-meta">最終更新日 2021/12/18 </p>
           <p>
-            このページではFF7RのMOD作成に関して僕が知る情報を記載します。<br>
+            このページではFF7R(Final Fantasy VII Remake)のMOD作成に関して僕が知る情報を記載します。<br>
             なお、ここで紹介する情報やツールの信頼性、安全性は保証できません。<br>
             MODの作成は自己責任でお願いします。<br>
           </p>
@@ -147,12 +147,12 @@
            以下に僕が遭遇したエラーとその対処法を記述します。<br>
            <br>
            <h4 id="4_1">1. QuickBMSのエラー</h4>
-           QuickBMS等で.pakを解凍する最に、圧縮形式によるエラーが発生します。<br>
+           QuickBMS等で.pakを解凍する際に、圧縮形式によるエラーが発生します。<br>
            例えば、解凍ツールの一つである、Unrealpakというツールを使うと以下のエラーが発生します。<br>
            <br>
            <code>FCompression::GetCompressionFormat - Unable to find a module or plugin for compression format Oodle</code><br>
            <br>
-           「Oodleという圧縮方式は知らん！」と怒られているわけです。<br>
+           「Oodleという圧縮形式は知らん！」と怒られているわけです。<br>
            <br>
            <a href="https://gbatemp.net/threads/how-to-unpack-and-repack-pak-files-which-dragon-quest-11-demo-has.546613/" target="_blank">How to unpack and repack *pak files which dragon quest 11 demo has ? | GBAtemp.net - The Independent Video Game Community</a><br>
            ↑のフォーラムによると、<br>
@@ -162,9 +162,11 @@
            <br>
            QuickBSMの場合、<br>
            「unreal_tournament_4.bms」の190行目「if VERSION >= 5」を「if VERSION >= 4」に書き換えることでエラーを回避できます。<br>
+           (書き換えたスクリプトは上書き保存してもよいですが、「FF7R.bms」等の名前で新規保存することをお勧めします。)<br>
            <div style="text-align:center;">
             <img src="../../images/mod/ff7r_info/quickbsm.png" class="img-fluid" alt="QuickBSM">
-          </div> 
+          </div>
+
 
            <br>
            <h3 class="border-bottom" id="5">主なコミュニティ</h3>
