@@ -70,7 +70,7 @@
   
         <div class="blog-post">
           <h1 class="blog-post-title">FF7RのMOD作成に関する情報まとめ</h1>
-          <p class="blog-post-meta">最終更新日 2021/12/18 </p>
+          <p class="blog-post-meta">最終更新日 2021/12/26 </p>
           <p>
             このページではFF7R(Final Fantasy VII Remake)のMOD作成に関して僕が知る情報を記載します。<br>
             なお、ここで紹介する情報やツールの信頼性、安全性は保証できません。<br>
@@ -85,24 +85,29 @@
               <li><a href="#4_1">QuickBMSのエラー</a></li>
               <li><a href="#4_2">UE Viewerのエラー</a></li>
             </ol>
-            <li><a href="#5">主なコミュニティ</a></li>
+            <li><a href="#5">MODファイル(.pak)に関するTips (2021/12/26追加)</a></li>
             <ol>
-              <li><a href="#5_1">Gildor's Forums</a></li>
-              <li><a href="#5_2">XeNTaX</a></li>
-              <li><a href="#5_3">Nexus Mods</a></li>
+              <li><a href="#5_1">.pakが読み込まれる順序</a></li>
+              <li><a href="#5_2">ファイル名の1文字目は"z"にする</a></li>
+            </ol>
+            <li><a href="#6">主なコミュニティ</a></li>
+            <ol>
+              <li><a href="#6_1">Gildor's Forums</a></li>
+              <li><a href="#6_2">XeNTaX</a></li>
+              <li><a href="#6_3">Nexus Mods</a></li>
             </ol>
             <li><a href="#6">その他のコミュニティ</a></li>
             <ol>
-              <li><a href="#6_1">Discord</a></li>
+              <li><a href="#7_1">Discord</a></li>
               
-              <li><a href="#6_2">Steam</a></li>
-              <li><a href="#6_3">Reddit</a></li>
-              <li><a href="#6_4">The Lifestream</a></li>
-              <li><a href="#6_5">FF7のMODコミュニティ</a></li>
-              <li><a href="#6_6">他のUE4製ゲームの情報</a></li>
+              <li><a href="#7_2">Steam</a></li>
+              <li><a href="#7_3">Reddit</a></li>
+              <li><a href="#7_4">The Lifestream</a></li>
+              <li><a href="#7_5">FF7のMODコミュニティ</a></li>
+              <li><a href="#7_6">他のUE4製ゲームの情報</a></li>
             </ol>
-            <li><a href="#7">表示言語の変え方</a></li>
-            <li><a href="#8">さいごに</a></li>
+            <li><a href="#8">表示言語の変え方</a></li>
+            <li><a href="#9">さいごに</a></li>
 
            </ul>
            <br>
@@ -177,15 +182,41 @@
           
 
            <br>
-           <h3 class="border-bottom" id="5">主なコミュニティ</h3>
+           <h3 class="border-bottom" id="5">MODファイル(.pak)に関するTips</h3>
+           <h4 id="5_1">1. .pakが読み込まれる順序</h4>
+           ゲームを起動すると、"FFVIIRemakeIntergrade\End\Content\Paks"内に配置されている全ての.pakファイルが読み込まれます。<br>
+           Paks内にフォルダがある場合は、そのフォルダ内に配置された.pakファイルも全て読み込まれます。<br>
+           したがって、Paks内にMODファイルを入れるとMODが適用されるわけですが、<br>
+           <br>
+           「.pakファイルは辞書順に読み込まれ、重複するデータは上書きされる。」<br>
+           <br>
+           という仕様になっているため、注意が必要です。<br>
+           つまり、<br>
+           <br>
+           「本来のゲームデータより先にMODファイルが読み込まれると、MODデータが本来のゲームデータで上書きされるため、MODが適用されない。」<br>
+           <br>
+           ということです。<br>
+           "~mods"などのフォルダを作るのは、この「MODデータの上書き」を回避するためなのです。<br>
+           パッチファイルが"*_p.pak"という形式になっているのも同じ理由だと思われます。<br>
+           Paks直下に.pakを配置する場合はファイル名に注意しましょう。<br>
+
+           <br>
+           <h4 id="5_2">2. ファイル名の1文字目は"z"にする</h4>
+           前述した理由により、配布されている.pakファイルの多くはファイル名の1文字目が"z"になっています。<br>
+           本来、"~mods"等のフォルダに.pakを配置すれば、ファイル名はなんでも良いわけですが、
+           いくら「~modsに配置しろ」とインストール手順に書いてあっても、必ず"Paks"直下に配置する人が現れます。<br>
+           MODを作る際はファイル名の1文字目は"z"にしましょう。<br>
+           <br>
+
+           <h3 class="border-bottom" id="6">主なコミュニティ</h3>
            PC版のMOD作成に関わるコミュニティを紹介します。<br>
            <br>
-           <h4 id="5_1">1.Gildor's Forums </h4>
+           <h4 id="6_1">1.Gildor's Forums </h4>
            <a href="https://www.gildor.org/smf/index.php/topic,6925.0.html" target="_blank">Gildor's Forums</a>
            はUE Viewerの開発者が運営している掲示板です。作品毎にスレッドが存在し、3Dモデルの抽出に関する議論が行われています。<br>
            上記のリンク先ではスレタイに「PS4」と書かれていますが、現在はPC版の議論が行われています。<br>
            <br>
-           <h4 id="5_2">2. XeNTaX</h4>
+           <h4 id="6_2">2. XeNTaX</h4>
            <div style="text-align:center;">
             <img src="../../images/mod/mod_re8_info/xentax.jpg" class="img-fluid" alt="XeNTaX">
           </div> 
@@ -193,7 +224,7 @@
            Gildor's Forumsと同様に、3Dモデルの抽出に関する議論が行われています。<br>
            <br>
 
-           <h4 id="5_3">3. Nexus Mods</h4>
+           <h4 id="6_3">3. Nexus Mods</h4>
            <a href="https://www.nexusmods.com/finalfantasy7remake/mods/" target="_blank">Nexus Mods</a>は世界最大のMODコミュニティであり、非公式MODの多くはこのサイトで配布されます。<br>
            基本的にはMOD配布用のサービスですが、MOD作成用のツールやチュートリアルが投稿されることもあります。<br>
            <br>
@@ -205,7 +236,7 @@
            現時点(12月18日)では動きがないものの、今後情報源となる可能性があるコミュニティをいくつか紹介します。<br>
            <br>
 
-           <h4 id="6_1">1. Discord</h4>
+           <h4 id="7_1">1. Discord</h4>
            FF7Rのような人気作は確実にMOD専用のサーバーが立てられます。<br>
            宣伝チャンネルや質問チャンネルが作られるはずです。<br>
            もしかしたら、チュートリアルを作ってくれる人がいるかも。<br>
@@ -214,7 +245,7 @@
            
            
            
-           <h4 id="6_2">2. Steam</h4>
+           <h4 id="7_2">2. Steam</h4>
            Steamで販売されているゲームであれば、Steam内のコミュニティでツールの公開や情報交換が行われます。<br>
            ただし、現時点ではFF7RはEpic Games版のみの販売となっているため期待値は低め。<br>
            （<a href="https://steamcommunity.com/app/39140/discussions/" target="_blank">FF7のコミュニティ</a>や
@@ -222,11 +253,11 @@
            は存在するので、もしかしたら何か情報が得られるかもしれません。）<br>
            <br>
 
-           <h4 id="6_3">3. Reddit</h4>
+           <h4 id="7_3">3. Reddit</h4>
            稀ですが、RedditでMOD関連の質問をしている人がいて、有用な情報を得られる場合があります。<br>
            ただ、情報源がXeNTaXやSteamだったりするので、Redditに潜る意味はあまりないかも。<br>
            <br>
-           <h4 id="6_4">4. The Lifestream</h4>
+           <h4 id="7_4">4. The Lifestream</h4>
            <div style="text-align:center;">
             <img src="../../images/mod/ff7r_info/lifestream.jpg" class="img-fluid" alt="The Lifestream">
           </div> 
@@ -236,12 +267,12 @@
            Mod要望スレやMOD紹介スレが立っていたので、MOD関連の情報が得られる可能性はあります。<br>
            <br>
 
-           <h4 id="6_5">5. FF7のMODコミュニティ</h4>
+           <h4 id="7_5">5. FF7のMODコミュニティ</h4>
            旧版FF7のMODコミュニティも一応調査しています。<br>
            <a href="https://forums.qhimm.com" target="_blank">Qhimm.com</a>等を覗いてみましたが、有用な情報は得られそうにありません。<br>
            <br>
 
-           <h4 id="6_6">6. 他のUE4製ゲームの情報</h4>
+           <h4 id="7_6">6. 他のUE4製ゲームの情報</h4>
            ありがたいことにFF7RはUE4で作られています。<br>
            そのため、UE4で作られた他のゲームと似たような手順でMODが作れるはずです。<br>
            他のUE4製ゲームの情報を集めるのもよいでしょう。<br>
@@ -249,7 +280,7 @@
            
            <br>
 
-           <h3 class="border-bottom" id="7">表示言語の変え方</h3>
+           <h3 class="border-bottom" id="8">表示言語の変え方</h3>
            MODとは関係ありませんが、困っている人が（自分含め）何人かいたので書いておきます。<br>
            <br>
            FF7Rの表示言語はアカウントの言語設定に依存しているため、ゲーム内で表示言語を変えることが出来ません。<br>
@@ -276,7 +307,7 @@
           </div> 
            <br>
 
-           <h3 class="border-bottom" id="8">さいごに</h3>
+           <h3 class="border-bottom" id="9">さいごに</h3>
            FF7RのMOD作成に関する情報をまとめました。今後も新しい情報が入り次第、追記していきます。MOD作成の手助けになれば幸いです。<br>
            <br>
         </div><!-- /.blog-post -->
@@ -299,8 +330,8 @@
     <div class="p-3">
 
      <h5>最新ページ</h5>
-     <a href="https://matyalatte.github.io/mod/ff7r_dualsub">2021/12/19 FF7R 2言語字幕MOD</a><br>
-     <a href="https://matyalatte.github.io/mod/ff7r_info">2021/12/18 FF7R MOD作成に関する情報まとめ</a><br>
+     <a href="https://matyalatte.github.io/mod/ff7r_dualsub">2021/12/26 FF7R 2言語字幕MOD</a><br>
+     <a href="https://matyalatte.github.io/mod/ff7r_info">2021/12/26 FF7R MOD作成に関する情報まとめ</a><br>
      <a href="https://matyalatte.github.io/memo/rakugaki">2021/09/25 手描きの丸から良い感じの3Dモデルを生成する</a><br>
      <a href="https://matyalatte.github.io/mod/mod_re8_tips">2021/06/07 バイオ8 MOD作成に関する情報まとめ</a><br>
      <a href="https://matyalatte.github.io/mod/mod_re8_info">2021/06/06 バイオ8 MOD作成に関する情報の集め方</a><br>
