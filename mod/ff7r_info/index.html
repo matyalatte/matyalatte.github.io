@@ -70,7 +70,7 @@
   
         <div class="blog-post">
           <h1 class="blog-post-title">FF7RのMOD作成に関する情報まとめ</h1>
-          <p class="blog-post-meta">最終更新日 2021/12/27 </p>
+          <p class="blog-post-meta">最終更新日 2022/01/02 </p>
           <p>
             このページではFF7R(Final Fantasy VII Remake)のMOD作成に関して僕が知る情報を記載します。<br>
             なお、ここで紹介する情報やツールの信頼性、安全性は保証できません。<br>
@@ -84,6 +84,7 @@
             <ol>
               <li><a href="#4_1">QuickBMSのエラー</a></li>
               <li><a href="#4_2">UE Viewerのエラー</a></li>
+              <li><a href="#4_3">独自の補助骨システム (2022/01/02追加)</a></li>
             </ol>
             <li><a href="#5">MODファイル(.pak)に関するTips (2021/12/26追加)</a></li>
             <ol>
@@ -93,7 +94,7 @@
             <li><a href="#6">OpenFF7R (2021/12/27追加)</a></li>
             <ol>
               <li><a href="#6_1">Discordサーバーへの参加方法</a></li>
-              <li><a href="#6_2">Modderチャンネルへの参加方法</a></li>
+              <li><a href="#6_2">Modderチャンネルへの参加方法(2022/01/02追記)</a></li>
             </ol>
 
             <li><a href="#7">その他のコミュニティ</a></li>
@@ -172,7 +173,13 @@
           UE Viewerでもフォーマットの違いによるエラーが起こるようです。<br>
           <a href="https://www.gildor.org/smf/index.php/topic,6925.msg42030.html#msg42030" target="_blank">Gildor's Forums</a>
           で修正版のUE Viewerをアップロードしている人がいますが、僕はまだ触っていないので、適切に動作するかどうかは分かりません。<br>
-          
+          <br>
+
+          <h4 id="4_3">3. 独自の補助骨システム</h4>
+          FF7Rでは「Kine Driver」という独自の補助骨システムが使われているのですが、これが非常に厄介な存在です。<br>
+          3DモデルのアセットにKine Driverのデータが紐づけられているため、通常の方法ではモデルMODを作ることができないようです。<br>
+          現時点でモデルMODが存在しない原因は、この補助骨システムにあります。<br>
+          (衣装を変えるMODやメッシュを削除するMODは存在しますが、これらはアセットの紐づけ情報を書き換えたり、テクスチャを透明にしたりすることで作られたMODなので、厳密にはモデルMODではありません。)<br>
 
            <br>
            <h3 class="border-bottom" id="5">MODファイル(.pak)に関するTips</h3>
@@ -219,6 +226,10 @@
            自分が作成したMODの公開ページのリンクを"#role-request"に投稿すると、モデレータの方が役職をMODDERにしてくれます。<br>
            役職がMODDERに変更されると、"#role-request"に投稿した自分のメッセージが削除され、"#modders-only"にアクセスできるようになっているはずです。<br>
            なお、"#role-request"に投稿する際は、モデレータの方にDMを送ったり、投稿をピン留めしたりしてはいけません。<br>
+           <br>
+           (2021/01/02追記)<br>
+           OpenFF7Rの管理人から「テクスチャを入れ替えるだけのMODではMODDER認定しない」との通達が出されました。<br>
+           便利なツールが出回り、低品質なテクスチャMODが量産されている現状を加味したものと思われます。<br>
            <br>
 
            <h3 class="border-bottom" id="7">その他のコミュニティ</h3>
@@ -318,7 +329,7 @@
     <div class="p-3">
 
      <h5>最新ページ</h5>
-     <a href="https://matyalatte.github.io/mod/ff7r_info">2021/12/27 FF7R MOD作成に関する情報まとめ</a><br>
+     <a href="https://matyalatte.github.io/mod/ff7r_info">2022/01/02 FF7R MOD作成に関する情報まとめ</a><br>
      <a href="https://matyalatte.github.io/mod/ff7r_dualsub">2021/12/26 FF7R 2言語字幕MOD</a><br>
      <a href="https://matyalatte.github.io/memo/rakugaki">2021/09/25 手描きの丸から良い感じの3Dモデルを生成する</a><br>
      <a href="https://matyalatte.github.io/mod/mod_re8_tips">2021/06/07 バイオ8 MOD作成に関する情報まとめ</a><br>
