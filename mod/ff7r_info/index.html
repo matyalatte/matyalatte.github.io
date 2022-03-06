@@ -75,40 +75,56 @@
   
         <div class="blog-post">
           <h1 class="blog-post-title">FF7RのMOD作成に関する情報まとめ</h1>
-          <p class="blog-post-meta">最終更新日 2022/01/02 </p>
+          <p class="blog-post-meta">最終更新日 2022/03/06 </p>
           <p>
             このページではFF7R(Final Fantasy VII Remake)のMOD作成に関して僕が知る情報を記載します。<br>
             なお、ここで紹介する情報やツールの信頼性、安全性は保証できません。<br>
             MODの作成は自己責任でお願いします。<br>
+            <br>
+            (2021/03/06追記)<br>
+            MOD環境がある程度整ってきたので構成や内容を大きく変更しました。
           </p>
           <ul class="page-contents">
             目次
             <li><a href="#1">はじめに</a></li>
-            <li><a href="#3">MOD作成の流れ</a></li>
-            <li><a href="#4">独自仕様のUE4による弊害</a></li>
+            <li><a href="#2">MOD作成の流れ</a></li>
+            <li><a href="#3">独自仕様のUE4による弊害</a></li>
+            <li><a href="#4">OpenFF7R</a></li>
             <ol>
-              <li><a href="#4_1">QuickBMSのエラー</a></li>
-              <li><a href="#4_2">UE Viewerのエラー</a></li>
+              <li><a href="#4_1">Discordサーバーへの参加方法</a></li>
+              <li><a href="#4_2">Modderチャンネルへの参加方法</a></li>
+              <li><a href="#4_3">Discordサーバーの活用方法</a></li>
             </ol>
-            <li><a href="#5">MODファイル(.pak)に関するTips (2021/12/26追加)</a></li>
+            <li><a href="#5">各種ツール</a></li>
             <ol>
-              <li><a href="#5_1">.pakが読み込まれる順序</a></li>
-              <li><a href="#5_2">ファイル名の1文字目は"z"にする</a></li>
+              <li><a href="#5_1">必須ツール</a></li>
+              <ol>
+                <li><a href="#5_1_1">QuickBMS</a></li>
+                <li><a href="#5_1_2">UE Viewer (umodel)</a></li>
+                <li><a href="#5_1_3">UnrealPak</a></li>
+              </ol>
+              <li><a href="#5_2">モデルMOD用ツール</a></li>
+              <ol>
+                <li><a href="#5_2_1">DDS Injector</a></li>
+                <li><a href="#5_2_2">FF7R DDS tools</a></li>
+                <li><a href="#5_2_3">pskプラグイン</a></li>
+                <li><a href="#5_2_4">pskプラグイン(カスタマイズ版)</a></li>
+                <li><a href="#5_2_5">FF7R mesh importer</a></li>
+                <li><a href="#5_2_6">3DMigoto</a></li>
+              </ol>
+              <li><a href="#5_3">その他のツール</a></li>
+              <ol>
+                <li><a href="#5_3_1">FF7R Uasset Editor</a></li>
+                <li><a href="#5_3_2">FF7R Text Mod Tools</a></li>
+                <li><a href="#5_3_3">FF7R Font Mod Tools</a></li>
+              </ol>
             </ol>
-            <li><a href="#6">OpenFF7R (2021/12/27追加)</a></li>
+            <li><a href="#6">MODファイル(.pak)に関するTips</a></li>
             <ol>
-              <li><a href="#6_1">Discordサーバーへの参加方法</a></li>
-              <li><a href="#6_2">Modderチャンネルへの参加方法(2022/01/02追記)</a></li>
+              <li><a href="#6_1">.pakが読み込まれる順序</a></li>
+              <li><a href="#6_2">ファイル名の1文字目は"z"にする</a></li>
             </ol>
-
-            <li><a href="#7">その他のコミュニティ</a></li>
-            <ol>
-              <li><a href="#7_1">Gildor's Forums</a></li>
-              <li><a href="#7_2">XeNTaX</a></li>
-              <li><a href="#7_3">Nexus Mods</a></li>
-              <li><a href="#7_4">Steam</a></li>
-              <li><a href="#7_5">The Lifestream</a></li>
-            </ol>
+            
             <li><a href="#8">表示言語の変え方</a></li>
             <li><a href="#9">さいごに</a></li>
 
@@ -121,22 +137,20 @@
            発売後すぐにソフトを購入し、MOD作成のために情報を集めています。<br>
            <br>
            このページでは、FF7RのMOD作成について僕が集めた情報を記載します。<br>
-           僕自身まだ分からないことがたくさんあるので、情報が入り次第追記していきます。<br>
 
            <br>
-           <a id="3" class="anchor"></a>
-           <h3 class="border-bottom">MOD作成の流れ</h3>
-           FF7RはUE4で作られているため、他のUE4製ゲームと同じような手順でMODが作れます。<br>
+           <a id="2" class="anchor"></a>
+           <h3 class="border-bottom">MOD作成の大まかな流れ</h3>
+           FF7RはUE4で作られているため、他のUE4製ゲームと似たような手順でMODが作れます。<br>
 
            以下のようなMOD作成ガイドを参考にしましょう。<br>
            <br>
            <a href="http://hal51.click/game/tom_modding" target="_blank">『聖剣伝説3 TRIALS of MANA』UE4用MOD作成ガイド [21/10/22 キーについて追記]｜HAL’s Blog</a><br>
            <br>
-           なお、.pakの解凍にAESキーが必要となりますが、<a href="https://www.gildor.org/smf/index.php/topic,6925.105.html" target="_blank">Gildor's Forums</a>
-           という海外の掲示板でリークされています。<br>
+           (ただし、後述する理由により、同じ手順ではMODを作ることができないので注意してください。)<br>
 
            <br>
-           <a id="4" class="anchor"></a>
+           <a id="3" class="anchor"></a>
            <h3 class="border-bottom">独自仕様のUE4による弊害</h3>
            さきほど紹介したMOD作成ガイドをなぞるだけではFF7RのMODをつくることができません。<br>
            なぜなら、FF7Rで使用されているUE4は<b>公式で配布されているどのバージョンとも異なる</b>からです。<br>
@@ -152,43 +166,184 @@
            つまり、バージョンは4.18になってるけど、それ以降のバージョンの機能も使っている、
            ということです。<br>
            <br>
-           その他にも、補助骨システムや、描画プロセスなど、本来のUE4には存在しない独自仕様が多々あります。<br>
+           その他にも、補助骨システムや描画プロセスなど、本来のUE4には存在しない独自仕様が多々あります。<br>
            あまりの改造っぷりに、MOD界隈では「UE4フランケンシュタインver」と形容されるほどです。<br>
            <br>
            これにより、<br>
            「MOD用のツールは公式のバージョン4.18を想定して動作するが、想定外の機能が使われていてエラーが起こる。」<br>
            という状況が発生します。<br>
+           QuickBMSやUE Viewerなど、各種ツールはFF7R専用にカスタマイズされたバージョンを使う必要があるのです。<br>
+           
            <br>
-           以下に僕が遭遇したエラーとその対処法を記述します。<br>
+
+           <a id="4" class="anchor"></a>
+           <h3 class="border-bottom">OpenFF7R</h3>
+           <a href="http://openff7r.com/" target="_blank">OpenFF7R</a>はFF7RのMODコミュニティです。<br>
+           FF7RのMODに関する情報は全てOpenFF7Rに集約されています。<br>
+           OpenFF7Rへ参加せずにMODを作ることは不可能と言っても過言ではありません。<br>
            <br>
            <a id="4_1" class="anchor"></a>
-           <h4>1. QuickBMSのエラー</h4>
-           QuickBMS等で.pakを解凍する際に、圧縮形式によるエラーが発生します。<br>
+           <h4>1.Discordサーバーへの参加方法</h4>
+           <a href="http://openff7r.com/" target="_blank">OpenFF7R</a>に貼られているリンクからDiscordサーバーに参加できます。<br>
+           ただし、MOD関連のチャンネルにアクセスするためには、ボットに認証してもらう必要があります。<br>
+           "#reaction-roles"のチャンネルに投稿されているボットのメッセージに対して"&#9876;"(2本の剣のマーク)をクリックすると、他チャンネルへのアクセスが許可されます。<br>
            <br>
-           <a href="https://gbatemp.net/threads/how-to-unpack-and-repack-pak-files-which-dragon-quest-11-demo-has.546613/" target="_blank">How to unpack and repack *pak files which dragon quest 11 demo has ? | GBAtemp.net - The Independent Video Game Community</a><br>
-           ↑のフォーラムによると、<br>
-           UE4.18のpakファイル（version 4というフォーマットのpakファイル）は、圧縮形式がZlibであるものとして処理されるため、このエラーが発生するそうです。<br>
+           <a id="4_2" class="anchor"></a>
+           <h4>2.Modderチャンネルへの参加方法</h4>
+           Discordサーバーには"#modders-only"というMOD作成者専用のチャンネルが存在しており、MOD作成に関する議論は主にこの専用チャンネルで行われています。<br>
+           以下の手順でModderチャンネルにアクセスできるようになります。<br>
            <br>
-           このエラーを回避するためには、version 4の圧縮形式がOodleであるものとして処理されるようにスクリプトを書き換える必要があります。<br>
+           <ol>
+            <li>UE4製ゲームのMODを作る</li>
+            <li>自分が作成したMODの公開ページへのリンクを"#role-request"に投稿する</li>
+            <li>モデレータが投稿を見て、MODDERの役職を付与する</li>
+           </ol>
+           役職がMODDERに変更されると、"#role-request"に投稿した自分のメッセージが削除され、"#modders-only"にアクセスできるようになっているはずです。<br>
+           なお、"#role-request"に投稿する際は、モデレータの方にDMを送ったり、投稿をピン留めしたりしてはいけません。<br>
            <br>
-           QuickBSMの場合、<br>
-           「unreal_tournament_4.bms」の190行目「if VERSION >= 5」を「if VERSION >= 4」に書き換えることでエラーを回避できます。<br>
-           (書き換えたスクリプトは上書き保存してもよいですが、「FF7R.bms」等の名前で新規保存することをお勧めします。)<br>
-           <div style="text-align:center;">
-            <img src="../../images/mod/ff7r_info/quickbsm.png" class="img-fluid" alt="QuickBSM">
-          </div>
-          <br>
-          <a id="4_2" class="anchor"></a>
-          <h4>2. UE Viewerのエラー</h4>
-          UE Viewerでもフォーマットの違いによるエラーが起こるようです。<br>
-          <a href="https://www.gildor.org/smf/index.php/topic,6925.msg42030.html#msg42030" target="_blank">Gildor's Forums</a>
-          で修正版のUE Viewerをアップロードしている人がいますが、僕はまだ触っていないので、適切に動作するかどうかは分かりません。<br>
-          <br>
-          
+           (2021/01/02追記)<br>
+           OpenFF7Rの管理人から「テクスチャを入れ替えるだけのMODではMODDER認定しない」との通達が出されました。<br>
+           便利なツールが出回り、テクスチャMODが量産されている現状を加味したものと思われます。<br>
            <br>
+
+           <a id="4_3" class="anchor"></a>
+           <h4>3.Discordサーバーの活用方法</h4>
+           Dicordサーバー内の有用なチャンネルをいくつか紹介します。<br>
+           <br>
+           <ul>
+            <li>#resources: ツールを投稿するチャンネルです。必要なツールの殆どはここで手に入ります。</li>
+            <li>#modding-tutorials: チュートリアルを投稿するチャンネルです。MOD作成に関する情報はここで手に入ります。</li>
+            <li>#modding-help: 質問用のチャンネルです。MOD作成に躓いたらここで質問しましょう。</li>
+           </ul>
+           <br>
+
            <a id="5" class="anchor"></a>
-           <h3 class="border-bottom">MODファイル(.pak)に関するTips</h3>
+           <h3 class="border-bottom">各種ツール</h3>
+           MODの作成に必要なツールを紹介していきます。<br>
+           ただし、Blenderのような一般的なツールの紹介は省き、MOD専用のツールのみ紹介します。<br>
+           また、一部のツールはリンクを貼りません。OpenFF7R内で探してください。<br>
+           <br>
            <a id="5_1" class="anchor"></a>
+           <h4>1.必須ツール</h4>
+           まず初めに、どのMODを作るにしても必須となるツールを紹介します。<br>
+           <br>
+           <a id="5_1_1" class="anchor"></a>
+           <h5>1.1.QuickBMS</h5>
+           QuickBMSはファイルの変換ツールです。<br>
+           専用のスクリプトを別途用意することで、.pakファイルを解凍することができます。<br>
+           ツールは下記のサイトからダウンロードしてください。<br>
+           <a href="http://aluigi.altervista.org/quickbms.htm" target="_blank">http://aluigi.altervista.org/quickbms.htm</a><br>
+           <br>
+           .pakの解凍にはFF7R専用のスクリプトが必要となります。OpenFF7Rで入手してください。<br>
+
+           <br>
+           <a id="5_1_2" class="anchor"></a>
+           <h5>1.2.UE Viewer (umodel)</h5>
+           UE ViewerはUE4のアセット解析ツールです。<br>
+           3Dモデルやテクスチャを編集可能なフォーマットへ変換できます。<br>
+           ツールは下記のサイトからダウンロードしてください。<br>
+           <a href="https://www.gildor.org/en/projects/umodel" target="_blank">UE Viewer | Gildor's Homepage</a><br>
+           <br>
+           ただし、実行ファイル(.exe)はFF7R専用にビルドされたものを使う必要があります。OpenFF7Rで入手してください。<br>
+           <br>
+
+           <a id="5_1_3" class="anchor"></a>
+           <h5>1.3.UnrealPak</h5>
+           UnrealPakはアセットを.pakに変換するためのツールです。<br>
+           ただし、Githubで公開されているUnrealPakはゲーム開発用のものであり、MOD作成には利用できないので注意してください。<br>
+           例えば、Flaffy Quack氏によるMOD用のビルドが
+           <a href="https://mega.nz/file/VVlwwCLL#TDBl3WBB2uEHKFhiXpLdynRZ6irUiLW82HmltmoTW8M" target="_blank">こちら</a>
+           からダウンロードできます。<br>
+           ただし、かなり古いビルドなので圧縮形式が最新のものとは異ります。<br>
+           以前はOpenFF7RでFF7R用のビルドを公開している人がいたのですが、現在は投稿が削除されてしまったため入手不可能となっています。<br>
+           <br>
+
+           <a id="5_2" class="anchor"></a>
+           <h4>2.モデルMOD用ツール</h4>
+           テクスチャやメッシュの編集など、モデルMODの作成に必要なツールを紹介します。<br>
+           <br>
+
+           <a id="5_2_1" class="anchor"></a>
+           <h5>2.1.DDS Injector</h5>
+           <a href="https://github.com/SamsamTS/DDSInjector" target="_blank">GitHub - SamsamTS/DDSInjector</a><br>           
+           Samsam氏が作成したテクスチャMOD用のツールです。<br>
+           DDSファイルをテクスチャアセットに埋め込むことができます。<br>
+           GUI操作のため使いやすいのですが、<br>
+           「元のアセットと同じサイズのテクスチャしか埋め込めない」<br>
+           「認識できないフォーマットがある」<br>
+           など、デメリットもあります。<br>
+           <br>
+
+           <a id="5_2_2" class="anchor"></a>
+           <h5>2.2.FF7R DDS Tools</h5>
+           <a href="https://github.com/matyalatte/FF7R-DDS-tools" target="_blank">GitHub - matyalatte/FF7R-DDS-tools</a><br>
+           Samsam氏のツールのデメリットを全て解消したツールです。<br>
+           任意サイズのDDSを埋め込むことができます。<br>
+           ただし、GUIには対応していません。<br>
+           僕が作りました。<br>
+           <br>
+
+           <a id="5_2_3" class="anchor"></a>
+           <h5>2.3.pskプラグイン</h5>
+           <a href="https://github.com/Befzz/blender3d_import_psk_psa" target="_blank">GitHub - Befzz/blender3d_import_psk_psa</a><br>
+           モデルデータをBlenderで読み込むためのプラグインです。<br>
+           <br>
+
+           <a id="5_2_4" class="anchor"></a>
+           <h5>2.4.pskプラグイン(カスタマイズ版)</h5>
+           <a href="https://github.com/matyalatte/blender3d_import_psk_psa" target="_blank">GitHub - matyalatte/blender3d_import_psk_psa</a><br>
+           MOD用にカスタマイズされたpskプラグインです。<br>
+           スケールの変更、スムーズシェーディングの適用、オブジェクト名の変更など、MODの作成に必要な手順を自動化します。<br>
+           僕が作りました。<br>
+           <br>
+
+           <a id="5_2_5" class="anchor"></a>
+           <h5>2.5.FF7R Mesh Importer</h5>
+           <a href="https://github.com/matyalatte/FF7R-mesh-importer" target="_blank">GitHub - matyalatte/FF7R-mesh-importer</a><br>
+           UE4.18で作成したメッシュアセットをFF7Rのアセットに埋め込むことができます。<br>
+           作成したアセットは.pakに変換することでMODとして利用できます。<br>           
+           僕が作りました。<br>
+           <br>
+
+           <a id="5_2_6" class="anchor"></a>
+           <h5>2.6.3DMigoto</h5>
+           <a href="https://www.nexusmods.com/finalfantasy7remake/mods/99" target="_blank">3DMigoto Base Mod for FFVII Remake at Final Fantasy VII Remake</a><br>
+           動作中のゲームに対してメッシュデータを動的に書き換えるツールです。<br>
+           専用のモデルデータを作成することでモデルMODを適用できるのですが、
+           MOD作成者だけでなくMOD利用者にも環境構築を強いる仕様となっており、敷居の高いツールとなっています。<br>
+           モデルMODを作る場合は、なるべくFF7R mesh importerの利用を推奨します。<br>
+           <br>
+
+           <a id="5_3" class="anchor"></a>
+           <h4>3.その他のツール</h4>
+           その他、MOD作成に使えるツールを紹介します。<br>
+           <br>
+
+           <a id="5_3_1" class="anchor"></a>
+           <h5>3.1.FF7R Uasset Editor</h5>
+           <a href="https://github.com/SamsamTS/FF7RUAssetEditor" target="_blank">GitHub - SamsamTS/FF7RUAssetEditor</a><br>           
+           Samsam氏が作成した、アセット内のnameリストを編集するためのツールです。<br>
+           (nameリストとは、アセット内で参照されるクラス名やファイル名等の文字列のリストのことです。)<br>
+           <br>
+           
+           <a id="5_3_2" class="anchor"></a>
+           <h5>3.2.FF7R Text Mod Tools</h5>
+           <a href="https://github.com/matyalatte/FF7R_text_mod_tools" target="_blank">GitHub - matyalatte/FF7R_text_mod_tools</a><br>
+           字幕やメニュー画面等のテキストデータを編集するためのツールです。<br>
+           僕が作りました。<br>
+           <br>
+           
+           <a id="5_3_3" class="anchor"></a>
+           <h5>3.3.FF7R Font Mod Tools</h5>
+           <a href="https://github.com/matyalatte/FF7R-font-mod-tools" target="_blank">GitHub - matyalatte/FF7R-font-mod-tools</a><br>
+           フォントを変更するためのツールです。<br>
+           フォントファイル(.ttfまたは.otf)をゲームに取り込むことができます。<br>
+           僕が作りました。<br>
+           <br>
+
+           <a id="6" class="anchor"></a>
+           <h3 class="border-bottom">MODファイル(.pak)に関するTips</h3>
+           <a id="6_1" class="anchor"></a>
            <h4>1. .pakが読み込まれる順序</h4>
            ゲームを起動すると、"FFVIIRemakeIntergrade\End\Content\Paks"内に配置されている全ての.pakファイルが読み込まれます。<br>
            Paks内にフォルダがある場合は、そのフォルダ内に配置された.pakファイルも全て読み込まれます。<br>
@@ -208,7 +363,7 @@
            Paks直下に.pakを配置する場合はファイル名に注意しましょう。<br>
 
            <br>
-           <a id="5_2" class="anchor"></a>
+           <a id="6_2" class="anchor"></a>
            <h4>2. ファイル名の1文字目は"z"にする</h4>
            前述した理由により、配布されている.pakファイルの多くはファイル名の1文字目が"z"になっています。<br>
            本来、"~mods"等のフォルダに.pakを配置するのであれば、ファイル名はなんでも良いわけですが、
@@ -216,75 +371,8 @@
            MODを作る際はファイル名の1文字目は"z"にしましょう。<br>
            (ただし、本来のゲームデータより後に読み込まれる名前であれば、1文字目を"z"にする必要はありません。)<br>
            <br>
-           <a id="6" class="anchor"></a>
-           <h3 class="border-bottom">OpenFF7R</h3>
-           <a href="http://openff7r.com/" target="_blank">OpenFF7R</a>はFF7RのMODコミュニティです。<br>
-           キングダムハーツシリーズのMODコミュニティ、<a href="https://openkh.dev/" target="_blank">OpenKH</a>と同様のコンセプトで立ち上げらました。（ただし、OpenKHとの直接的な関係はないとのこと。）<br>
-           現在はDiscordサーバーのリンクが貼られているだけですが、ゆくゆくはOpenKHのようにMOD関連の情報が集約されていくことでしょう。<br>
-           <br>
-           <a id="6_1" class="anchor"></a>
-           <h4>1.Discordサーバーへの参加方法</h4>
-           <a href="http://openff7r.com/" target="_blank">OpenFF7R</a>に貼られているリンクからDiscordサーバーに入れるのですが、MOD関連のチャンネルにアクセスするためには、ボットに認証してもらう必要があります。<br>
-           "#reaction-roles"のチャンネルに投稿されているボットのメッセージに対して"&#9876;"(2本の剣のマーク)をクリックすると、他チャンネルへのアクセスが許可されます。<br>
-           <br>
-           <a id="6_2" class="anchor"></a>
-           <h4>2.Modderチャンネルへの参加方法</h4>
-           Discordサーバーには"#modders-only"というMOD作成者専用のチャンネルが存在しており、MOD作成に関する議論は主にこの専用チャンネルで行われています。<br>
-           "#modders-only"にアクセスするためには、自分がUE4製ゲームのMOD作成者であることを示し、役職をMODDERにしてもらう必要があります。<br>
-           自分が作成したMODの公開ページのリンクを"#role-request"に投稿すると、モデレータの方が役職をMODDERにしてくれます。<br>
-           役職がMODDERに変更されると、"#role-request"に投稿した自分のメッセージが削除され、"#modders-only"にアクセスできるようになっているはずです。<br>
-           なお、"#role-request"に投稿する際は、モデレータの方にDMを送ったり、投稿をピン留めしたりしてはいけません。<br>
-           <br>
-           (2021/01/02追記)<br>
-           OpenFF7Rの管理人から「テクスチャを入れ替えるだけのMODではMODDER認定しない」との通達が出されました。<br>
-           便利なツールが出回り、テクスチャMODが量産されている現状を加味したものと思われます。<br>
-           <br>
-           <a id="7" class="anchor"></a>
-           <h3 class="border-bottom">その他のコミュニティ</h3>
-           そのほか情報源となる可能性があるコミュニティをいくつか紹介します。<br>
-           <br>
-           <a id="7_1" class="anchor"></a>
-           <h4>1.Gildor's Forums </h4>
-           <a href="https://www.gildor.org/smf/index.php/topic,6925.0.html" target="_blank">Gildor's Forums</a>
-           はUE Viewerの開発者が運営している掲示板です。作品毎にスレッドが存在し、3Dモデルの抽出に関する議論が行われています。<br>
-           上記のリンク先ではスレタイに「PS4」と書かれていますが、現在はPC版の議論が行われています。<br>
-           <br>
-           <a id="7_2" class="anchor"></a>
-           <h4>2. XeNTaX</h4>
-           <div style="text-align:center;">
-            <img src="../../images/mod/mod_re8_info/xentax.jpg" class="img-fluid" alt="XeNTaX">
-          </div> 
-           <a href="https://forum.xentax.com/viewtopic.php?f=16&t=22088" target="_blank">XeNTaX</a>は海外のゲーム掲示板です。<br>
-           Gildor's Forumsと同様に、3Dモデルの抽出に関する議論が行われています。<br>
-           <br>
-           <a id="7_3" class="anchor"></a>
-           <h4>3. Nexus Mods</h4>
-           <a href="https://www.nexusmods.com/finalfantasy7remake/mods/" target="_blank">Nexus Mods</a>は世界最大のMODコミュニティであり、非公式MODの多くはこのサイトで配布されます。<br>
-           基本的にはMOD配布用のサービスですが、MOD作成用のツールやチュートリアルが投稿されることもあります。<br>
-           <br>
-           ↓で公開されているファイルリストがかなり便利です。各pakファイルにどんなファイルが梱包されているのかが分かります。<br>
-           <a href="https://www.nexusmods.com/finalfantasy7remake/mods/23" target="_blank">Full PAK File Lists (TXT) at Final Fantasy VII Remake Nexus - Mods and community</a><br>
-           <br>
-
            
-           <a id="7_4" class="anchor"></a>
-           <h4>4. Steam</h4>
-           Steamで販売されているゲームであれば、Steam内のコミュニティでツールの公開や情報交換が行われます。<br>
-           ただし、現時点ではFF7RはEpic Games版のみの販売となっているため期待値は低め。<br>
-           （<a href="https://steamcommunity.com/app/39140/discussions/" target="_blank">FF7のコミュニティ</a>や
-           <a href="https://steamcommunity.com/groups/ff-modding" target="_blank">FFシリーズのMODコミュニティ</a>
-           は存在するので、もしかしたら何か情報が得られるかもしれません。）<br>
-           <br>
-           <a id="7_5" class="anchor"></a>
-           <h4>5. The Lifestream</h4>
-           <div style="text-align:center;">
-            <img src="../../images/mod/ff7r_info/lifestream.jpg" class="img-fluid" alt="The Lifestream">
-          </div> 
-           <a href="https://thelifestream.net/" target="_blank">The Lifestream</a>は海外のFF7コミュニティです。<br>
-           自分が見た限りでは、ファミ通の翻訳、考察記事、ファンアートなどが投稿されており、「FF7関連なら何でもアリ」という印象を受けました。<br>
-           掲示板には<a href="https://thelifestream.net/forums/forums/final-fantasy-vii-remake.81/" target="_blank">FF7R板</a>が設けられており、
-           Mod要望スレやMOD紹介スレが立っていたので、MOD関連の情報が得られる可能性はあります。<br>
-           <br>
+           
 
            
            <a id="8" class="anchor"></a>
@@ -338,8 +426,8 @@
     <div class="p-3">
 
      <h5>最新ページ</h5>
+     <a href="https://matyalatte.github.io/mod/ff7r_info">2022/03/06 FF7R MOD作成に関する情報まとめ</a><br>
      <a href="https://matyalatte.github.io/mod/ff7r_psfont">2022/01/22 FF7R PS風フォント</a><br>
-     <a href="https://matyalatte.github.io/mod/ff7r_info">2022/01/02 FF7R MOD作成に関する情報まとめ</a><br>
      <a href="https://matyalatte.github.io/mod/ff7r_dualsub">2021/12/26 FF7R 2言語字幕MOD</a><br>
      <a href="https://matyalatte.github.io/memo/rakugaki">2021/09/25 手描きの丸から良い感じの3Dモデルを生成する</a><br>
      <a href="https://matyalatte.github.io/mod/mod_re8_tips">2021/06/07 バイオ8 MOD作成に関する情報まとめ</a><br>
